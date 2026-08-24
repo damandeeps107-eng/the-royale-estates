@@ -868,23 +868,67 @@
         font-size: 1.1rem; font-weight: 600;
     }
 
-    /* ===== CONTACT ===== */
+    /* ===== CONTACT (Colored Premium Cards) ===== */
     .re-contact { background: #f8fafc; padding: 110px 0; }
     .re-contact__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-bottom: 48px; }
     .re-contact__card {
-        background: #fff; border: 1px solid rgba(0,0,0,0.06); border-radius: 18px;
-        padding: 36px 28px; text-align: center; transition: all 0.3s ease;
-        box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+        border-radius: 20px; padding: 38px 26px; text-align: center;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); position: relative; overflow: hidden;
     }
-    .re-contact__card:hover { transform: translateY(-4px); box-shadow: 0 16px 36px rgba(0,0,0,0.08); border-color: rgba(2,132,199,0.2); }
+    .re-contact__card:hover { transform: translateY(-6px); box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15); }
+    
+    /* Card 1: Dark Slate Navy */
+    .re-contact__card--office {
+        background: linear-gradient(145deg, #0f172a 0%, #1e293b 100%);
+        border: 1px solid rgba(255, 255, 255, 0.1); color: #ffffff;
+    }
+    .re-contact__card--office h4 { color: #ffffff !important; }
+    .re-contact__card--office p { color: rgba(255, 255, 255, 0.8) !important; }
+    .re-contact__card--office .icon {
+        background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    
+    /* Card 2: Emerald WhatsApp Green */
+    .re-contact__card--call {
+        background: linear-gradient(145deg, #064e3b 0%, #047857 100%);
+        border: 1px solid rgba(255, 255, 255, 0.15); color: #ffffff;
+    }
+    .re-contact__card--call h4 { color: #ffffff !important; }
+    .re-contact__card--call p, .re-contact__card--call a { color: rgba(255, 255, 255, 0.9) !important; }
+    .re-contact__card--call .icon {
+        background: rgba(255, 255, 255, 0.2); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    /* Card 3: Royal Purple/Indigo */
+    .re-contact__card--social {
+        background: linear-gradient(145deg, #311b92 0%, #4527a0 100%);
+        border: 1px solid rgba(255, 255, 255, 0.15); color: #ffffff;
+    }
+    .re-contact__card--social h4 { color: #ffffff !important; }
+    .re-contact__card--social p, .re-contact__card--social a { color: rgba(255, 255, 255, 0.9) !important; }
+    .re-contact__card--social .icon {
+        background: rgba(255, 255, 255, 0.2); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
     .re-contact__card .icon {
-        width: 56px; height: 56px; background: #e0f2fe; border-radius: 50%;
+        width: 60px; height: 60px; border-radius: 50%;
         display: flex; align-items: center; justify-content: center;
-        margin: 0 auto 20px; color: #0284c7;
+        margin: 0 auto 20px; flex-shrink: 0;
     }
-    .re-contact__card h4 { font-size: 1.1rem !important; font-weight: 700 !important; color: #0f172a !important; margin-bottom: 8px; }
-    .re-contact__card p, .re-contact__card a { color: #64748b !important; font-size: 0.92rem; text-decoration: none; line-height: 1.6; }
-    .re-contact__card a:hover { color: #0284c7 !important; }
+    .re-contact__card h4 { font-size: 1.2rem !important; font-weight: 700 !important; margin-bottom: 10px; }
+    .re-contact__card p { font-size: 0.92rem; line-height: 1.6; }
+    .re-contact__card-btn {
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        margin-top: 16px; padding: 10px 22px; border-radius: 50px; font-size: 0.85rem;
+        font-weight: 700; text-decoration: none; transition: all 0.3s ease;
+    }
+    .re-contact__card-btn--cyan { background: #0284c7; color: #fff !important; }
+    .re-contact__card-btn--cyan:hover { background: #38bdf8; box-shadow: 0 6px 20px rgba(56,189,248,0.4); }
+    .re-contact__card-btn--wa { background: #25d366; color: #fff !important; }
+    .re-contact__card-btn--wa:hover { background: #1fba59; box-shadow: 0 6px 20px rgba(37,211,102,0.4); }
+    .re-contact__card-btn--insta { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); color: #fff !important; }
+    .re-contact__card-btn--insta:hover { opacity: 0.9; box-shadow: 0 6px 20px rgba(225,48,108,0.4); }
 
     /* Google Map Container */
     .re-map-wrap {
@@ -1485,36 +1529,37 @@
                 <p class="re-section__subtext" style="max-width: 540px; margin: 0 auto;">We are conveniently located in Bhiwandi. Reach out to our team for any property inquiry or office visit.</p>
             </div>
 
-            <!-- Contact Cards -->
+            <!-- Contact Cards (Colored) -->
             <div class="re-contact__grid re-reveal">
-                <!-- Address Card -->
-                <div class="re-contact__card">
+                <!-- Address Card (Navy) -->
+                <div class="re-contact__card re-contact__card--office">
                     <div class="icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
                     </div>
                     <h4>Our Office Location</h4>
                     <p>261, Jain Colony, Opp. S.T. Stand,<br>Old Agra Road, Bhiwandi-421302</p>
-                    <p style="margin-top: 10px;"><a href="https://maps.app.goo.gl/KzvcEhsZY6A79HqZ6" target="_blank" style="color: #0284c7 !important; font-weight: 600;">Open in Google Maps →</a></p>
+                    <a href="https://maps.app.goo.gl/KzvcEhsZY6A79HqZ6" target="_blank" class="re-contact__card-btn re-contact__card-btn--cyan">
+                        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg> Open in Google Maps →
+                    </a>
                 </div>
 
-                <!-- Call Card -->
-                <div class="re-contact__card">
+                <!-- Call & WhatsApp Card (Green) -->
+                <div class="re-contact__card re-contact__card--call">
                     <div class="icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-                    </div>
-                    <h4>Call or WhatsApp</h4>
-                    <p><a href="tel:9309035119" style="font-weight: 700; color: #0f172a !important; font-size: 1.05rem;">+91-9309035119</a></p>
-                    <p style="margin-top: 10px;"><a href="https://wa.me/919309035119" target="_blank" style="color: #25d366 !important; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Instant WhatsApp Chat</a></p>
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="#ffffff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> Instant WhatsApp Chat
+                    </a>
                 </div>
 
-                <!-- Email & Social Card -->
-                <div class="re-contact__card">
+                <!-- Email & Social Card (Purple/Indigo) -->
+                <div class="re-contact__card re-contact__card--social">
                     <div class="icon">
-                        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        <svg width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                     </div>
                     <h4>Email & Social Media</h4>
-                    <p><a href="mailto:info@theroyaleeestates.com" style="font-weight: 600; color: #0f172a !important;">info@theroyaleeestates.com</a></p>
-                    <p style="margin-top: 10px;"><a href="https://instagram.com/theroyaleestates01" target="_blank" style="color: #e1306c !important; font-weight: 600; display: inline-flex; align-items: center; gap: 4px;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> @theroyaleestates01</a></p>
+                    <p style="font-weight: 600;"><a href="mailto:info@theroyaleeestates.com" style="color: #fff !important;">info@theroyaleeestates.com</a></p>
+                    <a href="https://instagram.com/theroyaleestates01" target="_blank" class="re-contact__card-btn re-contact__card-btn--insta">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> @theroyaleestates01
+                    </a>
                 </div>
             </div>
 
@@ -1578,14 +1623,32 @@
                     </ul>
                 </div>
                 <div class="re-footer__col">
-                    <h4>Contact</h4>
+                    <h4>Contact Us</h4>
                     <ul>
-                        <li><a href="tel:9309035119"><i class="fa fa-phone"></i> +91-9309035119</a></li>
-                        <li><a href="mailto:info@theroyaleeestates.com"><i class="fa fa-envelope-o"></i> info@theroyaleeestates.com</a></li>
-                        <li><a href="https://wa.me/919309035119" target="_blank"><i class="fa fa-whatsapp"></i> WhatsApp</a></li>
-                        <li><a href="https://instagram.com/theroyaleestates01" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: -2px; margin-right: 4px;"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> @theroyaleestates01</a></li>
-                        <li><a href="https://facebook.com/theroyaleestates" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> Facebook</a></li>
-                        <li style="margin-top: 12px; color: rgba(255,255,255,0.5); font-size: 0.85rem;">261, Jain Colony, Opp. S.T. Stand,<br>Old Agra Road, Bhiwandi-421302</li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <svg width="16" height="16" fill="none" stroke="#38bdf8" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink: 0;"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+                            <a href="tel:9309035119">+91-9309035119</a>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <svg width="16" height="16" fill="none" stroke="#38bdf8" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink: 0;"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                            <a href="mailto:info@theroyaleeestates.com">info@theroyaleeestates.com</a>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="#25d366" style="flex-shrink: 0;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                            <a href="https://wa.me/919309035119" target="_blank">WhatsApp Chat</a>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#e1306c" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink: 0;"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                            <a href="https://instagram.com/theroyaleestates01" target="_blank">@theroyaleestates01</a>
+                        </li>
+                        <li style="display: flex; align-items: center; gap: 10px;">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="#1877F2" style="flex-shrink: 0;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                            <a href="https://facebook.com/theroyaleestates" target="_blank">Facebook Page</a>
+                        </li>
+                        <li style="display: flex; align-items: flex-start; gap: 10px; margin-top: 12px; color: rgba(255,255,255,0.65); font-size: 0.85rem;">
+                            <svg width="16" height="16" fill="none" stroke="#38bdf8" stroke-width="2" viewBox="0 0 24 24" style="flex-shrink: 0; margin-top: 2px;"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            <span>261, Jain Colony, Opp. S.T. Stand,<br>Old Agra Road, Bhiwandi-421302</span>
+                        </li>
                     </ul>
                 </div>
             </div>
