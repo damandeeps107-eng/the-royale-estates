@@ -416,6 +416,88 @@
     .re-enquiry { background: rgba(248, 250, 252, 0.82) !important; backdrop-filter: blur(12px); }
     .re-contact { background: rgba(248, 250, 252, 0.82) !important; backdrop-filter: blur(12px); }
     .re-hero { background: transparent !important; }
+    /* ===== VELMORA PROPERTIES SIGNATURE CONTAINER CARDS ===== */
+    .re-section {
+        padding: 40px 0;
+        background: transparent !important;
+    }
+    .re-section .container {
+        background: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(15, 23, 42, 0.12) !important;
+        border-radius: 24px !important;
+        box-shadow: 0 16px 45px rgba(15, 23, 42, 0.08) !important;
+        padding: 56px 44px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        z-index: 2;
+    }
+    .re-consult .container {
+        border-radius: 24px !important;
+    }
+    @media (max-width: 768px) {
+        .re-section { padding: 24px 0; }
+        .re-section .container {
+            padding: 32px 18px !important;
+            border-radius: 18px !important;
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+    }
+
+    /* ===== VELMORA SEARCH DISCOVERY PANEL ===== */
+    .re-search-panel-outer {
+        position: relative;
+        z-index: 10;
+        margin-top: -45px;
+        margin-bottom: 30px;
+    }
+    .re-search-panel {
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(15, 23, 42, 0.12);
+        border-radius: 20px;
+        padding: 28px 36px;
+        box-shadow: 0 20px 50px rgba(15, 23, 42, 0.12);
+    }
+    .re-search-form {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        align-items: end;
+    }
+    .re-search-field label {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #0f172a;
+        margin-bottom: 8px;
+    }
+    .re-search-field select {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1px solid rgba(15, 23, 42, 0.15);
+        border-radius: 10px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: #0f172a;
+        background: #f8fafc;
+    }
+    .re-search-field select:focus {
+        border-color: #0284c7;
+        outline: none;
+    }
+    @media (max-width: 991px) {
+        .re-search-form { grid-template-columns: 1fr 1fr; }
+        .re-search-panel-outer { margin-top: 20px; }
+    }
+    @media (max-width: 575px) {
+        .re-search-form { grid-template-columns: 1fr; }
+        .re-search-panel { padding: 20px 16px; }
+    }
 </style>
 </head>
 
@@ -575,6 +657,45 @@
         </div>
     </section>
     <!-- Hero Section End -->
+    <!-- ===== VELMORA-STYLE PROPERTY SEARCH DISCOVERY PANEL ===== -->
+    <div class="container re-search-panel-outer">
+        <div class="re-search-panel re-reveal">
+            <form class="re-search-form" onsubmit="event.preventDefault(); document.getElementById('properties-section').scrollIntoView({behavior: 'smooth'});">
+                <div class="re-search-field">
+                    <label for="velmoraSearchType">Property Type</label>
+                    <select id="velmoraSearchType">
+                        <option value="Warehouses">Warehouses</option>
+                        <option value="Commercial">Commercial Properties</option>
+                        <option value="Office Spaces">Office Spaces</option>
+                        <option value="Land & Plots">Land / Plots</option>
+                        <option value="Weekend Homes">Weekend Homes</option>
+                        <option value="Villas">Luxury Villas</option>
+                    </select>
+                </div>
+                <div class="re-search-field">
+                    <label for="velmoraSearchLoc">Location</label>
+                    <select id="velmoraSearchLoc">
+                        <option value="Bhiwandi">Bhiwandi, Thane</option>
+                        <option value="Mumbai">MMR / Mumbai Region</option>
+                        <option value="Navi Mumbai">Navi Mumbai</option>
+                    </select>
+                </div>
+                <div class="re-search-field">
+                    <label for="velmoraSearchPurpose">Purpose</label>
+                    <select id="velmoraSearchPurpose">
+                        <option value="Buy">Buy Property</option>
+                        <option value="Sell">Sell Property</option>
+                        <option value="Lease">Lease / Rent</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="submit" class="re-btn re-btn--primary" style="width: 100%; justify-content: center; height: 46px; border-radius: 10px;">
+                        Search Properties →
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
     <!-- Sticky header + Image slideshow controller -->
     <script>
