@@ -2190,7 +2190,7 @@
     })();
     </script>
 
-            <!-- Global Cloud Real-Time Property Database Sync Script -->
+                <!-- Global Cloud Real-Time Property Database Sync Script -->
     <script>
     (function syncPropertiesFromCloud() {
         var GIST_ID = 'eebf5c328e2a6047fb9e71338a6836ba';
@@ -2205,7 +2205,7 @@
                 var badgeClass = item.badge === 'For Sale' ? 're-props__badge--sale' : 're-props__badge--lease';
                 html += '<div class="re-props__card re-reveal visible">' +
                     '<div class="re-props__imgwrap">' +
-                        '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy">' +
+                        '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" onerror="this.src='./assets/images/hero/commercial.jpg'">' +
                         '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
                     '</div>' +
                     '<div class="re-props__body">' +
@@ -2230,7 +2230,7 @@
             try { renderProps(JSON.parse(stored)); } catch(e) {}
         }
 
-        fetch('https://api.github.com/gists/' + GIST_ID, {
+        fetch('https://api.github.com/gists/' + GIST_ID + '?t=' + Date.now(), {
             headers: { 'Accept': 'application/vnd.github.v3+json' }
         })
         .then(function(res) { return res.json(); })
