@@ -498,6 +498,74 @@
         .re-search-form { grid-template-columns: 1fr; }
         .re-search-panel { padding: 20px 16px; }
     }
+    /* ===== VELMORA TESTIMONIALS GRID & CARDS ===== */
+    .re-testimonials__grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 28px;
+    }
+    .re-testimonial__card {
+        background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+        border: 1px solid rgba(15, 23, 42, 0.1);
+        border-radius: 20px;
+        padding: 36px 28px;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .re-testimonial__card:hover {
+        transform: translateY(-6px);
+        border-color: #0284c7;
+        box-shadow: 0 20px 45px rgba(2, 132, 199, 0.12);
+    }
+    .re-testimonial__stars {
+        color: #f59e0b;
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+        letter-spacing: 2px;
+    }
+    .re-testimonial__quote {
+        color: #334155 !important;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        font-style: italic;
+        margin-bottom: 24px;
+        flex-grow: 1;
+    }
+    .re-testimonial__author {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding-top: 18px;
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .re-testimonial__avatar {
+        width: 52px;
+        height: 52px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #38bdf8;
+        box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+    }
+    .re-testimonial__name {
+        font-size: 1.05rem !important;
+        font-weight: 700 !important;
+        color: #0f172a !important;
+        margin: 0;
+    }
+    .re-testimonial__role {
+        font-size: 0.8rem;
+        color: #0284c7 !important;
+        font-weight: 600;
+        margin: 2px 0 0;
+    }
+    @media (max-width: 991px) {
+        .re-testimonials__grid {
+            grid-template-columns: 1fr;
+        }
+    }
 </style>
 </head>
 
@@ -1633,6 +1701,58 @@
                         <h3 class="re-svc__title">Investment Properties</h3>
                         <p class="re-svc__desc">Property opportunities for investors seeking returns and growth potential.</p>
                         <a href="#contact-section" class="re-svc__cta">Explore Service <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ===== CLIENT FEEDBACK / TESTIMONIALS SECTION (VELMORA STYLE) ===== -->
+    <section class="re-section" id="testimonials-section">
+        <div class="container">
+            <div class="text-center re-reveal" style="margin-bottom: 48px;">
+                <p class="re-section__label">CLIENT FEEDBACK</p>
+                <h2 class="re-section__heading">Client Testimonials</h2>
+                <p class="re-section__subtext" style="max-width: 580px; margin: 0 auto;">Read reviews and feedback from corporate clients, warehouse investors, and property buyers who trust The Royale Estates.</p>
+            </div>
+
+            <div class="re-testimonials__grid re-reveal">
+                <!-- Testimonial Card 1 -->
+                <div class="re-testimonial__card">
+                    <div class="re-testimonial__stars">★★★★★</div>
+                    <p class="re-testimonial__quote">"The Royale Estates helped us acquire a 50,000 sq.ft prime warehouse plot in Bhiwandi smoothly. Complete title verification, transparent documentation, and zero hassle."</p>
+                    <div class="re-testimonial__author">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80" alt="Rajesh Sharma" class="re-testimonial__avatar">
+                        <div>
+                            <h4 class="re-testimonial__name">Rajesh Sharma</h4>
+                            <p class="re-testimonial__role">Logistics & Warehouse Investor</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 2 -->
+                <div class="re-testimonial__card">
+                    <div class="re-testimonial__stars">★★★★★</div>
+                    <p class="re-testimonial__quote">"Highly professional team in Bhiwandi. They guided us in buying our corporate office floor with complete market evaluation and negotiation support."</p>
+                    <div class="re-testimonial__author">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&h=150&q=80" alt="Ananya Verma" class="re-testimonial__avatar">
+                        <div>
+                            <h4 class="re-testimonial__name">Ananya Verma</h4>
+                            <p class="re-testimonial__role">Commercial Office Buyer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial Card 3 -->
+                <div class="re-testimonial__card">
+                    <div class="re-testimonial__stars">★★★★★</div>
+                    <p class="re-testimonial__quote">"Bought a luxury weekend villa property through Royale Estates. Dedicated support from day one, clear communication, and 100% verified property paperwork."</p>
+                    <div class="re-testimonial__author">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80" alt="Vikramaditya Mehta" class="re-testimonial__avatar">
+                        <div>
+                            <h4 class="re-testimonial__name">Vikramaditya Mehta</h4>
+                            <p class="re-testimonial__role">Weekend Home Owner</p>
+                        </div>
                     </div>
                 </div>
             </div>
