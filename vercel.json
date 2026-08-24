@@ -1,21 +1,10 @@
 {
-  "version": 2,
   "cleanUrls": true,
-  "routes": [
-    {
-      "src": "/$",
-      "dest": "/index.html"
-    },
-    {
-      "src": "/home",
-      "dest": "/index.html"
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/home", "destination": "/index.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/services", "destination": "/Services.html" },
+    { "source": "/Services", "destination": "/Services.html" }
   ]
 }
