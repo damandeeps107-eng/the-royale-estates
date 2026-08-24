@@ -385,10 +385,47 @@
     background-color: #0f172a !important;
     color: #ffffff !important;
   }
+    /* ===== GLOBAL CINEMATIC BACKGROUND VIDEO ===== */
+    .re-global-bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100lvh;
+        z-index: -100;
+        overflow: hidden;
+        pointer-events: none;
+    }
+    .re-global-bg-video video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.32;
+        filter: brightness(0.75) contrast(1.1) saturate(1.2);
+    }
+    .re-global-bg-overlay {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at center, rgba(15, 23, 42, 0.45) 0%, rgba(15, 23, 42, 0.82) 100%);
+    }
+
+    /* Semi-transparent section backdrops for video visibility */
+    .re-section--alt { background: rgba(248, 250, 252, 0.93) !important; backdrop-filter: blur(8px); }
+    .re-enquiry { background: rgba(248, 250, 252, 0.93) !important; backdrop-filter: blur(8px); }
+    .re-contact { background: rgba(248, 250, 252, 0.93) !important; backdrop-filter: blur(8px); }
 </style>
 </head>
 
 <body>
+
+    <!-- ===== GLOBAL CINEMATIC BACKGROUND VIDEO ===== -->
+    <div class="re-global-bg-video">
+        <video id="globalBgVideo" autoplay loop muted playsinline poster="./assets/images/hero/commercial.jpg">
+            <source id="globalBgSource" src="./assets/videos/commercial.mp4" type="video/mp4">
+        </video>
+        <div class="re-global-bg-overlay"></div>
+    </div>
 
 
     <!-- Header Section Start -->
@@ -560,6 +597,16 @@
 
         if (total === 0) return;
 
+        var videoSources = [
+            './assets/videos/warehouse.mp4',
+            './assets/videos/commercial.mp4',
+            './assets/videos/office.mp4',
+            './assets/videos/weekend-home.mp4',
+            './assets/videos/villa.mp4',
+            './assets/videos/land.mp4'
+        ];
+        var globalVideo = document.getElementById('globalBgVideo');
+
         function goToSlide(index) {
             slides[current].classList.remove('active');
             current = (index + total) % total;
@@ -579,6 +626,14 @@
             if (chips.length > 0) {
                 for (var j = 0; j < chips.length; j++) chips[j].classList.remove('active');
                 if (chips[current % chips.length]) chips[current % chips.length].classList.add('active');
+            }
+
+            if (globalVideo && videoSources[current % videoSources.length]) {
+                var targetSrc = videoSources[current % videoSources.length];
+                if (!globalVideo.src.includes(targetSrc.replace('./', ''))) {
+                    globalVideo.src = targetSrc;
+                    globalVideo.play().catch(function(){});
+                }
             }
         }
 
