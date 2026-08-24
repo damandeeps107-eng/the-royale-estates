@@ -2192,13 +2192,12 @@
     })();
     </script>
 
-        <!-- Admin Storage Sync Script -->
+            <!-- Global Cloud Real-Time Property Database Sync Script -->
     <script>
-    (function syncPropertiesFromAdmin() {
-        var stored = localStorage.getItem('royaleProperties');
-        if (!stored) return;
-        try {
-            var props = JSON.parse(stored);
+    (function syncPropertiesFromCloud() {
+        var GIST_ID = 'eebf5c328e2a6047fb9e71338a6836ba';
+
+        function renderProps(props) {
             if (!props || !props.length) return;
             var container = document.querySelector('#listings-section .re-props__grid') || document.querySelector('.re-props__grid');
             if (!container) return;
@@ -2226,9 +2225,25 @@
                 '</div>';
             });
             container.innerHTML = html;
-        } catch(e) {
-            console.error('Property Sync Error:', e);
         }
+
+        var stored = localStorage.getItem('royaleProperties');
+        if (stored) {
+            try { renderProps(JSON.parse(stored)); } catch(e) {}
+        }
+
+        fetch('https://api.github.com/gists/' + GIST_ID, {
+            headers: { 'Accept': 'application/vnd.github.v3+json' }
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+            if (data && data.files && data.files['properties.json']) {
+                var content = JSON.parse(data.files['properties.json'].content);
+                localStorage.setItem('royaleProperties', JSON.stringify(content));
+                renderProps(content);
+            }
+        })
+        .catch(function(err) { console.error('Cloud Property Sync Error:', err); });
     })();
     </script>
 </body></html>
