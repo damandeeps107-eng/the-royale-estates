@@ -293,41 +293,55 @@
     transform: translateY(-2px);
   }
 
-  /* Trust line */
+  /* Trust line (Clean transparent with high visibility & clickable chips) */
   .re-hero__trust {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
-    background: rgba(15, 23, 42, 0.85);
-    backdrop-filter: blur(14px);
-    border: 1px solid rgba(56, 189, 248, 0.4);
-    padding: 12px 28px;
-    border-radius: 50px;
+    background: transparent;
     color: #ffffff !important;
-    font-size: 13px;
+    font-size: 13.5px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
-    margin-top: 14px;
+    margin-top: 24px;
   }
-  .re-hero__trust span:not(.re-hero__trust-sep) {
-    color: #ffffff !important;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
-    transition: color 0.3s ease;
+  .re-hero__trust-chip {
+    color: rgba(255,255,255,0.95) !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 0 4px rgba(0, 0, 0, 0.95);
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(15, 23, 42, 0.4);
+    backdrop-filter: blur(4px);
   }
-  .re-hero__trust span:not(.re-hero__trust-sep):hover {
+  .re-hero__trust-chip:hover {
     color: #38bdf8 !important;
+    border-color: rgba(56, 189, 248, 0.6);
+    background: rgba(15, 23, 42, 0.7);
+    text-shadow: 0 0 12px rgba(56,189,248,0.6);
+    transform: translateY(-2px);
+  }
+  .re-hero__trust-chip.active {
+    color: #38bdf8 !important;
+    font-weight: 800;
+    text-shadow: 0 0 16px rgba(56,189,248,0.9), 0 2px 6px rgba(0,0,0,0.9);
+    background: rgba(2, 132, 199, 0.35) !important;
+    border: 1px solid #38bdf8 !important;
+    box-shadow: 0 0 16px rgba(56,189,248,0.3);
   }
   .re-hero__trust-sep {
-    width: 6px;
-    height: 6px;
-    background: #38bdf8;
+    width: 5px;
+    height: 5px;
+    background: rgba(56,189,248,0.8);
     border-radius: 50%;
     display: inline-block;
-    box-shadow: 0 0 10px #38bdf8;
+    box-shadow: 0 0 6px rgba(56,189,248,0.8);
   }
 
   /* ===== HERO MOBILE RESPONSIVE ===== */
@@ -506,18 +520,18 @@
             </div>
 
             <!-- Trust Line -->
-            <div class="re-hero__trust">
-                <span>Warehouse</span>
+            <div class="re-hero__trust" id="heroCategoryChips">
+                <span class="re-hero__trust-chip active" data-index="0">Warehouse</span>
                 <span class="re-hero__trust-sep"></span>
-                <span>Commercial</span>
+                <span class="re-hero__trust-chip" data-index="1">Commercial</span>
                 <span class="re-hero__trust-sep"></span>
-                <span>Office</span>
+                <span class="re-hero__trust-chip" data-index="2">Office</span>
                 <span class="re-hero__trust-sep"></span>
-                <span>Weekend Homes</span>
+                <span class="re-hero__trust-chip" data-index="3">Weekend Homes</span>
                 <span class="re-hero__trust-sep"></span>
-                <span>Villas</span>
+                <span class="re-hero__trust-chip" data-index="4">Villas</span>
                 <span class="re-hero__trust-sep"></span>
-                <span>Land</span>
+                <span class="re-hero__trust-chip" data-index="5">Land</span>
             </div>
         </div>
     </section>
@@ -534,60 +548,62 @@
             }, { passive: true });
         }
 
-        // ─── Horizontal Image Slideshow ───
+        // ─── Horizontal Image Slideshow & Interactive Category Chips ───
         var slider = document.getElementById('heroSlider');
         var slides = document.querySelectorAll('.re-hero__slide');
         var labels = document.querySelectorAll('#heroRotator .re-hero__rotator-item');
+        var chips = document.querySelectorAll('.re-hero__trust-chip');
         var current = 0;
         var total = slides.length;
-        var DURATION = 5000; // 5 seconds per property image
+        var DURATION = 5000;
+        var slideTimer = null;
 
         if (total === 0) return;
 
         function goToSlide(index) {
-            // Remove active from old slide
             slides[current].classList.remove('active');
+            current = (index + total) % total;
 
-            current = index % total;
-
-            // Slide horizontally
+            slider.style.transition = 'transform 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
             slider.style.transform = 'translateX(-' + (current * 100) + 'vw)';
 
-            // Add active to new slide (triggers Ken Burns zoom)
             setTimeout(function() {
                 slides[current].classList.add('active');
             }, 200);
 
-            // Sync category label
             if (labels.length > 0) {
                 for (var i = 0; i < labels.length; i++) labels[i].classList.remove('active');
-                labels[current % labels.length].classList.add('active');
+                if (labels[current % labels.length]) labels[current % labels.length].classList.add('active');
+            }
+
+            if (chips.length > 0) {
+                for (var j = 0; j < chips.length; j++) chips[j].classList.remove('active');
+                if (chips[current % chips.length]) chips[current % chips.length].classList.add('active');
             }
         }
 
-        function nextSlide() {
-            if (current >= total - 1) {
-                // Reset to first slide smoothly
-                slider.style.transition = 'none';
-                slider.style.transform = 'translateX(0)';
-                current = 0;
-                slides[0].classList.add('active');
-                if (labels.length > 0) {
-                    for (var i = 0; i < labels.length; i++) labels[i].classList.remove('active');
-                    labels[0].classList.add('active');
-                }
-                // Re-enable transition after reset
-                setTimeout(function() {
-                    slider.style.transition = 'transform 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
-                    // Then go to slide 1 after brief pause
-                    setTimeout(function() { goToSlide(1); }, DURATION);
-                }, 50);
-            } else {
+        function startTimer() {
+            stopTimer();
+            slideTimer = setInterval(function() {
                 goToSlide(current + 1);
-            }
+            }, DURATION);
         }
 
-        setInterval(nextSlide, DURATION);
+        function stopTimer() {
+            if (slideTimer) clearInterval(slideTimer);
+        }
+
+        chips.forEach(function(chip) {
+            chip.addEventListener('click', function() {
+                var idx = parseInt(this.getAttribute('data-index'), 10);
+                if (!isNaN(idx)) {
+                    goToSlide(idx);
+                    startTimer();
+                }
+            });
+        });
+
+        startTimer();
     })();
     </script>
 
