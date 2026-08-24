@@ -2192,7 +2192,7 @@
     })();
     </script>
 
-    <!-- Admin Storage Sync Script -->
+        <!-- Admin Storage Sync Script -->
     <script>
     (function syncPropertiesFromAdmin() {
         var stored = localStorage.getItem('royaleProperties');
@@ -2200,7 +2200,7 @@
         try {
             var props = JSON.parse(stored);
             if (!props || !props.length) return;
-            var container = document.querySelector('#listings-section .re-props__grid');
+            var container = document.querySelector('#listings-section .re-props__grid') || document.querySelector('.re-props__grid');
             if (!container) return;
 
             var html = '';
@@ -2208,7 +2208,7 @@
                 var badgeClass = item.badge === 'For Sale' ? 're-props__badge--sale' : 're-props__badge--lease';
                 html += '<div class="re-props__card re-reveal visible">' +
                     '<div class="re-props__imgwrap">' +
-                        '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" onerror="this.src='./assets/images/hero/commercial.jpg'">' +
+                        '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy">' +
                         '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
                     '</div>' +
                     '<div class="re-props__body">' +
@@ -2226,8 +2226,9 @@
                 '</div>';
             });
             container.innerHTML = html;
-        } catch(e) {}
+        } catch(e) {
+            console.error('Property Sync Error:', e);
+        }
     })();
     </script>
-
 </body></html>
