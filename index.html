@@ -566,40 +566,94 @@
             grid-template-columns: 1fr;
         }
     }
-    /* ===== FOOTER OVERLAY FIX ===== */
+        /* ===== MOBILE-PERFECT FOOTER GRID & LAYOUT ===== */
     .re-footer {
         background: #0f172a !important;
         color: #ffffff !important;
         position: relative;
         z-index: 10;
-        padding: 80px 0 0 !important;
+        padding: 60px 0 0 !important;
         margin-top: 60px;
+        width: 100% !important;
+        box-sizing: border-box;
     }
     .re-footer .container {
         background: transparent !important;
         border: none !important;
         box-shadow: none !important;
         backdrop-filter: none !important;
-        padding: 0 !important;
+        padding: 0 20px !important;
         margin: 0 auto !important;
+        max-width: 1240px;
+    }
+    .re-footer__grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.2fr;
+        gap: 40px;
+        align-items: start;
+    }
+    .re-footer__col h4 {
+        color: #ffffff !important;
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        position: relative;
+    }
+    .re-footer__col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .re-footer__col ul li {
+        margin-bottom: 12px;
     }
     .re-footer p, .re-footer a, .re-footer span {
         color: rgba(255, 255, 255, 0.75) !important;
+        font-size: 0.92rem;
+        text-decoration: none;
     }
     .re-footer a:hover {
         color: #38bdf8 !important;
     }
-    .re-footer h4 {
-        color: #ffffff !important;
-    }
     .re-footer__bottom {
         border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-        padding: 24px 0;
-        margin-top: 60px;
+        padding: 24px 0 95px !important;
+        margin-top: 40px;
         text-align: center;
     }
+    .re-footer__bottom p {
+        margin: 0;
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
 
-        /* ===== VELMORA ANIMATED PROPERTY BACKGROUND IMAGE SLIDER ===== */
+    /* Footer Mobile Responsive Adjustments */
+    @media (max-width: 991px) {
+        .re-footer__grid {
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+    }
+    @media (max-width: 575px) {
+        .re-footer { padding: 40px 0 0 !important; }
+        .re-footer__grid {
+            grid-template-columns: 1fr;
+            gap: 28px;
+        }
+        .re-footer__col {
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .re-footer__col:last-child {
+            border-bottom: none;
+        }
+        .re-footer__bottom {
+            padding: 20px 0 105px !important;
+            margin-top: 24px;
+        }
+    }
+
+/* ===== VELMORA ANIMATED PROPERTY BACKGROUND IMAGE SLIDER ===== */
     .site-bg-slider {
         position: fixed;
         top: 0;
