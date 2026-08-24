@@ -3,11 +3,18 @@
   "cleanUrls": true,
   "routes": [
     {
-      "src": "/",
+      "src": "/$",
       "dest": "/index.html"
     },
     {
       "src": "/home",
+      "dest": "/index.html"
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
       "dest": "/index.html"
     }
   ]
