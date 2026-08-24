@@ -491,12 +491,45 @@
                 function handleFileUpload(e) {
             var file = e.target.files[0];
             if (!file) return;
-            document.getElementById('uploadFileName').textContent = file.name + ' (' + Math.round(file.size/1024) + ' KB)';
+            document.getElementById('uploadFileName').textContent = 'Optimizing ' + file.name + '...';
+
             var reader = new FileReader();
             reader.onload = function(evt) {
-                var base64Data = evt.target.result;
-                document.getElementById('propImage').value = base64Data;
-                showPreview(base64Data);
+                var img = new Image();
+                img.onload = function() {
+                    var canvas = document.createElement('canvas');
+                    var MAX_WIDTH = 800;
+                    var MAX_HEIGHT = 600;
+                    var width = img.width;
+                    var height = img.height;
+
+                    if (width > height) {
+                        if (width > MAX_WIDTH) {
+                            height *= MAX_WIDTH / width;
+                            width = MAX_WIDTH;
+                        }
+                    } else {
+                        if (height > MAX_HEIGHT) {
+                            width *= MAX_HEIGHT / height;
+                            height = MAX_HEIGHT;
+                        }
+                    }
+                    canvas.width = Math.round(width);
+                    canvas.height = Math.round(height);
+
+                    var ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                    var compressedDataUrl = canvas.toDataURL('image/jpeg', 0.8);
+                    document.getElementById('propImage').value = compressedDataUrl;
+                    document.getElementById('uploadFileName').textContent = file.name + ' (Photo Ready)';
+                    showPreview(compressedDataUrl);
+                };
+                img.onerror = function() {
+                    document.getElementById('propImage').value = evt.target.result;
+                    showPreview(evt.target.result);
+                };
+                img.src = evt.target.result;
             };
             reader.readAsDataURL(file);
         }
@@ -552,6 +585,12 @@
             var props = getProperties();
             var idx = document.getElementById('propIndex').value;
 
+            var imgVal = document.getElementById('propImage').value;
+            if (!imgVal) {
+                alert('Please upload a photo or enter an image URL!');
+                return;
+            }
+
             var newItem = {
                 title: document.getElementById('propTitle').value,
                 category: document.getElementById('propCategory').value,
@@ -560,19 +599,24 @@
                 price: document.getElementById('propPrice').value,
                 specsArea: document.getElementById('propSpecsArea').value,
                 specsFeature: document.getElementById('propSpecsFeature').value,
-                image: document.getElementById('propImage').value
+                image: imgVal
             };
 
-            if (idx !== '') {
-                props[parseInt(idx, 10)] = newItem;
-            } else {
-                props.unshift(newItem);
-            }
+            try {
+                if (idx !== '' && idx !== null) {
+                    props[parseInt(idx, 10)] = newItem;
+                } else {
+                    props.unshift(newItem);
+                }
 
-            savePropertiesToStorage(props);
-            closeModal();
-            renderDashboard();
-            alert('Property Listing Saved Successfully! Website updated live.');
+                savePropertiesToStorage(props);
+                closeModal();
+                renderDashboard();
+                alert('✓ Property Listing Saved Successfully! Main website updated live.');
+            } catch(err) {
+                console.error(err);
+                alert('Storage Full Error: Please select a smaller photo or clear browser data.');
+            }
         }
 
         function deleteProperty(idx) {
