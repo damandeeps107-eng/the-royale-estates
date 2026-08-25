@@ -712,6 +712,23 @@
         cursor: pointer !important;
     }
 </style>
+<style>
+    /* Bulletproof Sticky Fixed Header at Top of Page */
+    .header-wrapper {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 99999 !important;
+        background: rgba(15, 23, 42, 0.98) !important;
+        backdrop-filter: blur(10px) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2) !important;
+    }
+    .re-hero {
+        margin-top: 85px !important;
+    }
+</style>
 </head>
 
 <body>
@@ -869,8 +886,8 @@
                 <span class="re-hero__trust-chip" data-index="3">Land</span>
                 <span class="re-hero__trust-sep">•</span>
                 <span class="re-hero__trust-chip" data-index="4" style="color:#38bdf8; font-weight:700;">Pre-Leased Property</span>
-            </div></div>
-                </div>
+            </div>
+        </div>
     </section>
     <!-- Hero Section End -->
     </div>
