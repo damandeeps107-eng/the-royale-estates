@@ -1694,7 +1694,87 @@
     <script>
     var currentOpenCatKey = null;
 
-    var DEFAULT_PROPERTIES_FALLBACK = [];
+    var DEFAULT_PROPERTIES_FALLBACK = [
+    {
+        "title": "Prime Industrial Warehouse & Logistics Park",
+        "category": "Warehouse",
+        "badge": "For Lease",
+        "location": "Bhiwandi Industrial Zone, Thane-Mumbai",
+        "price": "\u20b928 / sqft / month",
+        "specsArea": "45,000 sqft",
+        "specsFeature": "FM2 Flooring, 12m Clear Height & 8 Docks",
+        "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+        "images": [
+            "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=800&q=80"
+        ],
+        "brochure": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+        "title": "Corporate Commercial Office Space",
+        "category": "Office",
+        "badge": "For Lease",
+        "location": "Prime Business Hub, Thane West",
+        "price": "\u20b995 / sqft / month",
+        "specsArea": "8,500 sqft",
+        "specsFeature": "Fully Furnished, 80 Workstations & 3 Cabin Rooms",
+        "image": "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+        "images": [
+            "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=800&q=80"
+        ],
+        "brochure": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+        "title": "Royal Weekend Villa & Pool Resort",
+        "category": "Weekend Home",
+        "badge": "For Sale",
+        "location": "Igatpuri, Nashik Highway",
+        "price": "\u20b91.45 Crore",
+        "specsArea": "4,200 sqft Plot / 3BHK",
+        "specsFeature": "Private Swimming Pool, Lawn & Gazebo",
+        "image": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80",
+        "images": [
+            "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80",
+            "https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=800&q=80"
+        ],
+        "brochure": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+        "title": "Clear Title NA Industrial Plot & Land",
+        "category": "Land",
+        "badge": "For Sale",
+        "location": "Bhiwandi Highway Corridor",
+        "price": "\u20b93.85 Crore",
+        "specsArea": "2.5 Acres",
+        "specsFeature": "Direct Highway Touch, NA Industrial Zone & Clear Title",
+        "image": "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80",
+        "images": [
+            "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=800&q=80"
+        ],
+        "brochure": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    },
+    {
+        "title": "Pre-Leased Commercial Office Property",
+        "category": "Pre-Leased Property",
+        "badge": "Pre-Leased Property",
+        "location": "Wagle Estate, Thane",
+        "price": "\u20b95.20 Crore",
+        "specsArea": "5,000 sqft",
+        "specsFeature": "MNC Tenant Leased, 9-Year Lock-in & 8.5% Assured Yield",
+        "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80",
+        "images": [
+            "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+        ],
+        "brochure": "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
+        "video": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    }
+];
 
     function matchCategory(item, targetKey) {
         if (!item) return false;
