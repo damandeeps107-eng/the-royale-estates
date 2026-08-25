@@ -1553,70 +1553,85 @@
                 <p class="re-section__subtext" style="max-width: 640px; margin: 0 auto;">Click on any of our 5 core deal sectors below to expand its properties directly below.</p>
             </div>
 
-            <!-- THE 5 CATEGORY CARDS GRID (EXACT SAME DESIGN) -->
+                        <!-- THE 5 CATEGORY CARDS GRID (VIBRANT HIGH-CONTRAST DESIGN) -->
             <div class="re-cats" id="categoryCardsGrid">
                 <!-- 1. Warehouse / Industrial -->
-                <div class="re-cats__card visible" data-catkey="warehouse" onclick="handleCategoryFolderClick('warehouse', event)" style="cursor: pointer; position: relative;">
-                    <img src="./assets/images/hero/warehouse.jpg" alt="1. Warehouse / Industrial" loading="lazy" onclick="handleCategoryFolderClick('warehouse', event)">
-                    <div class="re-cats__overlay" onclick="handleCategoryFolderClick('warehouse', event)">
-                        <h3 onclick="handleCategoryFolderClick('warehouse', event)">1. Warehouse / Industrial</h3>
-                        <p onclick="handleCategoryFolderClick('warehouse', event)">Logistics & Industrial Parks in Bhiwandi Hub.</p>
-                        <button type="button" class="re-cats__btn" onclick="handleCategoryFolderClick('warehouse', event)">
-                            <span>Explore Properties</span>
-                            <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease; margin-left: 6px;"><path d="M19 9l-7 7-7-7"/></svg>
-                        </button>
+                <div class="re-cats__card visible" data-catkey="warehouse" onclick="handleCategoryFolderClick('warehouse', event)" style="cursor: pointer; position: relative; border-radius: 20px; overflow: hidden; height: 340px; border: 2px solid rgba(2, 132, 199, 0.4); box-shadow: 0 10px 30px rgba(2, 132, 199, 0.15);">
+                    <img src="./assets/images/hero/warehouse.jpg" alt="1. Warehouse / Industrial" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="re-cats__overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.7) 50%, rgba(15,23,42,0.96) 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 24px;">
+                        <span class="re-cats__top-badge" style="align-self: flex-start; background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 800; box-shadow: 0 4px 14px rgba(0,0,0,0.3);">🏬 Industrial &amp; Logistics</span>
+                        <div>
+                            <h3 style="color: #ffffff !important; font-size: 1.35rem !important; font-weight: 800 !important; margin-bottom: 6px; text-shadow: 0 2px 8px rgba(0,0,0,0.7);">1. Warehouse / Industrial</h3>
+                            <p style="color: rgba(255,255,255,0.92) !important; font-size: 0.88rem !important; margin-bottom: 16px; text-shadow: 0 1px 4px rgba(0,0,0,0.6);">Logistics &amp; Industrial Parks in Bhiwandi Hub.</p>
+                            <button type="button" class="re-cats__btn" style="width: 100%; padding: 12px 18px; border-radius: 12px; border: none; background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; font-weight: 800; font-size: 0.88rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 16px rgba(2,132,199,0.4);">
+                                <span>Explore Properties</span>
+                                <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease; margin-left: 4px;"><path d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 2. Commercial Office -->
-                <div class="re-cats__card visible" data-catkey="office" onclick="handleCategoryFolderClick('office', event)" style="cursor: pointer; position: relative;">
-                    <img src="./assets/images/hero/office.jpg" alt="2. Commercial Office" loading="lazy" onclick="handleCategoryFolderClick('office', event)">
-                    <div class="re-cats__overlay" onclick="handleCategoryFolderClick('office', event)">
-                        <h3 onclick="handleCategoryFolderClick('office', event)">2. Commercial Office</h3>
-                        <p onclick="handleCategoryFolderClick('office', event)">Corporate Office Floors & Commercial Retail Spaces.</p>
-                        <button type="button" class="re-cats__btn" onclick="handleCategoryFolderClick('office', event)">
-                            <span>Explore Properties</span>
-                            <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease; margin-left: 6px;"><path d="M19 9l-7 7-7-7"/></svg>
-                        </button>
+                <div class="re-cats__card visible" data-catkey="office" onclick="handleCategoryFolderClick('office', event)" style="cursor: pointer; position: relative; border-radius: 20px; overflow: hidden; height: 340px; border: 2px solid rgba(37, 99, 235, 0.4); box-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);">
+                    <img src="./assets/images/hero/office.jpg" alt="2. Commercial Office" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="re-cats__overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.7) 50%, rgba(15,23,42,0.96) 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 24px;">
+                        <span class="re-cats__top-badge" style="align-self: flex-start; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 800; box-shadow: 0 4px 14px rgba(0,0,0,0.3);">💼 Corporate Offices</span>
+                        <div>
+                            <h3 style="color: #ffffff !important; font-size: 1.35rem !important; font-weight: 800 !important; margin-bottom: 6px; text-shadow: 0 2px 8px rgba(0,0,0,0.7);">2. Commercial Office</h3>
+                            <p style="color: rgba(255,255,255,0.92) !important; font-size: 0.88rem !important; margin-bottom: 16px; text-shadow: 0 1px 4px rgba(0,0,0,0.6);">Corporate Office Floors &amp; Commercial Retail Spaces.</p>
+                            <button type="button" class="re-cats__btn" style="width: 100%; padding: 12px 18px; border-radius: 12px; border: none; background: linear-gradient(135deg, #2563eb, #1d4ed8); color: #ffffff; font-weight: 800; font-size: 0.88rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 16px rgba(37,99,235,0.4);">
+                                <span>Explore Properties</span>
+                                <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease; margin-left: 4px;"><path d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 3. Weekend Homes & Villas -->
-                <div class="re-cats__card visible" data-catkey="villas" onclick="handleCategoryFolderClick('villas', event)" style="cursor: pointer; position: relative;">
-                    <img src="./assets/images/hero/weekend-home.jpg" alt="3. Weekend Homes & Villas" loading="lazy" onclick="handleCategoryFolderClick('villas', event)">
-                    <div class="re-cats__overlay" onclick="handleCategoryFolderClick('villas', event)">
-                        <h3 onclick="handleCategoryFolderClick('villas', event)">3. Weekend Homes &amp; Villas</h3>
-                        <p onclick="handleCategoryFolderClick('villas', event)">Hillside Estates, Private Pool Retreats & Luxury Villas.</p>
-                        <button type="button" class="re-cats__btn" onclick="handleCategoryFolderClick('villas', event)">
-                            <span>Explore Properties</span>
-                            <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease; margin-left: 6px;"><path d="M19 9l-7 7-7-7"/></svg>
-                        </button>
+                <div class="re-cats__card visible" data-catkey="villas" onclick="handleCategoryFolderClick('villas', event)" style="cursor: pointer; position: relative; border-radius: 20px; overflow: hidden; height: 340px; border: 2px solid rgba(5, 150, 105, 0.4); box-shadow: 0 10px 30px rgba(5, 150, 105, 0.15);">
+                    <img src="./assets/images/hero/weekend-home.jpg" alt="3. Weekend Homes & Villas" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="re-cats__overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.7) 50%, rgba(15,23,42,0.96) 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 24px;">
+                        <span class="re-cats__top-badge" style="align-self: flex-start; background: linear-gradient(135deg, #059669, #047857); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 800; box-shadow: 0 4px 14px rgba(0,0,0,0.3);">🏡 Luxury Villas</span>
+                        <div>
+                            <h3 style="color: #ffffff !important; font-size: 1.35rem !important; font-weight: 800 !important; margin-bottom: 6px; text-shadow: 0 2px 8px rgba(0,0,0,0.7);">3. Weekend Homes &amp; Villas</h3>
+                            <p style="color: rgba(255,255,255,0.92) !important; font-size: 0.88rem !important; margin-bottom: 16px; text-shadow: 0 1px 4px rgba(0,0,0,0.6);">Hillside Estates, Private Pool Retreats &amp; Luxury Villas.</p>
+                            <button type="button" class="re-cats__btn" style="width: 100%; padding: 12px 18px; border-radius: 12px; border: none; background: linear-gradient(135deg, #059669, #047857); color: #ffffff; font-weight: 800; font-size: 0.88rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 16px rgba(5,150,105,0.4);">
+                                <span>Explore Properties</span>
+                                <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease; margin-left: 4px;"><path d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 4. Land -->
-                <div class="re-cats__card visible" data-catkey="land" onclick="handleCategoryFolderClick('land', event)" style="cursor: pointer; position: relative;">
-                    <img src="./assets/images/hero/land.jpg" alt="4. Land" loading="lazy" onclick="handleCategoryFolderClick('land', event)">
-                    <div class="re-cats__overlay" onclick="handleCategoryFolderClick('land', event)">
-                        <h3 onclick="handleCategoryFolderClick('land', event)">4. Land</h3>
-                        <p onclick="handleCategoryFolderClick('land', event)">Industrial Plots & Clear Title NA Land Opportunities.</p>
-                        <button type="button" class="re-cats__btn" onclick="handleCategoryFolderClick('land', event)">
-                            <span>Explore Properties</span>
-                            <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease; margin-left: 6px;"><path d="M19 9l-7 7-7-7"/></svg>
-                        </button>
+                <div class="re-cats__card visible" data-catkey="land" onclick="handleCategoryFolderClick('land', event)" style="cursor: pointer; position: relative; border-radius: 20px; overflow: hidden; height: 340px; border: 2px solid rgba(217, 119, 6, 0.4); box-shadow: 0 10px 30px rgba(217, 119, 6, 0.15);">
+                    <img src="./assets/images/hero/land.jpg" alt="4. Land" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="re-cats__overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.7) 50%, rgba(15,23,42,0.96) 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 24px;">
+                        <span class="re-cats__top-badge" style="align-self: flex-start; background: linear-gradient(135deg, #d97706, #b45309); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 800; box-shadow: 0 4px 14px rgba(0,0,0,0.3);">📐 NA Land &amp; Plots</span>
+                        <div>
+                            <h3 style="color: #ffffff !important; font-size: 1.35rem !important; font-weight: 800 !important; margin-bottom: 6px; text-shadow: 0 2px 8px rgba(0,0,0,0.7);">4. Land</h3>
+                            <p style="color: rgba(255,255,255,0.92) !important; font-size: 0.88rem !important; margin-bottom: 16px; text-shadow: 0 1px 4px rgba(0,0,0,0.6);">Industrial Plots &amp; Clear Title NA Land Opportunities.</p>
+                            <button type="button" class="re-cats__btn" style="width: 100%; padding: 12px 18px; border-radius: 12px; border: none; background: linear-gradient(135deg, #d97706, #b45309); color: #ffffff; font-weight: 800; font-size: 0.88rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 16px rgba(217,119,6,0.4);">
+                                <span>Explore Properties</span>
+                                <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease; margin-left: 4px;"><path d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
                 <!-- 5. Pre-Leased Property -->
-                <div class="re-cats__card visible" data-catkey="preleased" onclick="handleCategoryFolderClick('preleased', event)" style="cursor: pointer; position: relative;">
-                    <img src="./assets/images/hero/commercial.jpg" alt="5. Pre-Leased Property" loading="lazy" onclick="handleCategoryFolderClick('preleased', event)">
-                    <div class="re-cats__overlay" onclick="handleCategoryFolderClick('preleased', event)">
-                        <h3 style="color: #38bdf8;" onclick="handleCategoryFolderClick('preleased', event)">5. 🔥 Pre-Leased Property</h3>
-                        <p onclick="handleCategoryFolderClick('preleased', event)">High-Yield Income Assets (7.5% - 8.5% Guaranteed ROI).</p>
-                        <button type="button" class="re-cats__btn" onclick="handleCategoryFolderClick('preleased', event)">
-                            <span>Explore 7.5% - 8.5% ROI</span>
-                            <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease; margin-left: 6px;"><path d="M19 9l-7 7-7-7"/></svg>
-                        </button>
+                <div class="re-cats__card visible" data-catkey="preleased" onclick="handleCategoryFolderClick('preleased', event)" style="cursor: pointer; position: relative; border-radius: 20px; overflow: hidden; height: 340px; border: 2px solid rgba(234, 88, 12, 0.5); box-shadow: 0 10px 30px rgba(234, 88, 12, 0.2);">
+                    <img src="./assets/images/hero/commercial.jpg" alt="5. Pre-Leased Property" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                    <div class="re-cats__overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.7) 50%, rgba(15,23,42,0.96) 100%); display: flex; flex-direction: column; justify-content: space-between; padding: 24px;">
+                        <span class="re-cats__top-badge" style="align-self: flex-start; background: linear-gradient(135deg, #ea580c, #c2410c); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.78rem; font-weight: 800; box-shadow: 0 4px 14px rgba(0,0,0,0.3);">🔥 7.5% - 8.5% ROI</span>
+                        <div>
+                            <h3 style="color: #ffffff !important; font-size: 1.35rem !important; font-weight: 800 !important; margin-bottom: 6px; text-shadow: 0 2px 8px rgba(0,0,0,0.7);">5. 🔥 Pre-Leased Property</h3>
+                            <p style="color: rgba(255,255,255,0.92) !important; font-size: 0.88rem !important; margin-bottom: 16px; text-shadow: 0 1px 4px rgba(0,0,0,0.6);">High-Yield Income Assets (7.5% - 8.5% Guaranteed ROI).</p>
+                            <button type="button" class="re-cats__btn" style="width: 100%; padding: 12px 18px; border-radius: 12px; border: none; background: linear-gradient(135deg, #ea580c, #c2410c); color: #ffffff; font-weight: 800; font-size: 0.88rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 16px rgba(234,88,12,0.4);">
+                                <span>Explore 7.5% - 8.5% ROI</span>
+                                <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease; margin-left: 4px;"><path d="M19 9l-7 7-7-7"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
