@@ -1838,7 +1838,7 @@
     
     
     function downloadPdfDirect(brochureUrl, title) {
-        if (!brochureUrl || !brochureUrl.trim() || brochureUrl.trim() === 'undefined' || brochureUrl.trim() === 'null') {
+        if (!brochureUrl || !brochureUrl.trim() || brochureUrl.trim() === 'undefined' || brochureUrl.trim() === 'null' || brochureUrl.includes('dummy.pdf')) {
             var text = encodeURIComponent("Hi, please send PDF brochure for " + (title || "this property"));
             var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
             var waUrl = isMobile ?
