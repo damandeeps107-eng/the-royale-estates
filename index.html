@@ -2177,4 +2177,90 @@
         .catch(function(err) { console.error('Cloud Property Sync Error:', err); });
     })();
     </script>
+
+    <!-- Category Subfolder Modal & Brochure JS -->
+    <script>
+    function openCategoryModal(catKey) {
+        var stored = localStorage.getItem('royaleProperties');
+        var props = [];
+        if (stored) {
+            try { props = JSON.parse(stored); } catch(e) {}
+        }
+
+        var filtered = props.filter(function(item) {
+            if (catKey === 'Pre-Leased') {
+                return (item.badge && item.badge.includes('ROI')) || (item.title && item.title.includes('Pre-Leased'));
+            }
+            return item.category === catKey || (catKey === 'Weekend Home' && (item.category === 'Villa' || item.category === 'Weekend Home'));
+        });
+
+        var modal = document.getElementById('categoryDetailModal');
+        var title = document.getElementById('catModalTitle');
+        var container = document.getElementById('catModalListings');
+
+        var catNames = {
+            'Warehouse': '📁 Warehouses & Industrial Parks Subfolder',
+            'Office Space': '📁 Commercial Office Floors & Showrooms Subfolder',
+            'Weekend Home': '📁 Weekend Homes & Luxury Villas Subfolder',
+            'Land / Plot': '📁 Industrial Plots & Clear Title NA Land Subfolder',
+            'Pre-Leased': '📁 🔥 Pre-Leased Properties (7.5% - 8.5% ROI) Subfolder'
+        };
+
+        if (title) title.innerHTML = catNames[catKey] || ('📁 ' + catKey + ' Subfolder');
+
+        if (container) {
+            if (!filtered.length) {
+                container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 48px; background: #f8fafc; border-radius: 16px; color: #64748b;">' +
+                    '<svg width="48" height="48" fill="none" stroke="#94a3b8" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:12px;"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>' +
+                    '<h4 style="font-size:1.1rem; color:#1e293b; margin-bottom:6px;">No Subfolder Listings Found</h4>' +
+                    '<p style="margin:0;">No active property listings uploaded in this folder yet. Contact us for custom requirements!</p>' +
+                '</div>';
+            } else {
+                var html = '';
+                filtered.forEach(function(item) {
+                    var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
+                    var brochureBtn = item.brochure ? 
+                        '<a href="' + item.brochure + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #1e293b; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📄 PDF Brochure</a>' :
+                        '<a href="https://wa.me/919309035119?text=Hi%2C%20please%20send%20PDF%20brochure%20for%20' + encodeURIComponent(item.title) + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #0284c7; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📄 Request Brochure</a>';
+
+                    html += '<div class="re-props__card" style="background:#fff; border:1px solid rgba(15,23,42,0.1); border-radius:18px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.05);">' +
+                        '<div class="re-props__imgwrap" style="position:relative;">' +
+                            '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" style="width:100%; height:200px; object-fit:cover;">' +
+                            '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
+                        '</div>' +
+                        '<div class="re-props__body" style="padding:20px;">' +
+                            '<h3 class="re-props__title" style="font-size:1.15rem; font-weight:800; color:#0f172a; margin-bottom:8px;">' + item.title + '</h3>' +
+                            '<p class="re-props__loc" style="color:#64748b; font-size:0.85rem; margin-bottom:12px;"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ' + item.location + '</p>' +
+                            '<div class="re-props__specs" style="display:flex; gap:12px; margin-bottom:16px; font-size:0.82rem; color:#475569;">' +
+                                '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> ' + item.specsArea + '</span>' +
+                                '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> ' + item.specsFeature + '</span>' +
+                            '</div>' +
+                            '<div class="re-props__bottom" style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(15,23,42,0.08); padding-top:14px; flex-wrap:wrap; gap:8px;">' +
+                                '<div class="re-props__price" style="font-size:1.05rem; font-weight:800; color:#0284c7;">' + item.price + '</div>' +
+                                '<div style="display:flex; gap:6px; flex-wrap:wrap;">' +
+                                    brochureBtn +
+                                    '<a href="https://wa.me/919309035119?text=Hi%2C%20I%27m%20interested%20in%20' + encodeURIComponent(item.title) + '" target="_blank" class="re-props__enquiry" style="padding:8px 14px; font-size:0.8rem; font-weight:700;">Enquire</a>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>';
+                });
+                container.innerHTML = html;
+            }
+        }
+
+        if (modal) {
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+        }
+    }
+
+    function closeCategoryModal() {
+        var modal = document.getElementById('categoryDetailModal');
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+        }
+    }
+    </script>
 </body></html>
