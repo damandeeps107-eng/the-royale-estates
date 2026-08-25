@@ -1977,28 +1977,23 @@
     }
 
     function fetchLiveGistFolderProperties(catKeyToRender) {
-        var GIST_ID = 'eebf5c328e2a6047fb9e71338a6836ba';
-        fetch('https://api.github.com/gists/' + GIST_ID + '?t=' + Date.now(), {
-            headers: { 'Accept': 'application/vnd.github.v3+json' }
-        })
+        var RAW_GIST_URL = 'https://gist.githubusercontent.com/raw/eebf5c328e2a6047fb9e71338a6836ba/properties.json?t=' + Date.now();
+        fetch(RAW_GIST_URL)
         .then(function(res) { return res.json(); })
-        .then(function(data) {
-            if (data && data.files && data.files['properties.json']) {
-                var content = JSON.parse(data.files['properties.json'].content);
-                if (content && Array.isArray(content)) {
-                    try {
-                        localStorage.setItem('royaleProperties', JSON.stringify(content));
-                    } catch(e) {
-                        console.warn('LocalStorage quota limit reached, rendering directly from live Gist DB:', e);
-                    }
-                    var target = catKeyToRender || currentOpenCatKey;
-                    if (target) {
-                        renderInlineFolderGrid(target, content);
-                    }
+        .then(function(content) {
+            if (content && Array.isArray(content)) {
+                try {
+                    localStorage.setItem('royaleProperties', JSON.stringify(content));
+                } catch(e) {}
+                var target = catKeyToRender || currentOpenCatKey;
+                if (target) {
+                    renderInlineFolderGrid(target, content);
                 }
             }
         })
-        .catch(function(err) { console.error('Cloud Sync Error:', err); });
+        .catch(function(err) {
+            console.error('Cloud Raw CDN Fetch Error:', err);
+        });
     }
 
     document.addEventListener('DOMContentLoaded', function() {
