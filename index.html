@@ -2053,15 +2053,99 @@
     })();
     </script>
 
-                                <!-- Global Expandable Category Subfolder Accordion Script -->
+                                    <!-- Global Expandable Category Subfolder Accordion Script (Real-Time Auto Refresh) -->
     <script>
     var activeSubfolderKey = null;
+
+    function matchCategory(item, targetKey) {
+        if (!item) return false;
+        var cat = (item.category || '').toLowerCase();
+        var title = (item.title || '').toLowerCase();
+        var badge = (item.badge || '').toLowerCase();
+
+        if (targetKey === 'preleased') {
+            return cat.includes('pre-leased') || cat.includes('preleased') || badge.includes('roi') || title.includes('pre-leased') || title.includes('preleased');
+        }
+        
+        // Exclude pre-leased ROI properties from regular categories
+        if (badge.includes('roi') || title.includes('pre-leased') || title.includes('preleased')) {
+            return false;
+        }
+
+        if (targetKey === 'warehouse') {
+            return cat.includes('warehouse') || cat.includes('industrial') || title.includes('warehouse') || title.includes('industrial');
+        }
+        if (targetKey === 'office') {
+            return cat.includes('office') || cat.includes('commercial') || title.includes('office') || title.includes('commercial');
+        }
+        if (targetKey === 'villas') {
+            return cat.includes('weekend') || cat.includes('villa') || title.includes('weekend') || title.includes('villa');
+        }
+        if (targetKey === 'land') {
+            return cat.includes('land') || cat.includes('plot') || title.includes('land') || title.includes('plot');
+        }
+
+        return false;
+    }
+
+    function renderSubfolderGrid(catKey) {
+        var gridEl = document.getElementById('subfolderPropertyGrid');
+        if (!gridEl) return;
+
+        var stored = localStorage.getItem('royaleProperties');
+        var props = [];
+        if (stored) {
+            try { props = JSON.parse(stored); } catch(e) {}
+        }
+
+        var filtered = props.filter(function(item) {
+            return matchCategory(item, catKey);
+        });
+
+        if (!filtered.length) {
+            gridEl.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 48px; background: #f8fafc; border-radius: 16px; color: #64748b;">' +
+                '<svg width="48" height="48" fill="none" stroke="#94a3b8" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:12px;"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>' +
+                '<h4 style="font-size:1.1rem; color:#1e293b; margin-bottom:6px;">No Properties Found in this Folder</h4>' +
+                '<p style="margin:0;">No active listings uploaded in this folder yet. Contact us for custom requirements!</p>' +
+            '</div>';
+        } else {
+            var html = '';
+            filtered.forEach(function(item) {
+                var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
+                var brochureBtn = item.brochure ? 
+                    '<a href="' + item.brochure + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #1e293b; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📄 PDF Brochure</a>' :
+                    '<a href="https://wa.me/919309035119?text=Hi%2C%20please%20send%20PDF%20brochure%20for%20' + encodeURIComponent(item.title) + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #0284c7; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📄 Request Brochure</a>';
+
+                html += '<div class="re-props__card" style="background:#fff; border:1px solid rgba(15,23,42,0.1); border-radius:18px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.05);">' +
+                    '<div class="re-props__imgwrap" style="position:relative;">' +
+                        '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" style="width:100%; height:200px; object-fit:cover;" onerror="this.src='./assets/images/hero/warehouse.jpg'">' +
+                        '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
+                    '</div>' +
+                    '<div class="re-props__body" style="padding:20px;">' +
+                        '<h3 class="re-props__title" style="font-size:1.15rem; font-weight:800; color:#0f172a; margin-bottom:8px;">' + item.title + '</h3>' +
+                        '<p class="re-props__loc" style="color:#64748b; font-size:0.85rem; margin-bottom:12px;"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ' + item.location + '</p>' +
+                        '<div class="re-props__specs" style="display:flex; gap:12px; margin-bottom:16px; font-size:0.82rem; color:#475569;">' +
+                            '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> ' + item.specsArea + '</span>' +
+                            '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> ' + item.specsFeature + '</span>' +
+                        '</div>' +
+                        '<div class="re-props__bottom" style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(15,23,42,0.08); padding-top:14px; flex-wrap:wrap; gap:8px;">' +
+                            '<div class="re-props__price" style="font-size:1.05rem; font-weight:800; color:#0284c7;">' + item.price + '</div>' +
+                            '<div style="display:flex; gap:6px; flex-wrap:wrap;">' +
+                                brochureBtn +
+                                '<a href="https://wa.me/919309035119?text=Hi%2C%20I%27m%20interested%20in%20' + encodeURIComponent(item.title) + '" target="_blank" class="re-props__enquiry" style="padding:8px 14px; font-size:0.8rem; font-weight:700;">Enquire Now</a>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+            });
+            gridEl.innerHTML = html;
+        }
+    }
 
     function toggleSubfolderCategory(catKey) {
         var wrapper = document.getElementById('categorySubfolderWrapper');
         var titleEl = document.getElementById('subfolderTitle');
         var subtitleEl = document.getElementById('subfolderSubtitle');
-        var gridEl = document.getElementById('subfolderPropertyGrid');
         if (!wrapper) return;
 
         // Reset all card chevrons
@@ -2071,13 +2155,13 @@
             if (chev) chev.style.transform = 'rotate(0deg)';
         });
 
-        // If clicking the currently open category, close it
+        // If clicking currently open category, close it
         if (activeSubfolderKey === catKey && wrapper.style.maxHeight !== '0px' && wrapper.style.maxHeight !== '') {
             closeSubfolderAccordion();
             return;
         }
 
-        // Mark clicked category active and rotate chevron 180deg
+        // Mark active card & rotate chevron 180deg
         var activeCard = document.querySelector('.re-cats__card[data-catkey="' + catKey + '"]');
         if (activeCard) {
             activeCard.style.borderColor = '#0284c7';
@@ -2085,7 +2169,6 @@
             if (chev) chev.style.transform = 'rotate(180deg)';
         }
 
-        // Set titles for catKey
         var catInfo = {
             'warehouse': { title: '1. Warehouse / Industrial Properties Folder', subtitle: 'Logistics & Industrial Parks in Bhiwandi Hub' },
             'office': { title: '2. Commercial Office Properties Folder', subtitle: 'Corporate Office Floors & Commercial Retail Spaces' },
@@ -2098,72 +2181,14 @@
         if (titleEl) titleEl.textContent = info.title;
         if (subtitleEl) subtitleEl.textContent = info.subtitle;
 
-        // Load & Render properties
-        var stored = localStorage.getItem('royaleProperties');
-        var props = [];
-        if (stored) {
-            try { props = JSON.parse(stored); } catch(e) {}
-        }
-
-        var filterFns = {
-            'warehouse': function(i) { return i.category === 'Warehouse' && (!i.badge || !i.badge.includes('ROI')); },
-            'office': function(i) { return (i.category === 'Office Space' || i.category === 'Commercial') && (!i.badge || !i.badge.includes('ROI')); },
-            'villas': function(i) { return i.category === 'Weekend Home' || i.category === 'Villa'; },
-            'land': function(i) { return i.category === 'Land / Plot' || i.category === 'Land'; },
-            'preleased': function(i) { return i.category === 'Pre-Leased' || (i.badge && i.badge.includes('ROI')) || (i.title && i.title.includes('Pre-Leased')); }
-        };
-
-        var filtered = props.filter(filterFns[catKey] || function() { return true; });
-
-        if (gridEl) {
-            if (!filtered.length) {
-                gridEl.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 48px; background: #f8fafc; border-radius: 16px; color: #64748b;">' +
-                    '<svg width="48" height="48" fill="none" stroke="#94a3b8" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:12px;"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>' +
-                    '<h4 style="font-size:1.1rem; color:#1e293b; margin-bottom:6px;">No Properties Found in this Folder</h4>' +
-                    '<p style="margin:0;">No active listings uploaded in this folder yet. Contact us for custom requirements!</p>' +
-                '</div>';
-            } else {
-                var html = '';
-                filtered.forEach(function(item) {
-                    var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
-                    var brochureBtn = item.brochure ? 
-                        '<a href="' + item.brochure + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #1e293b; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📄 PDF Brochure</a>' :
-                        '<a href="https://wa.me/919309035119?text=Hi%2C%20please%20send%20PDF%20brochure%20for%20' + encodeURIComponent(item.title) + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #0284c7; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📄 Request Brochure</a>';
-
-                    html += '<div class="re-props__card" style="background:#fff; border:1px solid rgba(15,23,42,0.1); border-radius:18px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.05);">' +
-                        '<div class="re-props__imgwrap" style="position:relative;">' +
-                            '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" style="width:100%; height:200px; object-fit:cover;">' +
-                            '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
-                        '</div>' +
-                        '<div class="re-props__body" style="padding:20px;">' +
-                            '<h3 class="re-props__title" style="font-size:1.15rem; font-weight:800; color:#0f172a; margin-bottom:8px;">' + item.title + '</h3>' +
-                            '<p class="re-props__loc" style="color:#64748b; font-size:0.85rem; margin-bottom:12px;"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ' + item.location + '</p>' +
-                            '<div class="re-props__specs" style="display:flex; gap:12px; margin-bottom:16px; font-size:0.82rem; color:#475569;">' +
-                                '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> ' + item.specsArea + '</span>' +
-                                '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> ' + item.specsFeature + '</span>' +
-                            '</div>' +
-                            '<div class="re-props__bottom" style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(15,23,42,0.08); padding-top:14px; flex-wrap:wrap; gap:8px;">' +
-                                '<div class="re-props__price" style="font-size:1.05rem; font-weight:800; color:#0284c7;">' + item.price + '</div>' +
-                                '<div style="display:flex; gap:6px; flex-wrap:wrap;">' +
-                                    brochureBtn +
-                                    '<a href="https://wa.me/919309035119?text=Hi%2C%20I%27m%20interested%20in%20' + encodeURIComponent(item.title) + '" target="_blank" class="re-props__enquiry" style="padding:8px 14px; font-size:0.8rem; font-weight:700;">Enquire Now</a>' +
-                                '</div>' +
-                            '</div>' +
-                        '</div>' +
-                    '</div>';
-                });
-                gridEl.innerHTML = html;
-            }
-        }
-
         activeSubfolderKey = catKey;
+        renderSubfolderGrid(catKey);
 
         // Expand accordion smoothly
-        wrapper.style.maxHeight = '3000px';
+        wrapper.style.maxHeight = '3500px';
         wrapper.style.opacity = '1';
         wrapper.style.transform = 'translateY(0)';
 
-        // Smooth scroll to the expanded subfolder card
         setTimeout(function() {
             wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
         }, 150);
@@ -2185,5 +2210,24 @@
 
         activeSubfolderKey = null;
     }
+
+    // Real-Time Cloud Gist Auto Fetch
+    (function syncCloudGist() {
+        var GIST_ID = 'eebf5c328e2a6047fb9e71338a6836ba';
+        fetch('https://api.github.com/gists/' + GIST_ID + '?t=' + Date.now(), {
+            headers: { 'Accept': 'application/vnd.github.v3+json' }
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+            if (data && data.files && data.files['properties.json']) {
+                var content = JSON.parse(data.files['properties.json'].content);
+                localStorage.setItem('royaleProperties', JSON.stringify(content));
+                if (activeSubfolderKey) {
+                    renderSubfolderGrid(activeSubfolderKey);
+                }
+            }
+        })
+        .catch(function(err) { console.error('Cloud Property Sync Error:', err); });
+    })();
     </script>
 </body></html>
