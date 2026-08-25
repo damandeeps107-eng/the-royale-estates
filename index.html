@@ -1751,7 +1751,7 @@
                 var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
                 var brochureUrl = (item.brochure && item.brochure.trim()) ? parseBrochureUrl(item.brochure) : '';
                 var brochureBtn = brochureUrl ? 
-                    '<a href="' + brochureUrl + '" target="_blank" download="property_brochure.pdf" class="btn-sm" style="background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(15,23,42,0.2);">📥 Download PDF Brochure</a>' :
+                    '<a href="' + brochureUrl + '" target="_self" download="property_brochure.pdf" class="btn-sm" style="background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(15,23,42,0.2);">📥 Download PDF Brochure</a>' :
                     '<a href="https://api.whatsapp.com/send?phone=919309035119&text=Hi%2C%20please%20send%20PDF%20brochure%20for%20' + encodeURIComponent(item.title) + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #0284c7; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📥 Download PDF Brochure</a>';
 
                 var videoBtn = item.video ? 
@@ -2481,7 +2481,7 @@
                 var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
                 var brochureUrl = (item.brochure && item.brochure.trim()) ? parseBrochureUrl(item.brochure) : '';
                 var brochureBtn = brochureUrl ? 
-                    '<a href="' + brochureUrl + '" target="_blank" download="property_brochure.pdf" class="btn-sm" style="background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(15,23,42,0.2);">📥 Download PDF Brochure</a>' :
+                    '<a href="' + brochureUrl + '" target="_self" download="property_brochure.pdf" class="btn-sm" style="background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(15,23,42,0.2);">📥 Download PDF Brochure</a>' :
                     '<a href="https://api.whatsapp.com/send?phone=919309035119&text=Hi%2C%20please%20send%20PDF%20brochure%20for%20' + encodeURIComponent(item.title) + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #0284c7; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📥 Download PDF Brochure</a>';
 
                 var videoBtn = item.video ? 
