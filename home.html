@@ -1528,165 +1528,104 @@
     </section>
 
     <!-- ===== PROPERTY CATEGORIES ===== -->
+        <!-- ===== PROPERTY CATEGORIES WITH EXPANDABLE SUB-FOLDER ACCORDION ===== -->
     <section class="re-section re-section--alt" id="properties-section">
         <div class="container">
-            <div class="text-center re-reveal" style="margin-bottom: 48px;">
-                <p class="re-section__label">Explore Property Categories</p>
-                <h2 class="re-section__heading">Find the Right Space for Business, Investment or Lifestyle</h2>
+            <div class="text-center re-reveal" style="margin-bottom: 44px;">
+                <p class="re-section__label">Explore Properties by Category</p>
+                <h2 class="re-section__heading">Select a Category to View Available Properties</h2>
+                <p class="re-section__subtext" style="max-width: 640px; margin: 0 auto;">Click on any of our 5 core deal sectors below to open its properties directly below on this page.</p>
             </div>
-            <div class="re-cats">
-                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Warehouse')" style="cursor: pointer;">
-                    <img src="./assets/images/hero/warehouse.jpg" alt="Warehouse Properties" loading="lazy">
+
+            <!-- THE 5 CATEGORY CARDS GRID -->
+            <div class="re-cats" id="categoryCardsGrid">
+                <!-- Card 1: Warehouse / Industrial -->
+                <div class="re-cats__card re-reveal" data-catkey="warehouse" onclick="toggleSubfolderCategory('warehouse')" style="cursor: pointer; position: relative;">
+                    <img src="./assets/images/hero/warehouse.jpg" alt="Warehouse / Industrial" loading="lazy">
                     <div class="re-cats__overlay">
-                        <h3>Warehouses</h3>
-                        <p>Industrial & logistics parks in Bhiwandi hub.</p>
-                        <button class="re-cats__btn" style="border:none;">View Listings →</button>
+                        <h3>1. Warehouse / Industrial</h3>
+                        <p>Logistics & Industrial Parks in Bhiwandi Hub.</p>
+                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+                            <span>Explore Properties</span>
+                            <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease;"><path d="M19 9l-7 7-7-7"/></svg>
+                        </button>
                     </div>
                 </div>
-                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Office Space')" style="cursor: pointer;">
-                    <img src="./assets/images/hero/office.jpg" alt="Commercial Offices" loading="lazy">
+
+                <!-- Card 2: Commercial Office -->
+                <div class="re-cats__card re-reveal" data-catkey="office" onclick="toggleSubfolderCategory('office')" style="cursor: pointer; position: relative;">
+                    <img src="./assets/images/hero/office.jpg" alt="Commercial Office" loading="lazy">
                     <div class="re-cats__overlay">
-                        <h3>Commercial Offices</h3>
-                        <p>Corporate office floors & commercial retail spaces.</p>
-                        <button class="re-cats__btn" style="border:none;">View Listings →</button>
+                        <h3>2. Commercial Office</h3>
+                        <p>Corporate Office Floors & Commercial Retail Spaces.</p>
+                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+                            <span>Explore Properties</span>
+                            <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease;"><path d="M19 9l-7 7-7-7"/></svg>
+                        </button>
                     </div>
                 </div>
-                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Weekend Home')" style="cursor: pointer;">
+
+                <!-- Card 3: Weekend Homes & Villas -->
+                <div class="re-cats__card re-reveal" data-catkey="villas" onclick="toggleSubfolderCategory('villas')" style="cursor: pointer; position: relative;">
                     <img src="./assets/images/hero/weekend-home.jpg" alt="Weekend Homes & Villas" loading="lazy">
                     <div class="re-cats__overlay">
-                        <h3>Weekend Homes &amp; Villas</h3>
-                        <p>Leisure hill estates, private pool retreats & luxury villas.</p>
-                        <button class="re-cats__btn" style="border:none;">View Listings →</button>
+                        <h3>3. Weekend Homes &amp; Villas</h3>
+                        <p>Hillside Estates, Private Pool Retreats & Luxury Villas.</p>
+                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+                            <span>Explore Properties</span>
+                            <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease;"><path d="M19 9l-7 7-7-7"/></svg>
+                        </button>
                     </div>
                 </div>
-                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Land / Plot')" style="cursor: pointer;">
-                    <img src="./assets/images/hero/land.jpg" alt="Land & Plots" loading="lazy">
+
+                <!-- Card 4: Land -->
+                <div class="re-cats__card re-reveal" data-catkey="land" onclick="toggleSubfolderCategory('land')" style="cursor: pointer; position: relative;">
+                    <img src="./assets/images/hero/land.jpg" alt="Land" loading="lazy">
                     <div class="re-cats__overlay">
-                        <h3>Land &amp; Plots</h3>
-                        <p>Clear title NA plots & industrial land opportunities.</p>
-                        <button class="re-cats__btn" style="border:none;">View Listings →</button>
+                        <h3>4. Land</h3>
+                        <p>Industrial Plots & Clear Title NA Land Opportunities.</p>
+                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+                            <span>Explore Properties</span>
+                            <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease;"><path d="M19 9l-7 7-7-7"/></svg>
+                        </button>
                     </div>
                 </div>
-                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Pre-Leased')" style="cursor: pointer;">
-                    <img src="./assets/images/hero/commercial.jpg" alt="Pre-Leased Properties" loading="lazy">
+
+                <!-- Card 5: Pre-Leased Property -->
+                <div class="re-cats__card re-reveal" data-catkey="preleased" onclick="toggleSubfolderCategory('preleased')" style="cursor: pointer; position: relative;">
+                    <img src="./assets/images/hero/commercial.jpg" alt="Pre-Leased Property" loading="lazy">
                     <div class="re-cats__overlay">
-                        <h3 style="color: #38bdf8;">🔥 Pre-Leased Properties</h3>
-                        <p>High-yield income assets with 7.5% to 8.5% guaranteed ROI.</p>
-                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff;">View 7.5% - 8.5% ROI Listings →</button>
+                        <h3 style="color: #38bdf8;">5. 🔥 Pre-Leased Property</h3>
+                        <p>High-Yield Income Assets (7.5% - 8.5% Guaranteed ROI).</p>
+                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+                            <span>Explore 7.5% - 8.5% ROI</span>
+                            <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease;"><path d="M19 9l-7 7-7-7"/></svg>
+                        </button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ===== PROPERTY SHOWCASE ===== -->
-        <!-- ===== FEATURED PROPERTIES (5 CATEGORY TILES ONLY) ===== -->
-        <!-- ===== FEATURED PROPERTIES (5 IN-PAGE CATEGORY SECTIONS) ===== -->
-    <section class="re-props" id="listings-section">
-        <div class="container">
-            <div class="re-props__header re-reveal" style="margin-bottom: 40px; text-center;">
-                <p class="re-section__label">Our 5 Core Real Estate Sectors</p>
-                <h2 class="re-section__heading">Explore Properties by Category</h2>
-                <p class="re-section__subtext" style="max-width: 680px; margin: 0 auto;">Click on any of our 5 core deal sectors below to view available property listings, photos, sqft specs, prices, and PDF brochures directly on the page.</p>
-            </div>
-
-            <!-- IN-PAGE CATEGORY SECTIONS CONTAINER -->
-            <div id="inpageCategoryContainer">
-                <!-- Category 1: Warehouse / Industrial -->
-                <div class="re-inpage-cat" id="cat-warehouse" style="margin-bottom: 32px; background: #ffffff; border: 1px solid rgba(15,23,42,0.12); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
-                    <div style="padding: 24px 28px; background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; cursor: pointer;" onclick="toggleCategoryInpage('warehouse')">
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <span style="font-size: 2rem;">🏭</span>
-                            <div>
-                                <h3 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 0;">1. Warehouse / Industrial</h3>
-                                <p style="color: #94a3b8; font-size: 0.88rem; margin: 4px 0 0 0;">Industrial & Logistics Parks in Bhiwandi Hub</p>
+            <!-- EXPANDABLE SUB-FOLDER CONTAINER (Right Below Category Cards Grid) -->
+            <div id="categorySubfolderWrapper" style="margin-top: 36px; overflow: hidden; max-height: 0; opacity: 0; transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease, transform 0.4s ease; transform: translateY(-10px);">
+                <div id="categorySubfolderCard" style="background: #ffffff; border: 2px solid #0284c7; border-radius: 24px; padding: 32px; box-shadow: 0 20px 50px rgba(2,132,199,0.15);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(15,23,42,0.1); flex-wrap: wrap; gap: 12px;">
+                        <div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="font-size: 1.5rem;">📁</span>
+                                <h3 id="subfolderTitle" style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin: 0;">Warehouse / Industrial Properties</h3>
                             </div>
+                            <p id="subfolderSubtitle" style="color: #64748b; font-size: 0.9rem; margin: 4px 0 0 34px;">Showing active property listings inside this folder</p>
                         </div>
-                        <button id="btn-cat-warehouse" style="background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; border: none; padding: 10px 22px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; cursor: pointer;">📂 View Properties ↓</button>
+                        <button onclick="closeSubfolderAccordion()" style="background: rgba(15,23,42,0.06); border: none; font-weight: 700; color: #0f172a; padding: 8px 18px; border-radius: 20px; cursor: pointer; font-size: 0.88rem;">Close Folder ✕</button>
                     </div>
-                    <div id="grid-cat-warehouse" style="padding: 28px; display: block;">
-                        <div class="re-props__grid" id="container-warehouse">
-                            <!-- Rendered dynamically -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Category 2: Commercial Office -->
-                <div class="re-inpage-cat" id="cat-office" style="margin-bottom: 32px; background: #ffffff; border: 1px solid rgba(15,23,42,0.12); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
-                    <div style="padding: 24px 28px; background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; cursor: pointer;" onclick="toggleCategoryInpage('office')">
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <span style="font-size: 2rem;">💼</span>
-                            <div>
-                                <h3 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 0;">2. Commercial Office</h3>
-                                <p style="color: #94a3b8; font-size: 0.88rem; margin: 4px 0 0 0;">Corporate Office Floors & Commercial Retail Spaces</p>
-                            </div>
-                        </div>
-                        <button id="btn-cat-office" style="background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; border: none; padding: 10px 22px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; cursor: pointer;">📂 View Properties ↓</button>
-                    </div>
-                    <div id="grid-cat-office" style="padding: 28px; display: block;">
-                        <div class="re-props__grid" id="container-office">
-                            <!-- Rendered dynamically -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Category 3: Weekend Home & Villas -->
-                <div class="re-inpage-cat" id="cat-villas" style="margin-bottom: 32px; background: #ffffff; border: 1px solid rgba(15,23,42,0.12); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
-                    <div style="padding: 24px 28px; background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; cursor: pointer;" onclick="toggleCategoryInpage('villas')">
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <span style="font-size: 2rem;">🏡</span>
-                            <div>
-                                <h3 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 0;">3. Weekend Home &amp; Villas</h3>
-                                <p style="color: #94a3b8; font-size: 0.88rem; margin: 4px 0 0 0;">Hillside Estates, Private Pool Retreats & Luxury Villas</p>
-                            </div>
-                        </div>
-                        <button id="btn-cat-villas" style="background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; border: none; padding: 10px 22px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; cursor: pointer;">📂 View Properties ↓</button>
-                    </div>
-                    <div id="grid-cat-villas" style="padding: 28px; display: block;">
-                        <div class="re-props__grid" id="container-villas">
-                            <!-- Rendered dynamically -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Category 4: Land -->
-                <div class="re-inpage-cat" id="cat-land" style="margin-bottom: 32px; background: #ffffff; border: 1px solid rgba(15,23,42,0.12); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
-                    <div style="padding: 24px 28px; background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; cursor: pointer;" onclick="toggleCategoryInpage('land')">
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <span style="font-size: 2rem;">📐</span>
-                            <div>
-                                <h3 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 0;">4. Land</h3>
-                                <p style="color: #94a3b8; font-size: 0.88rem; margin: 4px 0 0 0;">Industrial Plots & Clear Title NA Land Opportunities</p>
-                            </div>
-                        </div>
-                        <button id="btn-cat-land" style="background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; border: none; padding: 10px 22px; border-radius: 20px; font-weight: 700; font-size: 0.9rem; cursor: pointer;">📂 View Properties ↓</button>
-                    </div>
-                    <div id="grid-cat-land" style="padding: 28px; display: block;">
-                        <div class="re-props__grid" id="container-land">
-                            <!-- Rendered dynamically -->
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Category 5: Pre-Leased Property -->
-                <div class="re-inpage-cat" id="cat-preleased" style="margin-bottom: 32px; background: #ffffff; border: 1px solid rgba(15,23,42,0.12); border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">
-                    <div style="padding: 24px 28px; background: linear-gradient(135deg, #0f172a, #0284c7); color: #ffffff; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; cursor: pointer;" onclick="toggleCategoryInpage('preleased')">
-                        <div style="display: flex; align-items: center; gap: 16px;">
-                            <span style="font-size: 2rem;">🔥</span>
-                            <div>
-                                <h3 style="font-size: 1.35rem; font-weight: 800; color: #ffffff; margin: 0;">5. Pre-Leased Property (7.5% - 8.5% ROI)</h3>
-                                <p style="color: #e0f2fe; font-size: 0.88rem; margin: 4px 0 0 0;">High-Yield Income Assets with Guaranteed Rental Yields</p>
-                            </div>
-                        </div>
-                        <button id="btn-cat-preleased" style="background: #ffffff; color: #0284c7; border: none; padding: 10px 22px; border-radius: 20px; font-weight: 800; font-size: 0.9rem; cursor: pointer;">📂 View 7.5% - 8.5% ROI Properties ↓</button>
-                    </div>
-                    <div id="grid-cat-preleased" style="padding: 28px; display: block;">
-                        <div class="re-props__grid" id="container-preleased">
-                            <!-- Rendered dynamically -->
-                        </div>
+                    
+                    <!-- Property Cards Grid Inside Expanded Subfolder -->
+                    <div class="re-props__grid" id="subfolderPropertyGrid">
+                        <!-- Rendered dynamically -->
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
@@ -2114,94 +2053,137 @@
     })();
     </script>
 
-                            <!-- Global Cloud Real-Time In-Page 5-Category Renderer Script -->
+                                <!-- Global Expandable Category Subfolder Accordion Script -->
     <script>
-    function toggleCategoryInpage(catId) {
-        var grid = document.getElementById('grid-cat-' + catId);
-        var btn = document.getElementById('btn-cat-' + catId);
-        if (!grid) return;
-        if (grid.style.display === 'none') {
-            grid.style.display = 'block';
-            if (btn) btn.textContent = '📂 Hide Properties ↑';
-        } else {
-            grid.style.display = 'none';
-            if (btn) btn.textContent = '📂 View Properties ↓';
+    var activeSubfolderKey = null;
+
+    function toggleSubfolderCategory(catKey) {
+        var wrapper = document.getElementById('categorySubfolderWrapper');
+        var titleEl = document.getElementById('subfolderTitle');
+        var subtitleEl = document.getElementById('subfolderSubtitle');
+        var gridEl = document.getElementById('subfolderPropertyGrid');
+        if (!wrapper) return;
+
+        // Reset all card chevrons
+        document.querySelectorAll('.re-cats__card').forEach(function(card) {
+            card.style.borderColor = 'transparent';
+            var chev = card.querySelector('.cat-chevron');
+            if (chev) chev.style.transform = 'rotate(0deg)';
+        });
+
+        // If clicking the currently open category, close it
+        if (activeSubfolderKey === catKey && wrapper.style.maxHeight !== '0px' && wrapper.style.maxHeight !== '') {
+            closeSubfolderAccordion();
+            return;
         }
+
+        // Mark clicked category active and rotate chevron 180deg
+        var activeCard = document.querySelector('.re-cats__card[data-catkey="' + catKey + '"]');
+        if (activeCard) {
+            activeCard.style.borderColor = '#0284c7';
+            var chev = activeCard.querySelector('.cat-chevron');
+            if (chev) chev.style.transform = 'rotate(180deg)';
+        }
+
+        // Set titles for catKey
+        var catInfo = {
+            'warehouse': { title: '1. Warehouse / Industrial Properties Folder', subtitle: 'Logistics & Industrial Parks in Bhiwandi Hub' },
+            'office': { title: '2. Commercial Office Properties Folder', subtitle: 'Corporate Office Floors & Commercial Retail Spaces' },
+            'villas': { title: '3. Weekend Homes & Villas Folder', subtitle: 'Hillside Estates, Private Pool Retreats & Luxury Villas' },
+            'land': { title: '4. Land & Industrial Plots Folder', subtitle: 'Clear Title NA Land & Industrial Plots' },
+            'preleased': { title: '5. 🔥 Pre-Leased Properties (7.5% - 8.5% ROI) Folder', subtitle: 'High-Yield Income Assets with Guaranteed Rental Yields' }
+        };
+
+        var info = catInfo[catKey] || { title: catKey + ' Properties Folder', subtitle: 'Available property listings' };
+        if (titleEl) titleEl.textContent = info.title;
+        if (subtitleEl) subtitleEl.textContent = info.subtitle;
+
+        // Load & Render properties
+        var stored = localStorage.getItem('royaleProperties');
+        var props = [];
+        if (stored) {
+            try { props = JSON.parse(stored); } catch(e) {}
+        }
+
+        var filterFns = {
+            'warehouse': function(i) { return i.category === 'Warehouse' && (!i.badge || !i.badge.includes('ROI')); },
+            'office': function(i) { return (i.category === 'Office Space' || i.category === 'Commercial') && (!i.badge || !i.badge.includes('ROI')); },
+            'villas': function(i) { return i.category === 'Weekend Home' || i.category === 'Villa'; },
+            'land': function(i) { return i.category === 'Land / Plot' || i.category === 'Land'; },
+            'preleased': function(i) { return (i.badge && i.badge.includes('ROI')) || (i.title && i.title.includes('Pre-Leased')); }
+        };
+
+        var filtered = props.filter(filterFns[catKey] || function() { return true; });
+
+        if (gridEl) {
+            if (!filtered.length) {
+                gridEl.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 48px; background: #f8fafc; border-radius: 16px; color: #64748b;">' +
+                    '<svg width="48" height="48" fill="none" stroke="#94a3b8" stroke-width="1.5" viewBox="0 0 24 24" style="margin-bottom:12px;"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg>' +
+                    '<h4 style="font-size:1.1rem; color:#1e293b; margin-bottom:6px;">No Properties Found in this Folder</h4>' +
+                    '<p style="margin:0;">No active listings uploaded in this folder yet. Contact us for custom requirements!</p>' +
+                '</div>';
+            } else {
+                var html = '';
+                filtered.forEach(function(item) {
+                    var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
+                    var brochureBtn = item.brochure ? 
+                        '<a href="' + item.brochure + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #1e293b; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📄 PDF Brochure</a>' :
+                        '<a href="https://wa.me/919309035119?text=Hi%2C%20please%20send%20PDF%20brochure%20for%20' + encodeURIComponent(item.title) + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #0284c7; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📄 Request Brochure</a>';
+
+                    html += '<div class="re-props__card" style="background:#fff; border:1px solid rgba(15,23,42,0.1); border-radius:18px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.05);">' +
+                        '<div class="re-props__imgwrap" style="position:relative;">' +
+                            '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" style="width:100%; height:200px; object-fit:cover;">' +
+                            '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
+                        '</div>' +
+                        '<div class="re-props__body" style="padding:20px;">' +
+                            '<h3 class="re-props__title" style="font-size:1.15rem; font-weight:800; color:#0f172a; margin-bottom:8px;">' + item.title + '</h3>' +
+                            '<p class="re-props__loc" style="color:#64748b; font-size:0.85rem; margin-bottom:12px;"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ' + item.location + '</p>' +
+                            '<div class="re-props__specs" style="display:flex; gap:12px; margin-bottom:16px; font-size:0.82rem; color:#475569;">' +
+                                '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> ' + item.specsArea + '</span>' +
+                                '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> ' + item.specsFeature + '</span>' +
+                            '</div>' +
+                            '<div class="re-props__bottom" style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(15,23,42,0.08); padding-top:14px; flex-wrap:wrap; gap:8px;">' +
+                                '<div class="re-props__price" style="font-size:1.05rem; font-weight:800; color:#0284c7;">' + item.price + '</div>' +
+                                '<div style="display:flex; gap:6px; flex-wrap:wrap;">' +
+                                    brochureBtn +
+                                    '<a href="https://wa.me/919309035119?text=Hi%2C%20I%27m%20interested%20in%20' + encodeURIComponent(item.title) + '" target="_blank" class="re-props__enquiry" style="padding:8px 14px; font-size:0.8rem; font-weight:700;">Enquire Now</a>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>';
+                });
+                gridEl.innerHTML = html;
+            }
+        }
+
+        activeSubfolderKey = catKey;
+
+        // Expand accordion smoothly
+        wrapper.style.maxHeight = '3000px';
+        wrapper.style.opacity = '1';
+        wrapper.style.transform = 'translateY(0)';
+
+        // Smooth scroll to the expanded subfolder card
+        setTimeout(function() {
+            wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 150);
     }
 
-    (function syncInpagePropertiesFromCloud() {
-        var GIST_ID = 'eebf5c328e2a6047fb9e71338a6836ba';
-
-        function renderInpageProps(props) {
-            if (!props || !props.length) return;
-
-            var catMap = {
-                'warehouse': props.filter(function(i) { return i.category === 'Warehouse' && (!i.badge || !i.badge.includes('ROI')); }),
-                'office': props.filter(function(i) { return (i.category === 'Office Space' || i.category === 'Commercial') && (!i.badge || !i.badge.includes('ROI')); }),
-                'villas': props.filter(function(i) { return i.category === 'Weekend Home' || i.category === 'Villa'; }),
-                'land': props.filter(function(i) { return i.category === 'Land / Plot' || i.category === 'Land'; }),
-                'preleased': props.filter(function(i) { return (i.badge && i.badge.includes('ROI')) || (i.title && i.title.includes('Pre-Leased')); })
-            };
-
-            for (var key in catMap) {
-                var container = document.getElementById('container-' + key);
-                if (!container) continue;
-
-                var items = catMap[key];
-                if (!items.length) {
-                    container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 32px; background: #f8fafc; border-radius: 12px; color: #64748b;">No active property listings uploaded in this category yet. Contact us for custom requirements!</div>';
-                } else {
-                    var html = '';
-                    items.forEach(function(item) {
-                        var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
-                        var brochureBtn = item.brochure ? 
-                            '<a href="' + item.brochure + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #1e293b; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📄 PDF Brochure</a>' :
-                            '<a href="https://wa.me/919309035119?text=Hi%2C%20please%20send%20PDF%20brochure%20for%20' + encodeURIComponent(item.title) + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #0284c7; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📄 Request Brochure</a>';
-
-                        html += '<div class="re-props__card" style="background:#fff; border:1px solid rgba(15,23,42,0.1); border-radius:18px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.05);">' +
-                            '<div class="re-props__imgwrap" style="position:relative;">' +
-                                '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" style="width:100%; height:200px; object-fit:cover;">' +
-                                '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
-                            '</div>' +
-                            '<div class="re-props__body" style="padding:20px;">' +
-                                '<h3 class="re-props__title" style="font-size:1.15rem; font-weight:800; color:#0f172a; margin-bottom:8px;">' + item.title + '</h3>' +
-                                '<p class="re-props__loc" style="color:#64748b; font-size:0.85rem; margin-bottom:12px;"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ' + item.location + '</p>' +
-                                '<div class="re-props__specs" style="display:flex; gap:12px; margin-bottom:16px; font-size:0.82rem; color:#475569;">' +
-                                    '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> ' + item.specsArea + '</span>' +
-                                    '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> ' + item.specsFeature + '</span>' +
-                                '</div>' +
-                                '<div class="re-props__bottom" style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid rgba(15,23,42,0.08); padding-top:14px; flex-wrap:wrap; gap:8px;">' +
-                                    '<div class="re-props__price" style="font-size:1.05rem; font-weight:800; color:#0284c7;">' + item.price + '</div>' +
-                                    '<div style="display:flex; gap:6px; flex-wrap:wrap;">' +
-                                        brochureBtn +
-                                        '<a href="https://wa.me/919309035119?text=Hi%2C%20I%27m%20interested%20in%20' + encodeURIComponent(item.title) + '" target="_blank" class="re-props__enquiry" style="padding:8px 14px; font-size:0.8rem; font-weight:700;">Enquire</a>' +
-                                    '</div>' +
-                                '</div>' +
-                            '</div>' +
-                        '</div>';
-                    });
-                    container.innerHTML = html;
-                }
-            }
+    function closeSubfolderAccordion() {
+        var wrapper = document.getElementById('categorySubfolderWrapper');
+        if (wrapper) {
+            wrapper.style.maxHeight = '0';
+            wrapper.style.opacity = '0';
+            wrapper.style.transform = 'translateY(-10px)';
         }
 
-        var stored = localStorage.getItem('royaleProperties');
-        if (stored) {
-            try { renderInpageProps(JSON.parse(stored)); } catch(e) {}
-        }
+        document.querySelectorAll('.re-cats__card').forEach(function(card) {
+            card.style.borderColor = 'transparent';
+            var chev = card.querySelector('.cat-chevron');
+            if (chev) chev.style.transform = 'rotate(0deg)';
+        });
 
-        fetch('https://api.github.com/gists/' + GIST_ID + '?t=' + Date.now(), {
-            headers: { 'Accept': 'application/vnd.github.v3+json' }
-        })
-        .then(function(res) { return res.json(); })
-        .then(function(data) {
-            if (data && data.files && data.files['properties.json']) {
-                var content = JSON.parse(data.files['properties.json'].content);
-                localStorage.setItem('royaleProperties', JSON.stringify(content));
-                renderInpageProps(content);
-            }
-        })
-        .catch(function(err) { console.error('Cloud Property Sync Error:', err); });
-    })();
+        activeSubfolderKey = null;
+    }
     </script>
 </body></html>
