@@ -1535,52 +1535,44 @@
                 <h2 class="re-section__heading">Find the Right Space for Business, Investment or Lifestyle</h2>
             </div>
             <div class="re-cats">
-                <div class="re-cats__card re-reveal">
+                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Warehouse')" style="cursor: pointer;">
                     <img src="./assets/images/hero/warehouse.jpg" alt="Warehouse Properties" loading="lazy">
                     <div class="re-cats__overlay">
                         <h3>Warehouses</h3>
-                        <p>Industrial and logistics property opportunities.</p>
-                        <a href="#contact-section" class="re-cats__btn">Enquire →</a>
+                        <p>Industrial & logistics parks in Bhiwandi hub.</p>
+                        <button class="re-cats__btn" style="border:none;">View Listings →</button>
                     </div>
                 </div>
-                <div class="re-cats__card re-reveal">
-                    <img src="./assets/images/hero/commercial.jpg" alt="Commercial Properties" loading="lazy">
+                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Office Space')" style="cursor: pointer;">
+                    <img src="./assets/images/hero/office.jpg" alt="Commercial Offices" loading="lazy">
                     <div class="re-cats__overlay">
-                        <h3>Commercial</h3>
-                        <p>Commercial spaces and investment opportunities.</p>
-                        <a href="#contact-section" class="re-cats__btn">Enquire →</a>
+                        <h3>Commercial Offices</h3>
+                        <p>Corporate office floors & commercial retail spaces.</p>
+                        <button class="re-cats__btn" style="border:none;">View Listings →</button>
                     </div>
                 </div>
-                <div class="re-cats__card re-reveal">
-                    <img src="./assets/images/hero/office.jpg" alt="Office Spaces" loading="lazy">
+                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Weekend Home')" style="cursor: pointer;">
+                    <img src="./assets/images/hero/weekend-home.jpg" alt="Weekend Homes & Villas" loading="lazy">
                     <div class="re-cats__overlay">
-                        <h3>Office Spaces</h3>
-                        <p>Professional spaces for businesses.</p>
-                        <a href="#contact-section" class="re-cats__btn">Enquire →</a>
+                        <h3>Weekend Homes &amp; Villas</h3>
+                        <p>Leisure hill estates, private pool retreats & luxury villas.</p>
+                        <button class="re-cats__btn" style="border:none;">View Listings →</button>
                     </div>
                 </div>
-                <div class="re-cats__card re-reveal">
-                    <img src="./assets/images/hero/land.jpg" alt="Land and Plots" loading="lazy">
+                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Land / Plot')" style="cursor: pointer;">
+                    <img src="./assets/images/hero/land.jpg" alt="Land & Plots" loading="lazy">
                     <div class="re-cats__overlay">
-                        <h3>Land & Plots</h3>
-                        <p>Land opportunities based on client requirements.</p>
-                        <a href="#contact-section" class="re-cats__btn">Enquire →</a>
+                        <h3>Land &amp; Plots</h3>
+                        <p>Clear title NA plots & industrial land opportunities.</p>
+                        <button class="re-cats__btn" style="border:none;">View Listings →</button>
                     </div>
                 </div>
-                <div class="re-cats__card re-reveal">
-                    <img src="./assets/images/hero/weekend-home.jpg" alt="Weekend Homes" loading="lazy">
+                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Pre-Leased')" style="cursor: pointer;">
+                    <img src="./assets/images/hero/commercial.jpg" alt="Pre-Leased Properties" loading="lazy">
                     <div class="re-cats__overlay">
-                        <h3>Weekend Homes</h3>
-                        <p>Properties for leisure and lifestyle requirements.</p>
-                        <a href="#contact-section" class="re-cats__btn">Enquire →</a>
-                    </div>
-                </div>
-                <div class="re-cats__card re-reveal">
-                    <img src="./assets/images/hero/villa.jpg" alt="Villas" loading="lazy">
-                    <div class="re-cats__overlay">
-                        <h3>Villas</h3>
-                        <p>Premium residential and lifestyle properties.</p>
-                        <a href="#contact-section" class="re-cats__btn">Enquire →</a>
+                        <h3 style="color: #38bdf8;">🔥 Pre-Leased Properties</h3>
+                        <p>High-yield income assets with 7.5% to 8.5% guaranteed ROI.</p>
+                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff;">View 7.5% - 8.5% ROI Listings →</button>
                     </div>
                 </div>
             </div>
@@ -1593,7 +1585,17 @@
             <div class="re-props__header re-reveal">
                 <p class="re-section__label">Featured Properties</p>
                 <h2 class="re-section__heading">Explore Available Properties</h2>
-                <p class="re-section__subtext" style="max-width: 580px; margin: 0 auto;">Browse through our latest property listings across warehouses, commercial spaces, offices, villas and more.</p>
+                <p class="re-section__subtext" style="max-width: 580px; margin: 0 auto; margin-bottom: 28px;">Browse through our latest property listings across warehouses, commercial offices, villas, land and pre-leased assets.</p>
+
+                <!-- Interactive Category Filter Tabs -->
+                <div class="re-filter-tabs" id="propertyFilterTabs">
+                    <button class="re-filter-tab active" onclick="filterProperties('All', this)">All Properties</button>
+                    <button class="re-filter-tab" onclick="filterProperties('Warehouse', this)">Warehouses</button>
+                    <button class="re-filter-tab" onclick="filterProperties('Office Space', this)">Commercial Offices</button>
+                    <button class="re-filter-tab" onclick="filterProperties('Weekend Home', this)">Weekend Homes &amp; Villas</button>
+                    <button class="re-filter-tab" onclick="filterProperties('Land / Plot', this)">Land &amp; Plots</button>
+                    <button class="re-filter-tab" onclick="filterProperties('Pre-Leased', this)" style="color: #0284c7; font-weight: 700;">🔥 Pre-Leased (7.5% - 8.5% ROI)</button>
+                </div>
             </div>
             <div class="re-props__grid">
 
@@ -2242,5 +2244,137 @@
         })
         .catch(function(err) { console.error('Cloud Property Sync Error:', err); });
     })();
+    </script>
+
+    <!-- Filter Tabs Style -->
+    <style>
+    .re-filter-tabs { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
+    .re-filter-tab {
+        padding: 10px 20px; border-radius: 30px; background: rgba(15,23,42,0.06); border: 1px solid rgba(15,23,42,0.12);
+        color: #1e293b; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease; outline: none;
+    }
+    .re-filter-tab:hover, .re-filter-tab.active {
+        background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; border-color: #0284c7;
+        box-shadow: 0 6px 18px rgba(2,132,199,0.3);
+    }
+    .re-cat-modal {
+        position: fixed; inset: 0; background: rgba(15,23,42,0.85); backdrop-filter: blur(8px);
+        z-index: 99999; display: none; align-items: center; justify-content: center; padding: 20px;
+    }
+    .re-cat-modal.active { display: flex; }
+    .re-cat-modal-content {
+        background: #ffffff; border-radius: 24px; max-width: 960px; width: 100%; max-height: 85vh;
+        overflow-y: auto; padding: 32px; box-shadow: 0 25px 60px rgba(0,0,0,0.3); border: 1px solid rgba(15,23,42,0.1);
+    }
+    </style>
+
+    <!-- INTERACTIVE CATEGORY DETAIL MODAL -->
+    <div class="re-cat-modal" id="categoryDetailModal" onclick="if(event.target === this) closeCategoryModal();">
+        <div class="re-cat-modal-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(15,23,42,0.1);">
+                <div>
+                    <h3 id="catModalTitle" style="font-size: 1.6rem; font-weight: 800; color: #0f172a; margin: 0;">Property Listings</h3>
+                    <p style="color: #64748b; font-size: 0.9rem; margin: 0; margin-top: 4px;">Available property opportunities in this category</p>
+                </div>
+                <button onclick="closeCategoryModal()" style="background: rgba(15,23,42,0.06); border: none; font-size: 1.5rem; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; color: #0f172a;">&times;</button>
+            </div>
+            <div id="catModalListings" class="re-props__grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <!-- Rendered dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Modal & Filter JS -->
+    <script>
+    function openCategoryModal(catKey) {
+        var stored = localStorage.getItem('royaleProperties');
+        var props = [];
+        if (stored) {
+            try { props = JSON.parse(stored); } catch(e) {}
+        }
+        
+        var filtered = props.filter(function(item) {
+            if (catKey === 'Pre-Leased') {
+                return (item.badge && item.badge.includes('ROI')) || (item.title && item.title.includes('Pre-Leased'));
+            }
+            return item.category === catKey || (catKey === 'Weekend Home' && (item.category === 'Villa' || item.category === 'Weekend Home'));
+        });
+
+        var modal = document.getElementById('categoryDetailModal');
+        var title = document.getElementById('catModalTitle');
+        var container = document.getElementById('catModalListings');
+
+        var catNames = {
+            'Warehouse': 'Industrial & Logistics Warehouses',
+            'Office Space': 'Commercial Office Floors & Spaces',
+            'Weekend Home': 'Weekend Homes & Luxury Villas',
+            'Land / Plot': 'Industrial Plots & Clear Title NA Land',
+            'Pre-Leased': '🔥 Pre-Leased Properties (7.5% - 8.5% ROI)'
+        };
+
+        if (title) title.textContent = catNames[catKey] || catKey;
+
+        if (container) {
+            if (!filtered.length) {
+                container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #64748b;">No active listings found in this category. Contact us for custom requirements!</div>';
+            } else {
+                var html = '';
+                filtered.forEach(function(item) {
+                    var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
+                    html += '<div class="re-props__card">' +
+                        '<div class="re-props__imgwrap">' +
+                            '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy">' +
+                            '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
+                        '</div>' +
+                        '<div class="re-props__body">' +
+                            '<h3 class="re-props__title">' + item.title + '</h3>' +
+                            '<p class="re-props__loc"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ' + item.location + '</p>' +
+                            '<div class="re-props__specs">' +
+                                '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> ' + item.specsArea + '</span>' +
+                                '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> ' + item.specsFeature + '</span>' +
+                            '</div>' +
+                            '<div class="re-props__bottom">' +
+                                '<div class="re-props__price">' + item.price + '</div>' +
+                                '<a href="https://wa.me/919309035119?text=Hi%2C%20I%27m%20interested%20in%20' + encodeURIComponent(item.title) + '" target="_blank" class="re-props__enquiry">Enquire Now</a>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>';
+                });
+                container.innerHTML = html;
+            }
+        }
+
+        if (modal) {
+            modal.classList.add('active');
+            modal.style.display = 'flex';
+        }
+    }
+
+    function closeCategoryModal() {
+        var modal = document.getElementById('categoryDetailModal');
+        if (modal) {
+            modal.classList.remove('active');
+            modal.style.display = 'none';
+        }
+    }
+
+    function filterProperties(catKey, btnEl) {
+        document.querySelectorAll('.re-filter-tab').forEach(function(btn) { btn.classList.remove('active'); });
+        if (btnEl) btnEl.classList.add('active');
+
+        var cards = document.querySelectorAll('#listings-section .re-props__card');
+        cards.forEach(function(card) {
+            var text = card.textContent;
+            if (catKey === 'All') {
+                card.style.display = 'block';
+            } else if (catKey === 'Pre-Leased') {
+                card.style.display = (text.includes('ROI') || text.includes('Pre-Leased')) ? 'block' : 'none';
+            } else if (catKey === 'Weekend Home') {
+                card.style.display = (text.includes('Weekend') || text.includes('Villa')) ? 'block' : 'none';
+            } else {
+                card.style.display = text.includes(catKey) ? 'block' : 'none';
+            }
+        });
+    }
     </script>
 </body></html>
