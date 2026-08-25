@@ -2191,7 +2191,7 @@
     })();
     </script>
 
-                <!-- Global Cloud Real-Time Property Database Sync Script -->
+                    <!-- Global Cloud Real-Time Property Database Sync Script -->
     <script>
     (function syncPropertiesFromCloud() {
         var GIST_ID = 'eebf5c328e2a6047fb9e71338a6836ba';
@@ -2203,10 +2203,11 @@
 
             var html = '';
             props.forEach(function(item) {
-                var badgeClass = item.badge === 'For Sale' ? 're-props__badge--sale' : 're-props__badge--lease';
-                html += '<div class="re-props__card re-reveal visible">' +
+                var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
+                var catTag = item.category || 'Warehouse';
+                html += '<div class="re-props__card re-reveal visible" data-category="' + catTag + '" data-badge="' + (item.badge || '') + '">' +
                     '<div class="re-props__imgwrap">' +
-                        '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" onerror="this.src='./assets/images/hero/commercial.jpg'">' +
+                        '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" onerror="this.src='./assets/images/hero/warehouse.jpg'">' +
                         '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
                     '</div>' +
                     '<div class="re-props__body">' +
@@ -2218,7 +2219,7 @@
                         '</div>' +
                         '<div class="re-props__bottom">' +
                             '<div class="re-props__price">' + item.price + '</div>' +
-                            '<a href="#contact-section" class="re-props__enquiry">Enquire</a>' +
+                            '<a href="https://wa.me/919309035119?text=Hi%2C%20I%27m%20interested%20in%20' + encodeURIComponent(item.title) + '" target="_blank" class="re-props__enquiry">Enquire</a>' +
                         '</div>' +
                     '</div>' +
                 '</div>';
@@ -2244,137 +2245,5 @@
         })
         .catch(function(err) { console.error('Cloud Property Sync Error:', err); });
     })();
-    </script>
-
-    <!-- Filter Tabs Style -->
-    <style>
-    .re-filter-tabs { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 32px; }
-    .re-filter-tab {
-        padding: 10px 20px; border-radius: 30px; background: rgba(15,23,42,0.06); border: 1px solid rgba(15,23,42,0.12);
-        color: #1e293b; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: all 0.3s ease; outline: none;
-    }
-    .re-filter-tab:hover, .re-filter-tab.active {
-        background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; border-color: #0284c7;
-        box-shadow: 0 6px 18px rgba(2,132,199,0.3);
-    }
-    .re-cat-modal {
-        position: fixed; inset: 0; background: rgba(15,23,42,0.85); backdrop-filter: blur(8px);
-        z-index: 99999; display: none; align-items: center; justify-content: center; padding: 20px;
-    }
-    .re-cat-modal.active { display: flex; }
-    .re-cat-modal-content {
-        background: #ffffff; border-radius: 24px; max-width: 960px; width: 100%; max-height: 85vh;
-        overflow-y: auto; padding: 32px; box-shadow: 0 25px 60px rgba(0,0,0,0.3); border: 1px solid rgba(15,23,42,0.1);
-    }
-    </style>
-
-    <!-- INTERACTIVE CATEGORY DETAIL MODAL -->
-    <div class="re-cat-modal" id="categoryDetailModal" onclick="if(event.target === this) closeCategoryModal();">
-        <div class="re-cat-modal-content">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(15,23,42,0.1);">
-                <div>
-                    <h3 id="catModalTitle" style="font-size: 1.6rem; font-weight: 800; color: #0f172a; margin: 0;">Property Listings</h3>
-                    <p style="color: #64748b; font-size: 0.9rem; margin: 0; margin-top: 4px;">Available property opportunities in this category</p>
-                </div>
-                <button onclick="closeCategoryModal()" style="background: rgba(15,23,42,0.06); border: none; font-size: 1.5rem; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; color: #0f172a;">&times;</button>
-            </div>
-            <div id="catModalListings" class="re-props__grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-                <!-- Rendered dynamically -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Category Modal & Filter JS -->
-    <script>
-    function openCategoryModal(catKey) {
-        var stored = localStorage.getItem('royaleProperties');
-        var props = [];
-        if (stored) {
-            try { props = JSON.parse(stored); } catch(e) {}
-        }
-        
-        var filtered = props.filter(function(item) {
-            if (catKey === 'Pre-Leased') {
-                return (item.badge && item.badge.includes('ROI')) || (item.title && item.title.includes('Pre-Leased'));
-            }
-            return item.category === catKey || (catKey === 'Weekend Home' && (item.category === 'Villa' || item.category === 'Weekend Home'));
-        });
-
-        var modal = document.getElementById('categoryDetailModal');
-        var title = document.getElementById('catModalTitle');
-        var container = document.getElementById('catModalListings');
-
-        var catNames = {
-            'Warehouse': 'Industrial & Logistics Warehouses',
-            'Office Space': 'Commercial Office Floors & Spaces',
-            'Weekend Home': 'Weekend Homes & Luxury Villas',
-            'Land / Plot': 'Industrial Plots & Clear Title NA Land',
-            'Pre-Leased': '🔥 Pre-Leased Properties (7.5% - 8.5% ROI)'
-        };
-
-        if (title) title.textContent = catNames[catKey] || catKey;
-
-        if (container) {
-            if (!filtered.length) {
-                container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #64748b;">No active listings found in this category. Contact us for custom requirements!</div>';
-            } else {
-                var html = '';
-                filtered.forEach(function(item) {
-                    var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
-                    html += '<div class="re-props__card">' +
-                        '<div class="re-props__imgwrap">' +
-                            '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy">' +
-                            '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
-                        '</div>' +
-                        '<div class="re-props__body">' +
-                            '<h3 class="re-props__title">' + item.title + '</h3>' +
-                            '<p class="re-props__loc"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ' + item.location + '</p>' +
-                            '<div class="re-props__specs">' +
-                                '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> ' + item.specsArea + '</span>' +
-                                '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> ' + item.specsFeature + '</span>' +
-                            '</div>' +
-                            '<div class="re-props__bottom">' +
-                                '<div class="re-props__price">' + item.price + '</div>' +
-                                '<a href="https://wa.me/919309035119?text=Hi%2C%20I%27m%20interested%20in%20' + encodeURIComponent(item.title) + '" target="_blank" class="re-props__enquiry">Enquire Now</a>' +
-                            '</div>' +
-                        '</div>' +
-                    '</div>';
-                });
-                container.innerHTML = html;
-            }
-        }
-
-        if (modal) {
-            modal.classList.add('active');
-            modal.style.display = 'flex';
-        }
-    }
-
-    function closeCategoryModal() {
-        var modal = document.getElementById('categoryDetailModal');
-        if (modal) {
-            modal.classList.remove('active');
-            modal.style.display = 'none';
-        }
-    }
-
-    function filterProperties(catKey, btnEl) {
-        document.querySelectorAll('.re-filter-tab').forEach(function(btn) { btn.classList.remove('active'); });
-        if (btnEl) btnEl.classList.add('active');
-
-        var cards = document.querySelectorAll('#listings-section .re-props__card');
-        cards.forEach(function(card) {
-            var text = card.textContent;
-            if (catKey === 'All') {
-                card.style.display = 'block';
-            } else if (catKey === 'Pre-Leased') {
-                card.style.display = (text.includes('ROI') || text.includes('Pre-Leased')) ? 'block' : 'none';
-            } else if (catKey === 'Weekend Home') {
-                card.style.display = (text.includes('Weekend') || text.includes('Villa')) ? 'block' : 'none';
-            } else {
-                card.style.display = text.includes(catKey) ? 'block' : 'none';
-            }
-        });
-    }
     </script>
 </body></html>
