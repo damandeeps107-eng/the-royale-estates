@@ -1874,6 +1874,27 @@
     var currentLightboxGallery = [];
     var currentLightboxIndex = 0;
 
+    function downloadPdfBrochure(brochureUrl, title) {
+        if (brochureUrl && brochureUrl.trim()) {
+            var link = document.createElement('a');
+            link.href = brochureUrl.trim();
+            link.download = (title ? title.replace(/[^a-zA-Z0-9]/g, "_") : "Property") + "_Brochure.pdf";
+            link.target = "_blank";
+            document.body.appendChild(link);
+            link.click();
+            setTimeout(function() {
+                if (link.parentNode) link.parentNode.removeChild(link);
+            }, 100);
+        } else {
+            var text = encodeURIComponent("Hi, please send PDF brochure for " + (title || "this property"));
+            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            var waUrl = isMobile ?
+                "whatsapp://send?phone=919309035119&text=" + text :
+                "https://api.whatsapp.com/send?phone=919309035119&text=" + text;
+            window.location.href = waUrl;
+        }
+    }
+
     function openFullPhotoModal(imgSrc, title, galleryJsonStr, index) {
         var modal = document.getElementById('fullPhotoModal');
         var img = document.getElementById('fullPhotoImg');
