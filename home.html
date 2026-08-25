@@ -695,6 +695,19 @@
         pointer-events: none;
     }
 </style>
+<style>
+    /* Bulletproof Clickability for Category Cards */
+    .re-cats__card {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    .re-cats__card *, .re-cats__overlay, .re-cats__btn {
+        pointer-events: auto !important;
+        cursor: pointer !important;
+    }
+</style>
 </head>
 
 <body>
@@ -1539,65 +1552,61 @@
 
             <!-- THE 5 CATEGORY CARDS GRID -->
             <div class="re-cats" id="categoryCardsGrid">
-                <!-- Card 1: Warehouse / Industrial -->
-                <div class="re-cats__card re-reveal" data-catkey="warehouse" onclick="toggleSubfolderCategory('warehouse')" style="cursor: pointer; position: relative;">
-                    <img src="./assets/images/hero/warehouse.jpg" alt="Warehouse / Industrial" loading="lazy">
-                    <div class="re-cats__overlay">
-                        <h3>1. Warehouse / Industrial</h3>
-                        <p>Logistics & Industrial Parks in Bhiwandi Hub.</p>
-                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+                <!-- Card: 1. Warehouse / Industrial -->
+                <div class="re-cats__card visible" data-catkey="warehouse" onclick="toggleSubfolderCategory('warehouse', event)">
+                    <img src="./assets/images/hero/warehouse.jpg" alt="1. Warehouse / Industrial" loading="lazy" onclick="toggleSubfolderCategory('warehouse', event)">
+                    <div class="re-cats__overlay" onclick="toggleSubfolderCategory('warehouse', event)">
+                        <h3 onclick="toggleSubfolderCategory('warehouse', event)">1. Warehouse / Industrial</h3>
+                        <p onclick="toggleSubfolderCategory('warehouse', event)">Logistics & Industrial Parks in Bhiwandi Hub.</p>
+                        <button type="button" class="re-cats__btn" onclick="toggleSubfolderCategory('warehouse', event)">
                             <span>Explore Properties</span>
                             <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease;"><path d="M19 9l-7 7-7-7"/></svg>
                         </button>
                     </div>
                 </div>
-
-                <!-- Card 2: Commercial Office -->
-                <div class="re-cats__card re-reveal" data-catkey="office" onclick="toggleSubfolderCategory('office')" style="cursor: pointer; position: relative;">
-                    <img src="./assets/images/hero/office.jpg" alt="Commercial Office" loading="lazy">
-                    <div class="re-cats__overlay">
-                        <h3>2. Commercial Office</h3>
-                        <p>Corporate Office Floors & Commercial Retail Spaces.</p>
-                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+                <!-- Card: 2. Commercial Office -->
+                <div class="re-cats__card visible" data-catkey="office" onclick="toggleSubfolderCategory('office', event)">
+                    <img src="./assets/images/hero/office.jpg" alt="2. Commercial Office" loading="lazy" onclick="toggleSubfolderCategory('office', event)">
+                    <div class="re-cats__overlay" onclick="toggleSubfolderCategory('office', event)">
+                        <h3 onclick="toggleSubfolderCategory('office', event)">2. Commercial Office</h3>
+                        <p onclick="toggleSubfolderCategory('office', event)">Corporate Office Floors & Commercial Retail Spaces.</p>
+                        <button type="button" class="re-cats__btn" onclick="toggleSubfolderCategory('office', event)">
                             <span>Explore Properties</span>
                             <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease;"><path d="M19 9l-7 7-7-7"/></svg>
                         </button>
                     </div>
                 </div>
-
-                <!-- Card 3: Weekend Homes & Villas -->
-                <div class="re-cats__card re-reveal" data-catkey="villas" onclick="toggleSubfolderCategory('villas')" style="cursor: pointer; position: relative;">
-                    <img src="./assets/images/hero/weekend-home.jpg" alt="Weekend Homes & Villas" loading="lazy">
-                    <div class="re-cats__overlay">
-                        <h3>3. Weekend Homes &amp; Villas</h3>
-                        <p>Hillside Estates, Private Pool Retreats & Luxury Villas.</p>
-                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+                <!-- Card: 3. Weekend Homes & Villas -->
+                <div class="re-cats__card visible" data-catkey="villas" onclick="toggleSubfolderCategory('villas', event)">
+                    <img src="./assets/images/hero/weekend-home.jpg" alt="3. Weekend Homes & Villas" loading="lazy" onclick="toggleSubfolderCategory('villas', event)">
+                    <div class="re-cats__overlay" onclick="toggleSubfolderCategory('villas', event)">
+                        <h3 onclick="toggleSubfolderCategory('villas', event)">3. Weekend Homes & Villas</h3>
+                        <p onclick="toggleSubfolderCategory('villas', event)">Hillside Estates, Private Pool Retreats & Luxury Villas.</p>
+                        <button type="button" class="re-cats__btn" onclick="toggleSubfolderCategory('villas', event)">
                             <span>Explore Properties</span>
                             <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease;"><path d="M19 9l-7 7-7-7"/></svg>
                         </button>
                     </div>
                 </div>
-
-                <!-- Card 4: Land -->
-                <div class="re-cats__card re-reveal" data-catkey="land" onclick="toggleSubfolderCategory('land')" style="cursor: pointer; position: relative;">
-                    <img src="./assets/images/hero/land.jpg" alt="Land" loading="lazy">
-                    <div class="re-cats__overlay">
-                        <h3>4. Land</h3>
-                        <p>Industrial Plots & Clear Title NA Land Opportunities.</p>
-                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+                <!-- Card: 4. Land -->
+                <div class="re-cats__card visible" data-catkey="land" onclick="toggleSubfolderCategory('land', event)">
+                    <img src="./assets/images/hero/land.jpg" alt="4. Land" loading="lazy" onclick="toggleSubfolderCategory('land', event)">
+                    <div class="re-cats__overlay" onclick="toggleSubfolderCategory('land', event)">
+                        <h3 onclick="toggleSubfolderCategory('land', event)">4. Land</h3>
+                        <p onclick="toggleSubfolderCategory('land', event)">Industrial Plots & Clear Title NA Land Opportunities.</p>
+                        <button type="button" class="re-cats__btn" onclick="toggleSubfolderCategory('land', event)">
                             <span>Explore Properties</span>
                             <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease;"><path d="M19 9l-7 7-7-7"/></svg>
                         </button>
                     </div>
                 </div>
-
-                <!-- Card 5: Pre-Leased Property -->
-                <div class="re-cats__card re-reveal" data-catkey="preleased" onclick="toggleSubfolderCategory('preleased')" style="cursor: pointer; position: relative;">
-                    <img src="./assets/images/hero/commercial.jpg" alt="Pre-Leased Property" loading="lazy">
-                    <div class="re-cats__overlay">
-                        <h3 style="color: #38bdf8;">5. 🔥 Pre-Leased Property</h3>
-                        <p>High-Yield Income Assets (7.5% - 8.5% Guaranteed ROI).</p>
-                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; display: inline-flex; align-items: center; gap: 8px; font-weight: 700;">
+                <!-- Card: 5. 🔥 Pre-Leased Property -->
+                <div class="re-cats__card visible" data-catkey="preleased" onclick="toggleSubfolderCategory('preleased', event)">
+                    <img src="./assets/images/hero/commercial.jpg" alt="5. 🔥 Pre-Leased Property" loading="lazy" onclick="toggleSubfolderCategory('preleased', event)">
+                    <div class="re-cats__overlay" onclick="toggleSubfolderCategory('preleased', event)">
+                        <h3 style="color: #38bdf8;" onclick="toggleSubfolderCategory('preleased', event)">5. 🔥 Pre-Leased Property</h3>
+                        <p onclick="toggleSubfolderCategory('preleased', event)">High-Yield Income Assets (7.5% - 8.5% Guaranteed ROI).</p>
+                        <button type="button" class="re-cats__btn" onclick="toggleSubfolderCategory('preleased', event)">
                             <span>Explore 7.5% - 8.5% ROI</span>
                             <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease;"><path d="M19 9l-7 7-7-7"/></svg>
                         </button>
