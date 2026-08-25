@@ -913,6 +913,24 @@
 
     <!-- Sticky header + Image slideshow controller -->
     <script>
+    // Auto purge legacy cached demo properties from browser localStorage
+    (function purgeLegacyCache() {
+        var stored = localStorage.getItem('royaleProperties');
+        if (stored) {
+            try {
+                var parsed = JSON.parse(stored);
+                if (parsed && parsed.length) {
+                    var hasDemo = parsed.some(function(p) {
+                        return p.title && (p.title.includes('Industrial Logistics') || p.title.includes('Corporate Office Floor') || p.title.includes('Hillside Villa') || p.title.includes('Plot Land') || p.title.includes('Scenic Weekend'));
+                    });
+                    if (hasDemo) {
+                        localStorage.removeItem('royaleProperties');
+                    }
+                }
+            } catch(e) {}
+        }
+    })();
+
     function handleImgError(img) { img.src = "./assets/images/hero/warehouse.jpg"; }
 
     (function() {
