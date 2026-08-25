@@ -1875,16 +1875,27 @@
     var currentLightboxIndex = 0;
 
     function downloadPdfBrochure(brochureUrl, title) {
-        if (brochureUrl && brochureUrl.trim()) {
-            var link = document.createElement('a');
-            link.href = brochureUrl.trim();
-            link.download = (title ? title.replace(/[^a-zA-Z0-9]/g, "_") : "Property") + "_Brochure.pdf";
-            link.target = "_blank";
-            document.body.appendChild(link);
-            link.click();
-            setTimeout(function() {
-                if (link.parentNode) link.parentNode.removeChild(link);
-            }, 100);
+        if (brochureUrl && brochureUrl.trim() && brochureUrl.trim() !== 'undefined' && brochureUrl.trim() !== 'null') {
+            var url = brochureUrl.trim();
+            if (url.startsWith('data:')) {
+                try {
+                    var blob = dataURLtoBlob(url);
+                    var blobUrl = URL.createObjectURL(blob);
+                    var a = document.createElement('a');
+                    a.href = blobUrl;
+                    a.download = (title ? title.replace(/[^a-zA-Z0-9]/g, "_") : "Property") + "_Brochure.pdf";
+                    document.body.appendChild(a);
+                    a.click();
+                    setTimeout(function() {
+                        if (a.parentNode) a.parentNode.removeChild(a);
+                        URL.revokeObjectURL(blobUrl);
+                    }, 500);
+                    return;
+                } catch(err) {
+                    console.error('Blob download error:', err);
+                }
+            }
+            window.open(url, '_blank');
         } else {
             var text = encodeURIComponent("Hi, please send PDF brochure for " + (title || "this property"));
             var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -1893,6 +1904,15 @@
                 "https://api.whatsapp.com/send?phone=919309035119&text=" + text;
             window.location.href = waUrl;
         }
+    }
+
+    function dataURLtoBlob(dataurl) {
+        var arr = dataurl.split(','), mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return new Blob([u8arr], {type:mime});
     }
 
     function openFullPhotoModal(imgSrc, title, galleryJsonStr, index) {
