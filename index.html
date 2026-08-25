@@ -1977,8 +1977,8 @@
     }
 
     function fetchLiveGistFolderProperties(catKeyToRender) {
-        var RAW_GIST_URL = 'https://gist.githubusercontent.com/raw/eebf5c328e2a6047fb9e71338a6836ba/properties.json?t=' + Date.now();
-        fetch(RAW_GIST_URL)
+        var RAW_GIST_URL = 'https://gist.githubusercontent.com/raw/eebf5c328e2a6047fb9e71338a6836ba/properties.json?nocache=' + Date.now();
+        fetch(RAW_GIST_URL, { cache: 'no-store' })
         .then(function(res) { return res.json(); })
         .then(function(content) {
             if (content && Array.isArray(content)) {
