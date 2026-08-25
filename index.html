@@ -1877,33 +1877,45 @@
     function downloadPdfBrochure(brochureUrl, title) {
         if (brochureUrl && brochureUrl.trim() && brochureUrl.trim() !== 'undefined' && brochureUrl.trim() !== 'null') {
             var url = brochureUrl.trim();
+
             if (url.startsWith('data:')) {
                 try {
                     var blob = dataURLtoBlob(url);
                     var blobUrl = URL.createObjectURL(blob);
                     var a = document.createElement('a');
                     a.href = blobUrl;
-                    a.download = (title ? title.replace(/[^a-zA-Z0-9]/g, "_") : "Property") + "_Brochure.pdf";
+                    a.download = (title ? title.replace(/[^a-zA-Z0-9_-]/g, "_") : "Property") + "_Brochure.pdf";
+                    a.style.display = 'none';
                     document.body.appendChild(a);
                     a.click();
                     setTimeout(function() {
                         if (a.parentNode) a.parentNode.removeChild(a);
                         URL.revokeObjectURL(blobUrl);
-                    }, 500);
+                    }, 1000);
                     return;
                 } catch(err) {
                     console.error('Blob download error:', err);
                 }
             }
-            window.open(url, '_blank');
-        } else {
-            var text = encodeURIComponent("Hi, please send PDF brochure for " + (title || "this property"));
-            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            var waUrl = isMobile ?
-                "whatsapp://send?phone=919309035119&text=" + text :
-                "https://api.whatsapp.com/send?phone=919309035119&text=" + text;
-            window.location.href = waUrl;
+
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = (title ? title.replace(/[^a-zA-Z0-9_-]/g, "_") : "Property") + "_Brochure.pdf";
+            link.style.display = 'none';
+            document.body.appendChild(link);
+            link.click();
+            setTimeout(function() {
+                if (link.parentNode) link.parentNode.removeChild(link);
+            }, 500);
+            return;
         }
+
+        var text = encodeURIComponent("Hi, please send PDF brochure for " + (title || "this property"));
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        var waUrl = isMobile ?
+            "whatsapp://send?phone=919309035119&text=" + text :
+            "https://api.whatsapp.com/send?phone=919309035119&text=" + text;
+        window.location.href = waUrl;
     }
 
     function dataURLtoBlob(dataurl) {
