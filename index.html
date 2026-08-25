@@ -2082,16 +2082,21 @@
     function fetchLiveGistFolderProperties(catKeyToRender) {
         var RAW_GIST_URL = 'https://gist.githubusercontent.com/raw/eebf5c328e2a6047fb9e71338a6836ba/properties.json?nocache=' + Date.now();
         fetch(RAW_GIST_URL, { cache: 'no-store' })
-        .then(function(res) { return res.json(); })
-        .then(function(content) {
-            if (content && Array.isArray(content)) {
-                try {
-                    localStorage.setItem('royaleProperties', JSON.stringify(content));
-                } catch(e) {}
-                var target = catKeyToRender || currentOpenCatKey;
-                if (target) {
-                    renderInlineFolderGrid(target, content);
+        .then(function(res) { return res.text(); })
+        .then(function(rawText) {
+            try {
+                var content = JSON.parse(rawText);
+                if (content && Array.isArray(content)) {
+                    try {
+                        localStorage.setItem('royaleProperties', JSON.stringify(content));
+                    } catch(e) {}
+                    var target = catKeyToRender || currentOpenCatKey;
+                    if (target) {
+                        renderInlineFolderGrid(target, content);
+                    }
                 }
+            } catch(jsonErr) {
+                console.error('Cloud Raw Gist JSON Parse Error:', jsonErr);
             }
         })
         .catch(function(err) {
