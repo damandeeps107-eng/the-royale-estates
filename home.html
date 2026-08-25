@@ -1378,7 +1378,7 @@
     .re-map-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(2,132,199,0.4); }
 
     /* ===== FOOTER ===== */
-    .re-footer { background: #0f172a; padding: 80px 0 0; }
+    .re-footer { background: #0f172a; padding: 80px 0 0; position: relative; z-index: 10; clear: both; }
     .re-footer__grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 40px; }
     .re-footer__col h4 { color: #fff !important; font-size: 1rem !important; font-weight: 600 !important; margin-bottom: 24px; letter-spacing: 0.03em; }
     .re-footer__col p { color: rgba(255,255,255,0.6) !important; font-size: 0.9rem; line-height: 1.7; }
@@ -1668,68 +1668,7 @@
     <script>
     var currentOpenCatKey = null;
 
-    var DEFAULT_PROPERTIES_FALLBACK = [
-        {
-            title: "Pre-Leased Industrial Logistics Warehouse",
-            category: "Warehouse",
-            badge: "7.5% - 8.5% ROI",
-            location: "Bhiwandi Logistics Hub, Thane",
-            price: "7.5% to 8.5% ROI",
-            specsArea: "50,000 sqft",
-            specsFeature: "Pre-Leased Long Term Tenant",
-            image: "./assets/images/hero/warehouse.jpg"
-        },
-        {
-            title: "Industrial Logistics Park",
-            category: "Warehouse",
-            badge: "For Lease",
-            location: "Bhiwandi, Thane",
-            price: "₹12/sqft /mo",
-            specsArea: "25,000 sqft",
-            specsFeature: "Loading Dock",
-            image: "./assets/images/hero/warehouse.jpg"
-        },
-        {
-            title: "Premium Corporate Office Floor",
-            category: "Office Space",
-            badge: "For Lease",
-            location: "Thane West, Mumbai Region",
-            price: "₹55/sqft /mo",
-            specsArea: "3,200 sqft",
-            specsFeature: "Fully Furnished",
-            image: "./assets/images/hero/office.jpg"
-        },
-        {
-            title: "Luxury Hillside Villa",
-            category: "Villa",
-            badge: "For Sale",
-            location: "Lonavala",
-            price: "₹2.8 Cr",
-            specsArea: "4,500 sqft",
-            specsFeature: "4 BHK Private Pool",
-            image: "./assets/images/hero/villa.jpg"
-        },
-        {
-            title: "Prime Industrial Plot Land",
-            category: "Land / Plot",
-            badge: "For Sale",
-            location: "Bhiwandi Industrial Zone",
-            price: "₹3.5 Cr",
-            specsArea: "2 Acres Plot",
-            specsFeature: "Clear Title NA Land",
-            image: "./assets/images/hero/land.jpg"
-        },
-        {
-            title: "Scenic Weekend Retreat Estate",
-            category: "Weekend Home",
-            badge: "For Sale",
-            location: "Karjat / Igatpuri",
-            price: "₹1.2 Cr",
-            specsArea: "3 BHK Villa",
-            specsFeature: "Mountain View Lawn",
-            image: "./assets/images/hero/weekend-home.jpg"
-        }
-    ];
+    var DEFAULT_PROPERTIES_FALLBACK = [];
 
     function matchCategory(item, targetKey) {
         if (!item) return false;
@@ -2134,10 +2073,8 @@
         </div>
     </section>
 
-    <!-- ===== CONTACT INFO ===== -->
-    <section class="re-section">
     <!-- ===== CONTACT US & LOCATION MAP ===== -->
-    <section class="re-contact" id="contact-section">
+    <section class="re-contact" id="contact-section" style="position: relative; z-index: 10; clear: both; background: #ffffff;">
         <div class="container">
             <div class="text-center re-reveal" style="margin-bottom: 48px;">
                 <p class="re-section__label">Get In Touch</p>
@@ -2349,68 +2286,7 @@
     <script>
     var activeSubfolderKey = null;
 
-    var DEFAULT_PROPERTIES_FALLBACK = [
-        {
-            title: "Pre-Leased Industrial Logistics Warehouse",
-            category: "Warehouse",
-            badge: "7.5% - 8.5% ROI",
-            location: "Bhiwandi Logistics Hub, Thane",
-            price: "7.5% to 8.5% ROI",
-            specsArea: "50,000 sqft",
-            specsFeature: "Pre-Leased Long Term Tenant",
-            image: "./assets/images/hero/warehouse.jpg"
-        },
-        {
-            title: "Industrial Logistics Park",
-            category: "Warehouse",
-            badge: "For Lease",
-            location: "Bhiwandi, Thane",
-            price: "₹12/sqft /mo",
-            specsArea: "25,000 sqft",
-            specsFeature: "Loading Dock",
-            image: "./assets/images/hero/warehouse.jpg"
-        },
-        {
-            title: "Premium Corporate Office Floor",
-            category: "Office Space",
-            badge: "For Lease",
-            location: "Thane West, Mumbai Region",
-            price: "₹55/sqft /mo",
-            specsArea: "3,200 sqft",
-            specsFeature: "Fully Furnished",
-            image: "./assets/images/hero/office.jpg"
-        },
-        {
-            title: "Luxury Hillside Villa",
-            category: "Villa",
-            badge: "For Sale",
-            location: "Lonavala",
-            price: "₹2.8 Cr",
-            specsArea: "4,500 sqft",
-            specsFeature: "4 BHK Private Pool",
-            image: "./assets/images/hero/villa.jpg"
-        },
-        {
-            title: "Prime Industrial Plot Land",
-            category: "Land / Plot",
-            badge: "For Sale",
-            location: "Bhiwandi Industrial Zone",
-            price: "₹3.5 Cr",
-            specsArea: "2 Acres Plot",
-            specsFeature: "Clear Title NA Land",
-            image: "./assets/images/hero/land.jpg"
-        },
-        {
-            title: "Scenic Weekend Retreat Estate",
-            category: "Weekend Home",
-            badge: "For Sale",
-            location: "Karjat / Igatpuri",
-            price: "₹1.2 Cr",
-            specsArea: "3 BHK Villa",
-            specsFeature: "Mountain View Lawn",
-            image: "./assets/images/hero/weekend-home.jpg"
-        }
-    ];
+    var DEFAULT_PROPERTIES_FALLBACK = [];
 
     function matchCategory(item, targetKey) {
         if (!item) return false;
