@@ -1597,6 +1597,7 @@
                     <button class="re-filter-tab" onclick="filterProperties('Pre-Leased', this)" style="color: #0284c7; font-weight: 700;">🔥 Pre-Leased (7.5% - 8.5% ROI)</button>
                 </div>
             </div>
+<div id="masterCategorySections">
             <div class="re-props__grid">
 
                 <!-- Property 1: Warehouse -->
@@ -2191,40 +2192,94 @@
     })();
     </script>
 
-                    <!-- Global Cloud Real-Time Property Database Sync Script -->
+                        <!-- Global Cloud Real-Time Property Database Sync Script (5 Category Blocks) -->
     <script>
     (function syncPropertiesFromCloud() {
         var GIST_ID = 'eebf5c328e2a6047fb9e71338a6836ba';
 
         function renderProps(props) {
             if (!props || !props.length) return;
-            var container = document.querySelector('#listings-section .re-props__grid') || document.querySelector('.re-props__grid');
-            if (!container) return;
+            var masterContainer = document.getElementById('masterCategorySections');
+            if (!masterContainer) return;
+
+            var categories = [
+                {
+                    id: 'Warehouse',
+                    title: '1. Warehouse / Industrial',
+                    subtitle: 'Logistics & Industrial Parks in Bhiwandi Hub',
+                    filter: function(item) { return item.category === 'Warehouse' && (!item.badge || !item.badge.includes('ROI')); }
+                },
+                {
+                    id: 'Office Space',
+                    title: '2. Commercial Office',
+                    subtitle: 'Corporate Office Floors, Showrooms & Commercial Spaces',
+                    filter: function(item) { return (item.category === 'Office Space' || item.category === 'Commercial') && (!item.badge || !item.badge.includes('ROI')); }
+                },
+                {
+                    id: 'Weekend Home',
+                    title: '3. Weekend Home & Villas',
+                    subtitle: 'Hillside Estates, Private Pool Retreats & Luxury Villas',
+                    filter: function(item) { return item.category === 'Weekend Home' || item.category === 'Villa'; }
+                },
+                {
+                    id: 'Land / Plot',
+                    title: '4. Land',
+                    subtitle: 'Industrial Plots & Clear Title NA Land Opportunities',
+                    filter: function(item) { return item.category === 'Land / Plot' || item.category === 'Land'; }
+                },
+                {
+                    id: 'Pre-Leased',
+                    title: '5. 🔥 Pre-Leased Property (7.5% - 8.5% ROI)',
+                    subtitle: 'High-Yield Investment Assets with Guaranteed Rental Income',
+                    filter: function(item) { return (item.badge && item.badge.includes('ROI')) || (item.title && item.title.includes('Pre-Leased')); }
+                }
+            ];
 
             var html = '';
-            props.forEach(function(item) {
-                var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
-                var catTag = item.category || 'Warehouse';
-                html += '<div class="re-props__card re-reveal visible" data-category="' + catTag + '" data-badge="' + (item.badge || '') + '">' +
-                    '<div class="re-props__imgwrap">' +
-                        '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" onerror="this.src='./assets/images/hero/warehouse.jpg'">' +
-                        '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
-                    '</div>' +
-                    '<div class="re-props__body">' +
-                        '<h3 class="re-props__title">' + item.title + '</h3>' +
-                        '<p class="re-props__loc"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ' + item.location + '</p>' +
-                        '<div class="re-props__specs">' +
-                            '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> ' + item.specsArea + '</span>' +
-                            '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> ' + item.specsFeature + '</span>' +
+
+            categories.forEach(function(cat) {
+                var catItems = props.filter(cat.filter);
+
+                html += '<div class="re-cat-block" data-catid="' + cat.id + '" style="margin-bottom: 48px; background: rgba(255,255,255,0.9); border: 1px solid rgba(15,23,42,0.12); border-radius: 20px; padding: 28px; box-shadow: 0 10px 30px rgba(0,0,0,0.04);">' +
+                    '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 2px solid #0284c7; padding-bottom: 12px; flex-wrap: wrap; gap: 12px;">' +
+                        '<div>' +
+                            '<h3 style="font-size: 1.35rem; font-weight: 800; color: #0f172a; margin: 0;">' + cat.title + ' <span style="font-size: 0.8rem; font-weight: 700; background: #0284c7; color: #fff; padding: 3px 10px; border-radius: 12px; vertical-align: middle; margin-left: 8px;">' + catItems.length + ' Listings</span></h3>' +
+                            '<p style="color: #64748b; font-size: 0.88rem; margin: 4px 0 0 0;">' + cat.subtitle + '</p>' +
                         '</div>' +
-                        '<div class="re-props__bottom">' +
-                            '<div class="re-props__price">' + item.price + '</div>' +
-                            '<a href="https://wa.me/919309035119?text=Hi%2C%20I%27m%20interested%20in%20' + encodeURIComponent(item.title) + '" target="_blank" class="re-props__enquiry">Enquire</a>' +
-                        '</div>' +
+                        '<button onclick="openCategoryModal('' + cat.id + '')" style="background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; border: none; padding: 8px 18px; border-radius: 20px; font-weight: 700; font-size: 0.85rem; cursor: pointer;">View All in ' + cat.id + ' →</button>' +
                     '</div>' +
-                '</div>';
+                    '<div class="re-props__grid">';
+
+                if (!catItems.length) {
+                    html += '<div style="grid-column: 1/-1; text-align: center; padding: 32px; color: #94a3b8; font-weight: 500;">No active property listings in this section yet. Add from Admin Panel!</div>';
+                } else {
+                    catItems.forEach(function(item) {
+                        var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
+                        html += '<div class="re-props__card re-reveal visible">' +
+                            '<div class="re-props__imgwrap">' +
+                                '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" onerror="this.src='./assets/images/hero/warehouse.jpg'">' +
+                                '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
+                            '</div>' +
+                            '<div class="re-props__body">' +
+                                '<h3 class="re-props__title">' + item.title + '</h3>' +
+                                '<p class="re-props__loc"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> ' + item.location + '</p>' +
+                                '<div class="re-props__specs">' +
+                                    '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> ' + item.specsArea + '</span>' +
+                                    '<span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> ' + item.specsFeature + '</span>' +
+                                '</div>' +
+                                '<div class="re-props__bottom">' +
+                                    '<div class="re-props__price">' + item.price + '</div>' +
+                                    '<a href="https://wa.me/919309035119?text=Hi%2C%20I%27m%20interested%20in%20' + encodeURIComponent(item.title) + '" target="_blank" class="re-props__enquiry">Enquire</a>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>';
+                    });
+                }
+
+                html += '</div></div>';
             });
-            container.innerHTML = html;
+
+            masterContainer.innerHTML = html;
         }
 
         var stored = localStorage.getItem('royaleProperties');
