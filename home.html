@@ -1837,63 +1837,123 @@
     
     
     
-    function downloadPdfDirect(brochureUrl, title) {
-        if (!brochureUrl || !brochureUrl.trim() || brochureUrl.trim() === 'undefined' || brochureUrl.trim() === 'null' || brochureUrl.includes('dummy.pdf')) {
-            var text = encodeURIComponent("Hi, please send PDF brochure for " + (title || "this property"));
-            var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            var waUrl = isMobile ?
-                "whatsapp://send?phone=919309035119&text=" + text :
-                "https://api.whatsapp.com/send?phone=919309035119&text=" + text;
-            window.location.href = waUrl;
-            return;
-        }
-
-        var url = brochureUrl.trim();
+    function downloadPdfDirect(brochureUrl, title, location, price, specsArea, specsFeature) {
         var filename = (title ? title.replace(/[^a-zA-Z0-9_-]/g, "_") : "Property") + "_Brochure.pdf";
 
-        // Handle Base64 Data URL using application/octet-stream to bypass Chrome PDF popup blocking
-        if (url.startsWith('data:')) {
-            try {
-                var blob = dataURLtoOctetBlob(url);
-                var blobUrl = URL.createObjectURL(blob);
-                saveBlobAsFile(blobUrl, filename);
-                return;
-            } catch(err) {
-                console.error('Blob download error:', err);
-            }
-        }
+        if (brochureUrl && brochureUrl.trim() && brochureUrl.trim() !== 'undefined' && brochureUrl.trim() !== 'null' && !brochureUrl.includes('dummy.pdf')) {
+            var url = brochureUrl.trim();
 
-        // Handle Google Drive links
-        if (url.includes('drive.google.com/file/d/')) {
-            var parts = url.split('drive.google.com/file/d/');
-            var fileId = parts[1].split('/')[0].split('?')[0];
-            url = 'https://drive.google.com/uc?export=download&id=' + fileId;
-            window.location.href = url;
+            if (url.startsWith('data:')) {
+                try {
+                    var blob = dataURLtoOctetBlob(url);
+                    var blobUrl = URL.createObjectURL(blob);
+                    saveBlobAsFile(blobUrl, filename);
+                    return;
+                } catch(e) {}
+            }
+
+            if (url.includes('drive.google.com/file/d/')) {
+                var parts = url.split('drive.google.com/file/d/');
+                var fileId = parts[1].split('/')[0].split('?')[0];
+                url = 'https://drive.google.com/uc?export=download&id=' + fileId;
+                window.location.href = url;
+                return;
+            }
+
+            fetch(url)
+            .then(function(res) {
+                if (!res.ok) throw new Error('Fetch error');
+                return res.blob();
+            })
+            .then(function(blob) {
+                var octetBlob = new Blob([blob], { type: 'application/octet-stream' });
+                var blobUrl = URL.createObjectURL(octetBlob);
+                saveBlobAsFile(blobUrl, filename);
+            })
+            .catch(function(err) {
+                generateBrandedPdfBrochure(title, location, price, specsArea, specsFeature);
+            });
             return;
         }
 
-        // Handle HTTP/HTTPS URLs by fetching as Blob octet-stream
-        fetch(url)
-        .then(function(res) {
-            if (!res.ok) throw new Error('Fetch error');
-            return res.blob();
-        })
-        .then(function(blob) {
-            var octetBlob = new Blob([blob], { type: 'application/octet-stream' });
-            var blobUrl = URL.createObjectURL(octetBlob);
-            saveBlobAsFile(blobUrl, filename);
-        })
-        .catch(function(err) {
-            var a = document.createElement('a');
-            a.href = url;
-            a.download = filename;
-            a.target = '_self';
-            document.body.appendChild(a);
-            a.click();
-            setTimeout(function() {
-                if (a.parentNode) a.parentNode.removeChild(a);
-            }, 500);
-        });
+        generateBrandedPdfBrochure(title, location, price, specsArea, specsFeature);
+    }
+
+    function generateBrandedPdfBrochure(title, location, price, specsArea, specsFeature) {
+        var NL = String.fromCharCode(10);
+        var filename = (title ? title.replace(/[^a-zA-Z0-9_-]/g, "_") : "Property") + "_Brochure.pdf";
+
+        var lines = [
+            "%PDF-1.4",
+            "1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj",
+            "2 0 obj<</Type/Pages/Count 1/Kids[3 0 R]>>endobj",
+            "3 0 obj<</Type/Page/MediaBox[0 0 595 842]/Parent 2 0 R/Resources<</Font<//F1 4 0 R>>>>/Contents 5 0 R>>endobj",
+            "4 0 obj<</Type/Font/Subtype/Type1/BaseFont/Helvetica>>endobj",
+            "5 0 obj<</Length 450>>stream",
+            "BT",
+            "/F1 22 Tf",
+            "50 780 Td",
+            "(THE ROYALE ESTATES - PROPERTY BROCHURE) Tj",
+            "/F1 14 Tf",
+            "0 -30 Td",
+            "(" + escapePdfText(title || 'Property Listing') + ") Tj",
+            "/F1 11 Tf",
+            "0 -25 Td",
+            "(Location: " + escapePdfText(location || 'Bhiwandi, Thane') + ") Tj",
+            "0 -20 Td",
+            "(Price: " + escapePdfText(price || 'Contact for Price') + ") Tj",
+            "0 -20 Td",
+            "(Area / Specs: " + escapePdfText(specsArea || '-') + ") Tj",
+            "0 -20 Td",
+            "(Key Features: " + escapePdfText(specsFeature || '-') + ") Tj",
+            "0 -35 Td",
+            "(Official Contact: +91 93090 35119 / sales@theroyaleestates.com) Tj",
+            "ET",
+            "endstream",
+            "endobj",
+            "xref",
+            "0 6",
+            "0000000000 65535 f ",
+            "0000000009 00000 n ",
+            "0000000056 00000 n ",
+            "00000000111 00000 n ",
+            "0000000212 00000 n ",
+            "0000000281 00000 n ",
+            "trailer<</Size 6/Root 1 0 R>>",
+            "startxref",
+            "780",
+            "%%EOF"
+        ];
+        var content = lines.join(NL);
+        var blob = new Blob([content], { type: 'application/octet-stream' });
+        var blobUrl = URL.createObjectURL(blob);
+        saveBlobAsFile(blobUrl, filename);
+    }
+
+    function escapePdfText(str) {
+        return (str || '').replace(/[\(\)]/g, '');
+    }
+
+    function dataURLtoOctetBlob(dataurl) {
+        var arr = dataurl.split(',');
+        var bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return new Blob([u8arr], { type: 'application/octet-stream' });
+    }
+
+    function saveBlobAsFile(blobUrl, filename) {
+        var a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = filename;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            if (a.parentNode) a.parentNode.removeChild(a);
+            URL.revokeObjectURL(blobUrl);
+        }, 1000);
     }
 
     function dataURLtoOctetBlob(dataurl) {
