@@ -1745,6 +1745,9 @@
         } else {
             var html = '';
             filtered.forEach(function(item) {
+                var gallery = (item.images && item.images.length) ? item.images : [item.image];
+                var galleryEncoded = encodeURIComponent(JSON.stringify(gallery));
+                var countBadge = gallery.length > 1 ? '<span style="position:absolute; top:12px; left:12px; background:rgba(2,132,199,0.9); color:#fff; padding:4px 10px; border-radius:12px; font-size:0.75rem; font-weight:800; z-index:5;">📸 ' + gallery.length + ' Photos</span>' : '';
                 var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
                 var brochureBtn = item.brochure ? 
                     '<a href="' + item.brochure + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #1e293b; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📥 Download PDF Brochure</a>' :
@@ -1755,10 +1758,10 @@
                     '<a href="https://api.whatsapp.com/send?phone=919309035119&text=Hi%2C%20please%20send%20video%20tour%20for%20' + encodeURIComponent(item.title) + '" target="_blank" class="btn-sm" style="background: rgba(2,132,199,0.08); color: #0284c7; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">▶️ Video Tour</a>';
 
                 html += '<div class="re-props__card" style="background:#fff; border:1px solid rgba(15,23,42,0.1); border-radius:18px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.05);">' +
-                    '<div class="re-props__imgwrap" style="position:relative; background:#0f172a; height:240px; display:flex; align-items:center; justify-content:center; cursor:pointer; overflow:hidden;" onclick="openFullPhotoModal(\''+item.image+'\', \''+item.title+'\')">' +
+                    '<div class="re-props__imgwrap" style="position:relative; background:#0f172a; height:240px; display:flex; align-items:center; justify-content:center; cursor:pointer; overflow:hidden;" onclick="openFullPhotoModal(\''+item.image+'\', \''+item.title.replace(/'/g, '')+'\', \''+galleryEncoded+'\')">' + countBadge +
 '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain;" onerror="handleImgError(this)">' +
 '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
-'<span style="position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,0.7); color:#ffffff; padding:4px 10px; border-radius:6px; font-size:0.75rem; font-weight:700;">🔍 View Full Photo</span>' +
+'<span style="position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,0.7); color:#ffffff; padding:4px 10px; border-radius:6px; font-size:0.75rem; font-weight:700;">🔍 View All Photos</span>' +
 '</div>' +
                     '<div class="re-props__body" style="padding:20px;">' +
                         '<h3 class="re-props__title" style="font-size:1.15rem; font-weight:800; color:#0f172a; margin-bottom:8px;">' + item.title + '</h3>' +
@@ -1868,15 +1871,48 @@
         return url;
     }
 
-    function openFullPhotoModal(imgSrc, title) {
+    var currentLightboxGallery = [];
+    var currentLightboxIndex = 0;
+
+    function openFullPhotoModal(imgSrc, title, galleryJsonStr, index) {
         var modal = document.getElementById('fullPhotoModal');
         var img = document.getElementById('fullPhotoImg');
         var cap = document.getElementById('fullPhotoCap');
-        if (modal && img) {
-            img.src = imgSrc;
-            if (cap) cap.textContent = title || '';
-            modal.style.display = 'flex';
+        if (!modal || !img) return;
+
+        if (galleryJsonStr) {
+            try {
+                currentLightboxGallery = JSON.parse(decodeURIComponent(galleryJsonStr));
+            } catch(e) {
+                currentLightboxGallery = [imgSrc];
+            }
+        } else {
+            currentLightboxGallery = [imgSrc];
         }
+
+        currentLightboxIndex = index || 0;
+        updateLightboxView(title);
+        modal.style.display = 'flex';
+    }
+
+    function updateLightboxView(title) {
+        var img = document.getElementById('fullPhotoImg');
+        var cap = document.getElementById('fullPhotoCap');
+        if (!img) return;
+
+        var src = currentLightboxGallery[currentLightboxIndex] || '';
+        img.src = src;
+
+        if (cap) {
+            var counter = currentLightboxGallery.length > 1 ? ' (Photo ' + (currentLightboxIndex + 1) + ' of ' + currentLightboxGallery.length + ')' : '';
+            cap.textContent = (title || '') + counter;
+        }
+    }
+
+    function stepLightboxPhoto(dir) {
+        if (!currentLightboxGallery.length) return;
+        currentLightboxIndex = (currentLightboxIndex + dir + currentLightboxGallery.length) % currentLightboxGallery.length;
+        updateLightboxView();
     }
 
     function closeFullPhotoModal() {
@@ -2383,6 +2419,9 @@
         } else {
             var html = '';
             filtered.forEach(function(item) {
+                var gallery = (item.images && item.images.length) ? item.images : [item.image];
+                var galleryEncoded = encodeURIComponent(JSON.stringify(gallery));
+                var countBadge = gallery.length > 1 ? '<span style="position:absolute; top:12px; left:12px; background:rgba(2,132,199,0.9); color:#fff; padding:4px 10px; border-radius:12px; font-size:0.75rem; font-weight:800; z-index:5;">📸 ' + gallery.length + ' Photos</span>' : '';
                 var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
                 var brochureBtn = item.brochure ? 
                     '<a href="' + item.brochure + '" target="_blank" class="btn-sm" style="background: rgba(15,23,42,0.06); color: #1e293b; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">📥 Download PDF Brochure</a>' :
@@ -2393,10 +2432,10 @@
                     '<a href="https://api.whatsapp.com/send?phone=919309035119&text=Hi%2C%20please%20send%20video%20tour%20for%20' + encodeURIComponent(item.title) + '" target="_blank" class="btn-sm" style="background: rgba(2,132,199,0.08); color: #0284c7; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px;">▶️ Video Tour</a>';
 
                 html += '<div class="re-props__card" style="background:#fff; border:1px solid rgba(15,23,42,0.1); border-radius:18px; overflow:hidden; box-shadow:0 10px 25px rgba(0,0,0,0.05);">' +
-                    '<div class="re-props__imgwrap" style="position:relative; background:#0f172a; height:240px; display:flex; align-items:center; justify-content:center; cursor:pointer; overflow:hidden;" onclick="openFullPhotoModal(\''+item.image+'\', \''+item.title+'\')">' +
+                    '<div class="re-props__imgwrap" style="position:relative; background:#0f172a; height:240px; display:flex; align-items:center; justify-content:center; cursor:pointer; overflow:hidden;" onclick="openFullPhotoModal(\''+item.image+'\', \''+item.title.replace(/'/g, '')+'\', \''+galleryEncoded+'\')">' + countBadge +
 '<img src="' + item.image + '" alt="' + item.title + '" loading="lazy" style="max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain;" onerror="handleImgError(this)">' +
 '<span class="re-props__badge ' + badgeClass + '">' + item.badge + '</span>' +
-'<span style="position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,0.7); color:#ffffff; padding:4px 10px; border-radius:6px; font-size:0.75rem; font-weight:700;">🔍 View Full Photo</span>' +
+'<span style="position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,0.7); color:#ffffff; padding:4px 10px; border-radius:6px; font-size:0.75rem; font-weight:700;">🔍 View All Photos</span>' +
 '</div>' +
                     '<div class="re-props__body" style="padding:20px;">' +
                         '<h3 class="re-props__title" style="font-size:1.15rem; font-weight:800; color:#0f172a; margin-bottom:8px;">' + item.title + '</h3>' +
@@ -2498,12 +2537,18 @@
     </script>
 
     <!-- ===== FULL PHOTO LIGHTBOX VIEW MODAL ===== -->
-    <div id="fullPhotoModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.92); backdrop-filter: blur(8px); z-index: 999999; align-items: center; justify-content: center; padding: 16px;" onclick="closeFullPhotoModal()">
+    <!-- ===== FULL PHOTO LIGHTBOX VIEW MODAL ===== -->
+    <div id="fullPhotoModal" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); backdrop-filter: blur(10px); z-index: 999999; align-items: center; justify-content: center; padding: 16px;" onclick="closeFullPhotoModal()">
         <div style="position: relative; max-width: 95vw; max-height: 95vh; display: flex; flex-direction: column; align-items: center;" onclick="event.stopPropagation()">
-            <button type="button" onclick="closeFullPhotoModal()" style="position: absolute; top: -45px; right: 0; background: #0284c7; color: #fff; border: none; font-size: 1rem; font-weight: 700; padding: 8px 18px; border-radius: 20px; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.5);">Close Photo ✕</button>
-            <img id="fullPhotoImg" src="" alt="Full Property Photo" style="max-width: 95vw; max-height: 85vh; object-fit: contain; border-radius: 12px; border: 2px solid #0284c7; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
-            <p id="fullPhotoCap" style="color: #ffffff; margin-top: 12px; font-weight: 700; font-size: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8);"></p>
+            <button type="button" onclick="closeFullPhotoModal()" style="position: absolute; top: -45px; right: 0; background: #0284c7; color: #fff; border: none; font-size: 0.95rem; font-weight: 700; padding: 8px 20px; border-radius: 20px; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,0.5);">Close Photo ✕</button>
+
+            <!-- Navigation Arrows for Multi-Photos -->
+            <button type="button" onclick="stepLightboxPhoto(-1)" style="position: absolute; left: -20px; top: 50%; transform: translateY(-50%); background: rgba(15,23,42,0.85); color: #ffffff; border: 2px solid #0284c7; border-radius: 50%; width: 44px; height: 44px; font-size: 1.4rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10;">❮</button>
+            <button type="button" onclick="stepLightboxPhoto(1)" style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); background: rgba(15,23,42,0.85); color: #ffffff; border: 2px solid #0284c7; border-radius: 50%; width: 44px; height: 44px; font-size: 1.4rem; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; z-index: 10;">❯</button>
+
+            <img id="fullPhotoImg" src="" alt="Full Property Photo" style="max-width: 95vw; max-height: 82vh; object-fit: contain; border-radius: 12px; border: 2px solid #0284c7; box-shadow: 0 20px 50px rgba(0,0,0,0.5);">
+            <p id="fullPhotoCap" style="color: #ffffff; margin-top: 14px; font-weight: 700; font-size: 1.05rem; text-shadow: 0 2px 4px rgba(0,0,0,0.8); text-align: center;"></p>
         </div>
-    </div>
+    </div>>
 
 </body></html>
