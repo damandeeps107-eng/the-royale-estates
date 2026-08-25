@@ -837,7 +837,7 @@
 
             <!-- CTA Buttons -->
             <div class="re-hero__ctas">
-                <a href="#properties-section" class="re-hero__btn-primary">Explore Properties</a>
+                <a href="#properties-section" class="re-hero__btn-primary" onclick="toggleSubfolderCategory('warehouse', event)">Explore Properties</a>
                 <a href="#contact-section" class="re-hero__btn-secondary">Enquire Now</a>
             </div>
 
@@ -2053,9 +2053,72 @@
     })();
     </script>
 
-                                        <!-- Global Reliable Category Subfolder Script -->
+                                            <!-- Global Reliable Category Subfolder Script (Instant Fallback) -->
     <script>
     var activeSubfolderKey = null;
+
+    var DEFAULT_PROPERTIES_FALLBACK = [
+        {
+            title: "Pre-Leased Industrial Logistics Warehouse",
+            category: "Warehouse",
+            badge: "7.5% - 8.5% ROI",
+            location: "Bhiwandi Logistics Hub, Thane",
+            price: "7.5% to 8.5% ROI",
+            specsArea: "50,000 sqft",
+            specsFeature: "Pre-Leased Long Term Tenant",
+            image: "./assets/images/hero/warehouse.jpg"
+        },
+        {
+            title: "Industrial Logistics Park",
+            category: "Warehouse",
+            badge: "For Lease",
+            location: "Bhiwandi, Thane",
+            price: "₹12/sqft /mo",
+            specsArea: "25,000 sqft",
+            specsFeature: "Loading Dock",
+            image: "./assets/images/hero/warehouse.jpg"
+        },
+        {
+            title: "Premium Corporate Office Floor",
+            category: "Office Space",
+            badge: "For Lease",
+            location: "Thane West, Mumbai Region",
+            price: "₹55/sqft /mo",
+            specsArea: "3,200 sqft",
+            specsFeature: "Fully Furnished",
+            image: "./assets/images/hero/office.jpg"
+        },
+        {
+            title: "Luxury Hillside Villa",
+            category: "Villa",
+            badge: "For Sale",
+            location: "Lonavala",
+            price: "₹2.8 Cr",
+            specsArea: "4,500 sqft",
+            specsFeature: "4 BHK Private Pool",
+            image: "./assets/images/hero/villa.jpg"
+        },
+        {
+            title: "Prime Industrial Plot Land",
+            category: "Land / Plot",
+            badge: "For Sale",
+            location: "Bhiwandi Industrial Zone",
+            price: "₹3.5 Cr",
+            specsArea: "2 Acres Plot",
+            specsFeature: "Clear Title NA Land",
+            image: "./assets/images/hero/land.jpg"
+        },
+        {
+            title: "Scenic Weekend Retreat Estate",
+            category: "Weekend Home",
+            badge: "For Sale",
+            location: "Karjat / Igatpuri",
+            price: "₹1.2 Cr",
+            specsArea: "3 BHK Villa",
+            specsFeature: "Mountain View Lawn",
+            image: "./assets/images/hero/weekend-home.jpg"
+        }
+    ];
 
     function matchCategory(item, targetKey) {
         if (!item) return false;
@@ -2091,7 +2154,9 @@
         var gridEl = document.getElementById('subfolderPropertyGrid');
         if (!gridEl) return;
 
-        var filtered = (props || []).filter(function(item) {
+        var dataToUse = (props && props.length) ? props : DEFAULT_PROPERTIES_FALLBACK;
+
+        var filtered = dataToUse.filter(function(item) {
             return matchCategory(item, catKey);
         });
 
@@ -2136,7 +2201,7 @@
     }
 
     function toggleSubfolderCategory(catKey, event) {
-        if (event) event.stopPropagation();
+        if (event && event.stopPropagation) event.stopPropagation();
         
         var wrapper = document.getElementById('categorySubfolderWrapper');
         var titleEl = document.getElementById('subfolderTitle');
@@ -2172,22 +2237,27 @@
 
         activeSubfolderKey = catKey;
 
-        // 1. Render immediately from local storage cache
+        // 1. Render immediately from local storage cache or fallback
         var stored = localStorage.getItem('royaleProperties');
+        var propsToRender = DEFAULT_PROPERTIES_FALLBACK;
         if (stored) {
-            try { renderSubfolderGridWithData(catKey, JSON.parse(stored)); } catch(e) {}
+            try {
+                var parsed = JSON.parse(stored);
+                if (parsed && parsed.length) propsToRender = parsed;
+            } catch(e) {}
         }
+        renderSubfolderGridWithData(catKey, propsToRender);
 
         // Expand accordion smoothly
-        wrapper.style.maxHeight = '3500px';
+        wrapper.style.maxHeight = '4000px';
         wrapper.style.opacity = '1';
         wrapper.style.transform = 'translateY(0)';
 
         setTimeout(function() {
             wrapper.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-        }, 120);
+        }, 100);
 
-        // 2. Fetch fresh live cloud DB properties immediately
+        // 2. Fetch fresh live cloud DB properties
         fetchLiveCloudProperties(catKey);
     }
 
@@ -2217,10 +2287,12 @@
         .then(function(data) {
             if (data && data.files && data.files['properties.json']) {
                 var content = JSON.parse(data.files['properties.json'].content);
-                localStorage.setItem('royaleProperties', JSON.stringify(content));
-                var target = catKeyToRender || activeSubfolderKey;
-                if (target) {
-                    renderSubfolderGridWithData(target, content);
+                if (content && content.length) {
+                    localStorage.setItem('royaleProperties', JSON.stringify(content));
+                    var target = catKeyToRender || activeSubfolderKey;
+                    if (target) {
+                        renderSubfolderGridWithData(target, content);
+                    }
                 }
             }
         })
