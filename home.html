@@ -1985,8 +1985,12 @@
         .then(function(data) {
             if (data && data.files && data.files['properties.json']) {
                 var content = JSON.parse(data.files['properties.json'].content);
-                if (content && content.length) {
-                    localStorage.setItem('royaleProperties', JSON.stringify(content));
+                if (content && Array.isArray(content)) {
+                    try {
+                        localStorage.setItem('royaleProperties', JSON.stringify(content));
+                    } catch(e) {
+                        console.warn('LocalStorage quota limit reached, rendering directly from live Gist DB:', e);
+                    }
                     var target = catKeyToRender || currentOpenCatKey;
                     if (target) {
                         renderInlineFolderGrid(target, content);
