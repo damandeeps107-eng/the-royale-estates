@@ -128,6 +128,7 @@
 
   /* ===== FULLSCREEN HERO ===== */
   .re-hero {
+    padding-top: 100px;
     position: relative;
     width: 100%;
     height: 100vh;
@@ -346,7 +347,8 @@
 
   /* ===== HERO MOBILE RESPONSIVE ===== */
   @media (max-width: 991px) {
-    .re-hero { min-height: 500px; }
+    .re-hero {
+    padding-top: 100px; min-height: 500px; }
     .re-hero__title { font-size: 2.4rem !important; }
     .re-hero__rotator-wrapper { height: 42px; }
     .re-hero__rotator-item { font-size: 1.3rem; }
@@ -354,7 +356,8 @@
     .header-top.bg-theme-white { display: none !important; }
   }
   @media (max-width: 575px) {
-    .re-hero { min-height: 100vh; min-height: 100svh; }
+    .re-hero {
+    padding-top: 100px; min-height: 100vh; min-height: 100svh; }
     .re-hero__title { font-size: 1.85rem !important; line-height: 1.25; }
     .re-hero__rotator-wrapper { height: 36px; margin-top: 12px; margin-bottom: 8px; }
     .re-hero__rotator-item { font-size: 1.05rem; letter-spacing: 0.08em; }
@@ -415,7 +418,8 @@
     .re-section--alt { background: rgba(248, 250, 252, 0.82) !important; backdrop-filter: none !important; }
     .re-enquiry { background: rgba(248, 250, 252, 0.82) !important; backdrop-filter: none !important; }
     .re-contact { background: rgba(248, 250, 252, 0.82) !important; backdrop-filter: none !important; }
-    .re-hero { background: transparent !important; }
+    .re-hero {
+    padding-top: 100px; background: transparent !important; }
     /* ===== VELMORA PROPERTIES SIGNATURE CONTAINER CARDS ===== */
     .re-section {
         padding: 40px 0;
@@ -864,48 +868,12 @@
                 <span class="re-hero__trust-sep">•</span>
                 <span class="re-hero__trust-chip" data-index="3">Land</span>
                 <span class="re-hero__trust-sep">•</span>
-                <span class="re-hero__trust-chip" data-index="4" style="color:#38bdf8; font-weight:700;">Pre-Leased (7.5%-8.5% ROI)</span>
+                <span class="re-hero__trust-chip" data-index="4" style="color:#38bdf8; font-weight:700;">Pre-Leased Property</span>
             </div></div>
                 </div>
     </section>
     <!-- Hero Section End -->
-    <!-- ===== VELMORA-STYLE PROPERTY SEARCH DISCOVERY PANEL ===== -->
-    <div class="container re-search-panel-outer">
-        <div class="re-search-panel re-reveal">
-            <form class="re-search-form" onsubmit="event.preventDefault(); document.getElementById('properties-section').scrollIntoView({behavior: 'smooth'});">
-                <div class="re-search-field">
-                    <label for="velmoraSearchType">Property Type</label>
-                                        <select id="velmoraSearchType">
-                        <option value="Warehouses">1. Warehouse / Industrial</option>
-                        <option value="Office Spaces">2. Commercial Office</option>
-                        <option value="Weekend Homes">3. Weekend Homes &amp; Villas</option>
-                        <option value="Land &amp; Plots">4. Land</option>
-                        <option value="Pre-Leased">5. Pre-Leased Property (7.5% - 8.5% ROI)</option>
-                    </select>
-                </div>
-                <div class="re-search-field">
-                    <label for="velmoraSearchLoc">Location</label>
-                    <select id="velmoraSearchLoc">
-                        <option value="Bhiwandi">Bhiwandi, Thane</option>
-                        <option value="Mumbai">MMR / Mumbai Region</option>
-                        <option value="Navi Mumbai">Navi Mumbai</option>
-                    </select>
-                </div>
-                <div class="re-search-field">
-                    <label for="velmoraSearchPurpose">Purpose</label>
-                    <select id="velmoraSearchPurpose">
-                        <option value="Buy">Buy Property</option>
-                        <option value="Sell">Sell Property</option>
-                        <option value="Lease">Lease / Rent</option>
-                    </select>
-                </div>
-                <div>
-                    <button type="submit" class="re-btn re-btn--primary" style="width: 100%; justify-content: center; height: 46px; border-radius: 10px;">
-                        Search Properties →
-                    </button>
-                </div>
-            </form>
-        </div>
+    </div>
     </div>
 
     <!-- Sticky header + Image slideshow controller -->
@@ -1536,6 +1504,10 @@
                     <p class="re-section__subtext">The Royale Estates helps clients find suitable real estate opportunities for business, investment and lifestyle requirements. From warehouses and commercial spaces to offices, land, weekend homes and villas — we provide professional guidance across diverse property categories.</p>
                     <p class="re-section__subtext" style="margin-top: 14px;">Based in Bhiwandi, we work with clients looking to buy, sell, lease or invest in properties across the region, offering solutions that match individual requirements.</p>
 
+                    <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(2,132,199,0.1); border: 2px solid #0284c7; color: #0284c7; font-weight: 800; padding: 12px 24px; border-radius: 30px; font-size: 1.05rem; margin-top: 20px; box-shadow: 0 4px 16px rgba(2,132,199,0.2);">
+                        <span style="font-size: 1.2rem;">🔥</span> 7% to 8% Assured Bargains
+                    </div>
+
                     <div class="re-about__stats">
                         <div class="re-about__stat-item">
                             <h5>500+</h5>
@@ -1627,7 +1599,7 @@
                     <img src="./assets/images/hero/commercial.jpg" alt="5. Pre-Leased Property" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
                     <div class="re-cats__overlay" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(15,23,42,0.1) 0%, rgba(15,23,42,0.65) 50%, rgba(15,23,42,0.92) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 24px;">
                         <h3 style="color: #38bdf8 !important; font-size: 1.3rem !important; font-weight: 700 !important; margin-bottom: 6px;">5. 🔥 Pre-Leased Property</h3>
-                        <p style="color: rgba(255,255,255,0.85) !important; font-size: 0.88rem !important; margin-bottom: 14px;">High-Yield Income Assets (7.5% - 8.5% Guaranteed ROI).</p>
+                        <p style="color: rgba(255,255,255,0.85) !important; font-size: 0.88rem !important; margin-bottom: 14px;">High-Yield Income Assets (High-Yield Assured Investment).</p>
                         <button type="button" class="re-cats__btn" style="width: fit-content; padding: 10px 18px; border-radius: 10px; border: none; background: #0284c7; color: #ffffff; font-weight: 700; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px;">
                             <span>Explore Properties</span>
                             <svg class="cat-chevron" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" style="transition: transform 0.3s ease;"><path d="M19 9l-7 7-7-7"/></svg>
@@ -1804,7 +1776,7 @@
             'office': { title: '2. Commercial Office Properties Folder', subtitle: 'Corporate Office Floors & Commercial Retail Spaces' },
             'villas': { title: '3. Weekend Homes & Villas Folder', subtitle: 'Hillside Estates, Private Pool Retreats & Luxury Villas' },
             'land': { title: '4. Land & Industrial Plots Folder', subtitle: 'Clear Title NA Land & Industrial Plots' },
-            'preleased': { title: '5. 🔥 Pre-Leased Properties (7.5% - 8.5% ROI) Folder', subtitle: 'High-Yield Income Assets with Guaranteed Rental Yields' }
+            'preleased': { title: '5. 🔥 Pre-Leased Properties  Folder', subtitle: 'High-Yield Income Assets with Guaranteed Rental Yields' }
         };
 
         var info = catInfo[catKey] || { title: catKey + ' Properties Folder', subtitle: 'Available property listings' };
@@ -2438,7 +2410,7 @@
             'office': { title: '2. Commercial Office Property Collection', subtitle: 'Corporate Office Floors & Commercial Retail Spaces' },
             'villas': { title: '3. Weekend Homes & Luxury Villas Collection', subtitle: 'Hillside Estates, Private Pool Retreats & Luxury Villas' },
             'land': { title: '4. Land & Industrial Plots Collection', subtitle: 'Clear Title NA Land & Industrial Plots' },
-            'preleased': { title: '5. 🔥 Pre-Leased Properties (7.5% - 8.5% ROI) Collection', subtitle: 'High-Yield Income Assets with Guaranteed Rental Yields' }
+            'preleased': { title: '5. 🔥 Pre-Leased Properties  Collection', subtitle: 'High-Yield Income Assets with Guaranteed Rental Yields' }
         };
 
         var info = catInfo[catKey] || { title: catKey + ' Property Collection', subtitle: 'Available property listings' };
