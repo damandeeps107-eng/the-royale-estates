@@ -2231,59 +2231,37 @@
     <!-- ===== ENQUIRY FORM HANDLER ===== -->
     <script>
     function sendInquiry(e) {
-        e.preventDefault();
-        var btn = document.getElementById('submitBtn');
-        btn.classList.add('loading');
-        btn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
+        if (e && e.preventDefault) e.preventDefault();
 
-        var name = document.getElementById('clientName').value;
-        var phone = document.getElementById('clientPhone').value;
-        var email = document.getElementById('clientEmail').value;
-        var lookingTo = document.getElementById('lookingTo').value;
-        var propType = document.getElementById('propertyType').value;
-        var location = document.getElementById('preferredLocation').value;
-        var budget = document.getElementById('budget').value;
-        var message = document.getElementById('messageText').value;
+        var name = (document.getElementById('clientName') || {}).value || '';
+        var phone = (document.getElementById('clientPhone') || {}).value || '';
+        var email = (document.getElementById('clientEmail') || {}).value || '';
+        var lookingTo = (document.getElementById('lookingTo') || {}).value || '';
+        var propType = (document.getElementById('propertyType') || {}).value || '';
+        var location = (document.getElementById('preferredLocation') || {}).value || '';
+        var budget = (document.getElementById('budget') || {}).value || '';
+        var message = (document.getElementById('messageText') || {}).value || '';
 
         var text = "Hello The Royale Estates,%0A%0A" +
             "*New Property Enquiry*%0A" +
             "━━━━━━━━━━━━━━━━━━━━%0A" +
-            "Name: " + name + "%0A" +
-            "Phone: " + phone + "%0A" +
-            (email ? "Email: " + email + "%0A" : "") +
-            "Looking To: *" + lookingTo + "*%0A" +
-            "Property Type: *" + propType + "*%0A" +
-            (location ? "Location: " + location + "%0A" : "") +
-            (budget ? "Budget: " + budget + "%0A" : "") +
+            "Name: " + encodeURIComponent(name) + "%0A" +
+            "Phone: " + encodeURIComponent(phone) + "%0A" +
+            (email ? "Email: " + encodeURIComponent(email) + "%0A" : "") +
+            "Looking To: *" + encodeURIComponent(lookingTo) + "*%0A" +
+            "Property Type: *" + encodeURIComponent(propType) + "*%0A" +
+            (location ? "Location: " + encodeURIComponent(location) + "%0A" : "") +
+            (budget ? "Budget: " + encodeURIComponent(budget) + "%0A" : "") +
             "━━━━━━━━━━━━━━━━━━━━%0A" +
-            "Message: " + message;
+            "Message: " + encodeURIComponent(message);
 
-                var leadObj = {
-            name: name,
-            phone: phone,
-            email: email,
-            lookingTo: lookingTo,
-            propertyType: propType,
-            location: location,
-            budget: budget,
-            message: message,
-            date: new Date().toLocaleString()
-        };
-        try {
-            var existingLeads = JSON.parse(localStorage.getItem('royaleEnquiries') || '[]');
-            existingLeads.unshift(leadObj);
-            localStorage.setItem('royaleEnquiries', JSON.stringify(existingLeads));
-        } catch(e) {}
+        var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        var waUrl = isMobile ?
+            "whatsapp://send?phone=919309035119&text=" + text :
+            "https://api.whatsapp.com/send?phone=919309035119&text=" + text;
 
-        var whatsappUrl = "https://api.whatsapp.com/send?phone=919309035119&text=" + text;
-
-        setTimeout(function() {
-            window.open(whatsappUrl, '_blank');
-            document.getElementById('inquiryForm').style.display = 'none';
-            document.getElementById('enquirySuccess').style.display = 'block';
-            btn.classList.remove('loading');
-            btn.innerHTML = '<svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="vertical-align: -2px; margin-right: 4px;"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg> Submit Enquiry';
-        }, 600);
+        window.location.href = waUrl;
+        return false;
     }
     </script>
 
