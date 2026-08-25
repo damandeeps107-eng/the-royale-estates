@@ -1851,43 +1851,71 @@
         var url = brochureUrl.trim();
         var filename = (title ? title.replace(/[^a-zA-Z0-9_-]/g, "_") : "Property") + "_Brochure.pdf";
 
+        // Handle Base64 Data URL using application/octet-stream to bypass Chrome PDF popup blocking
         if (url.startsWith('data:')) {
             try {
-                var blob = dataURLtoBlob(url);
+                var blob = dataURLtoOctetBlob(url);
                 var blobUrl = URL.createObjectURL(blob);
                 saveBlobAsFile(blobUrl, filename);
                 return;
-            } catch(e) {}
+            } catch(err) {
+                console.error('Blob download error:', err);
+            }
         }
 
+        // Handle Google Drive links
         if (url.includes('drive.google.com/file/d/')) {
             var parts = url.split('drive.google.com/file/d/');
             var fileId = parts[1].split('/')[0].split('?')[0];
             url = 'https://drive.google.com/uc?export=download&id=' + fileId;
-            window.open(url, '_blank');
+            window.location.href = url;
             return;
         }
 
+        // Handle HTTP/HTTPS URLs by fetching as Blob octet-stream
         fetch(url)
         .then(function(res) {
             if (!res.ok) throw new Error('Fetch error');
             return res.blob();
         })
         .then(function(blob) {
-            var blobUrl = URL.createObjectURL(blob);
+            var octetBlob = new Blob([blob], { type: 'application/octet-stream' });
+            var blobUrl = URL.createObjectURL(octetBlob);
             saveBlobAsFile(blobUrl, filename);
         })
         .catch(function(err) {
             var a = document.createElement('a');
             a.href = url;
             a.download = filename;
-            a.target = '_blank';
+            a.target = '_self';
             document.body.appendChild(a);
             a.click();
             setTimeout(function() {
                 if (a.parentNode) a.parentNode.removeChild(a);
             }, 500);
         });
+    }
+
+    function dataURLtoOctetBlob(dataurl) {
+        var arr = dataurl.split(',');
+        var bstr = atob(arr[1]), n = bstr.length, u8arr = new Uint8Array(n);
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        return new Blob([u8arr], { type: 'application/octet-stream' });
+    }
+
+    function saveBlobAsFile(blobUrl, filename) {
+        var a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = filename;
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function() {
+            if (a.parentNode) a.parentNode.removeChild(a);
+            URL.revokeObjectURL(blobUrl);
+        }, 1000);
     }
 
     function saveBlobAsFile(blobUrl, filename) {
