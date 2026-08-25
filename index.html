@@ -2110,7 +2110,7 @@
             'office': function(i) { return (i.category === 'Office Space' || i.category === 'Commercial') && (!i.badge || !i.badge.includes('ROI')); },
             'villas': function(i) { return i.category === 'Weekend Home' || i.category === 'Villa'; },
             'land': function(i) { return i.category === 'Land / Plot' || i.category === 'Land'; },
-            'preleased': function(i) { return (i.badge && i.badge.includes('ROI')) || (i.title && i.title.includes('Pre-Leased')); }
+            'preleased': function(i) { return i.category === 'Pre-Leased' || (i.badge && i.badge.includes('ROI')) || (i.title && i.title.includes('Pre-Leased')); }
         };
 
         var filtered = props.filter(filterFns[catKey] || function() { return true; });
