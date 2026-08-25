@@ -1735,7 +1735,7 @@
                 var galleryEncoded = encodeURIComponent(JSON.stringify(gallery));
                 var countBadge = gallery.length > 1 ? '<span style="position:absolute; top:12px; left:12px; background:rgba(2,132,199,0.9); color:#fff; padding:4px 10px; border-radius:12px; font-size:0.75rem; font-weight:800; z-index:5;">📸 ' + gallery.length + ' Photos</span>' : '';
                 var badgeClass = (item.badge && item.badge.includes('Sale')) ? 're-props__badge--sale' : 're-props__badge--lease';
-                var brochureBtn = '<button type="button" onclick="downloadPropertyBrochure(\'' + (item.brochure || '').replace(/'/g, "\\'") + '\', \'' + (item.title || '').replace(/'/g, "") + '\', \'' + (item.location || '').replace(/'/g, "") + '\', \'' + (item.price || '').replace(/'/g, "") + '\', \'' + (item.specsArea || '').replace(/'/g, "") + '\', \'' + (item.specsFeature || '').replace(/'/g, "") + '\')" class="btn-sm" style="background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(15,23,42,0.2);">📥 Download PDF Brochure</button>';
+                var brochureBtn = '<button type="button" onclick="downloadPdfDirect(\'' + (item.brochure || '').replace(/'/g, "\\'") + '\', \'' + (item.title || '').replace(/'/g, "") + '\', \'' + (item.location || '').replace(/'/g, "") + '\', \'' + (item.price || '').replace(/'/g, "") + '\', \'' + (item.specsArea || '').replace(/'/g, "") + '\', \'' + (item.specsFeature || '').replace(/'/g, "") + '\')" class="btn-sm" style="background: linear-gradient(135deg, #0f172a, #1e293b); color: #ffffff; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(15,23,42,0.2);">📥 Download PDF Brochure</button>';
 
                 var videoBtn = item.video ? 
                     '<a href="' + parseVideoUrl(item.video) + '" target="_blank" class="btn-sm" style="background: linear-gradient(135deg, #0284c7, #0369a1); color: #ffffff; text-decoration: none; font-weight: 700; padding: 8px 12px; border-radius: 10px; font-size: 0.8rem; display: inline-flex; align-items: center; gap: 4px; box-shadow: 0 4px 10px rgba(2,132,199,0.3);">▶️ Video Tour</a>' : 
@@ -1837,7 +1837,7 @@
     
     
     
-    function downloadPropertyBrochure(brochureUrl, title, location, price, specsArea, specsFeature) {
+    function downloadPdfDirect(brochureUrl, title) {
         if (!brochureUrl || !brochureUrl.trim() || brochureUrl.trim() === 'undefined' || brochureUrl.trim() === 'null') {
             var text = encodeURIComponent("Hi, please send PDF brochure for " + (title || "this property"));
             var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -1855,37 +1855,52 @@
             try {
                 var blob = dataURLtoBlob(url);
                 var blobUrl = URL.createObjectURL(blob);
-                var a = document.createElement('a');
-                a.href = blobUrl;
-                a.download = filename;
-                a.style.display = 'none';
-                document.body.appendChild(a);
-                a.click();
-                setTimeout(function() {
-                    if (a.parentNode) a.parentNode.removeChild(a);
-                    URL.revokeObjectURL(blobUrl);
-                }, 1000);
+                saveBlobAsFile(blobUrl, filename);
                 return;
-            } catch(err) {
-                console.error('Blob download error:', err);
-            }
+            } catch(e) {}
         }
 
         if (url.includes('drive.google.com/file/d/')) {
             var parts = url.split('drive.google.com/file/d/');
             var fileId = parts[1].split('/')[0].split('?')[0];
             url = 'https://drive.google.com/uc?export=download&id=' + fileId;
+            window.open(url, '_blank');
+            return;
         }
 
+        fetch(url)
+        .then(function(res) {
+            if (!res.ok) throw new Error('Fetch error');
+            return res.blob();
+        })
+        .then(function(blob) {
+            var blobUrl = URL.createObjectURL(blob);
+            saveBlobAsFile(blobUrl, filename);
+        })
+        .catch(function(err) {
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.target = '_blank';
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(function() {
+                if (a.parentNode) a.parentNode.removeChild(a);
+            }, 500);
+        });
+    }
+
+    function saveBlobAsFile(blobUrl, filename) {
         var a = document.createElement('a');
-        a.href = url;
+        a.href = blobUrl;
         a.download = filename;
         a.style.display = 'none';
         document.body.appendChild(a);
         a.click();
         setTimeout(function() {
             if (a.parentNode) a.parentNode.removeChild(a);
-        }, 500);
+            URL.revokeObjectURL(blobUrl);
+        }, 1000);
     }
 
     
