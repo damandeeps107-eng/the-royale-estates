@@ -1580,190 +1580,66 @@
     </section>
 
     <!-- ===== PROPERTY SHOWCASE ===== -->
+        <!-- ===== FEATURED PROPERTIES (5 CATEGORY TILES ONLY) ===== -->
     <section class="re-props" id="listings-section">
         <div class="container">
-            <div class="re-props__header re-reveal">
-                <p class="re-section__label">Featured Properties</p>
-                <h2 class="re-section__heading">Explore Available Properties</h2>
-                <p class="re-section__subtext" style="max-width: 580px; margin: 0 auto; margin-bottom: 28px;">Browse through our latest property listings across warehouses, commercial offices, villas, land and pre-leased assets.</p>
-
-                <!-- Interactive Category Filter Tabs -->
-                <div class="re-filter-tabs" id="propertyFilterTabs">
-                    <button class="re-filter-tab active" onclick="filterProperties('All', this)">All Properties</button>
-                    <button class="re-filter-tab" onclick="filterProperties('Warehouse', this)">Warehouses</button>
-                    <button class="re-filter-tab" onclick="filterProperties('Office Space', this)">Commercial Offices</button>
-                    <button class="re-filter-tab" onclick="filterProperties('Weekend Home', this)">Weekend Homes &amp; Villas</button>
-                    <button class="re-filter-tab" onclick="filterProperties('Land / Plot', this)">Land &amp; Plots</button>
-                    <button class="re-filter-tab" onclick="filterProperties('Pre-Leased', this)" style="color: #0284c7; font-weight: 700;">🔥 Pre-Leased (7.5% - 8.5% ROI)</button>
-                </div>
-            </div>
-<div id="masterCategorySections">
-            <div class="re-props__grid">
-
-                <!-- Property 1: Warehouse -->
-                <div class="re-props__card re-reveal">
-                    <div class="re-props__imgwrap">
-                        <img src="./assets/images/hero/warehouse.jpg" alt="Warehouse in Bhiwandi" loading="lazy">
-                        <span class="re-props__badge re-props__badge--lease">For Lease</span>
-                    </div>
-                    <div class="re-props__body">
-                        <h3 class="re-props__title">Industrial Warehouse</h3>
-                        <p class="re-props__loc"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Bhiwandi, Thane</p>
-                        <div class="re-props__specs">
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 25,000 sqft</span>
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v10h20V9a2 2 0 00-2-2z"/><path d="M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/></svg> Loading Dock</span>
-                        </div>
-                        <div class="re-props__bottom">
-                            <div class="re-props__price">₹12/sqft <span>/month</span></div>
-                            <a href="#contact-section" class="re-props__enquiry">Enquire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 2: Commercial Office -->
-                <div class="re-props__card re-reveal">
-                    <div class="re-props__imgwrap">
-                        <img src="./assets/images/hero/office.jpg" alt="Office Space in Thane" loading="lazy">
-                        <span class="re-props__badge re-props__badge--lease">For Lease</span>
-                    </div>
-                    <div class="re-props__body">
-                        <h3 class="re-props__title">Premium Office Space</h3>
-                        <p class="re-props__loc"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Thane West</p>
-                        <div class="re-props__specs">
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 3,200 sqft</span>
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> Furnished</span>
-                        </div>
-                        <div class="re-props__bottom">
-                            <div class="re-props__price">₹55/sqft <span>/month</span></div>
-                            <a href="#contact-section" class="re-props__enquiry">Enquire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 3: Villa -->
-                <div class="re-props__card re-reveal">
-                    <div class="re-props__imgwrap">
-                        <img src="./assets/images/hero/villa.jpg" alt="Villa in Lonavala" loading="lazy">
-                        <span class="re-props__badge re-props__badge--sale">For Sale</span>
-                    </div>
-                    <div class="re-props__body">
-                        <h3 class="re-props__title">Luxury Villa</h3>
-                        <p class="re-props__loc"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Lonavala</p>
-                        <div class="re-props__specs">
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> 4 BHK</span>
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 4,500 sqft</span>
-                        </div>
-                        <div class="re-props__bottom">
-                            <div class="re-props__price">₹2.8 Cr</div>
-                            <a href="#contact-section" class="re-props__enquiry">Enquire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 4: Commercial -->
-                <div class="re-props__card re-reveal">
-                    <div class="re-props__imgwrap">
-                        <img src="./assets/images/hero/commercial.jpg" alt="Commercial Property" loading="lazy">
-                        <span class="re-props__badge">Commercial</span>
-                    </div>
-                    <div class="re-props__body">
-                        <h3 class="re-props__title">Commercial Complex</h3>
-                        <p class="re-props__loc"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Bhiwandi, Thane</p>
-                        <div class="re-props__specs">
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 10,000 sqft</span>
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v10h20V9a2 2 0 00-2-2z"/><path d="M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/></svg> Ground + 3</span>
-                        </div>
-                        <div class="re-props__bottom">
-                            <div class="re-props__price">₹4.5 Cr</div>
-                            <a href="#contact-section" class="re-props__enquiry">Enquire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 5: Weekend Home -->
-                <div class="re-props__card re-reveal">
-                    <div class="re-props__imgwrap">
-                        <img src="./assets/images/hero/weekend-home.jpg" alt="Weekend Home" loading="lazy">
-                        <span class="re-props__badge re-props__badge--sale">For Sale</span>
-                    </div>
-                    <div class="re-props__body">
-                        <h3 class="re-props__title">Weekend Farmhouse</h3>
-                        <p class="re-props__loc"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Karjat</p>
-                        <div class="re-props__specs">
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> 3 BHK</span>
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 2,800 sqft</span>
-                        </div>
-                        <div class="re-props__bottom">
-                            <div class="re-props__price">₹1.2 Cr</div>
-                            <a href="#contact-section" class="re-props__enquiry">Enquire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 6: Land -->
-                <div class="re-props__card re-reveal">
-                    <div class="re-props__imgwrap">
-                        <img src="./assets/images/hero/land.jpg" alt="Industrial Land" loading="lazy">
-                        <span class="re-props__badge re-props__badge--sale">For Sale</span>
-                    </div>
-                    <div class="re-props__body">
-                        <h3 class="re-props__title">Industrial Land / Plot</h3>
-                        <p class="re-props__loc"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Bhiwandi</p>
-                        <div class="re-props__specs">
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 50,000 sqft</span>
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg> Clear Title</span>
-                        </div>
-                        <div class="re-props__bottom">
-                            <div class="re-props__price">₹8 Cr</div>
-                            <a href="#contact-section" class="re-props__enquiry">Enquire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 7: Warehouse 2 -->
-                <div class="re-props__card re-reveal">
-                    <div class="re-props__imgwrap">
-                        <img src="./assets/images/hero/warehouse.jpg" alt="Warehouse in Bhiwandi" loading="lazy">
-                        <span class="re-props__badge re-props__badge--sale">For Sale</span>
-                    </div>
-                    <div class="re-props__body">
-                        <h3 class="re-props__title">Logistics Warehouse</h3>
-                        <p class="re-props__loc"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Bhiwandi, Thane</p>
-                        <div class="re-props__specs">
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 40,000 sqft</span>
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v10h20V9a2 2 0 00-2-2z"/><path d="M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/></svg> High Ceiling</span>
-                        </div>
-                        <div class="re-props__bottom">
-                            <div class="re-props__price">₹6.5 Cr</div>
-                            <a href="#contact-section" class="re-props__enquiry">Enquire</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Property 8: Office 2 -->
-                <div class="re-props__card re-reveal">
-                    <div class="re-props__imgwrap">
-                        <img src="./assets/images/hero/office.jpg" alt="Office Space" loading="lazy">
-                        <span class="re-props__badge">Commercial</span>
-                    </div>
-                    <div class="re-props__body">
-                        <h3 class="re-props__title">Corporate Office Floor</h3>
-                        <p class="re-props__loc"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg> Thane, Mumbai</p>
-                        <div class="re-props__specs">
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> 5,500 sqft</span>
-                            <span class="re-props__spec"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg> Semi-Furnished</span>
-                        </div>
-                        <div class="re-props__bottom">
-                            <div class="re-props__price">₹45/sqft <span>/month</span></div>
-                            <a href="#contact-section" class="re-props__enquiry">Enquire</a>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="re-props__header re-reveal" style="margin-bottom: 40px;">
+                <p class="re-section__label">Featured Property Sectors</p>
+                <h2 class="re-section__heading">Explore Properties by Category</h2>
+                <p class="re-section__subtext" style="max-width: 620px; margin: 0 auto;">Select any of our 5 core real estate deal sectors below to view available property listings, photos, sqft specs, and prices.</p>
             </div>
 
-            <div class="re-props__viewall re-reveal">
-                <a href="#contact-section" class="re-btn re-btn--dark" style="background: #0f172a; color: #fff !important; border: none;">View All Properties</a>
+            <!-- THE 5 CATEGORY TILES GRID ONLY -->
+            <div class="re-cats" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px;">
+                <!-- 1. Warehouse / Industrial -->
+                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Warehouse')" style="cursor: pointer; height: 340px;">
+                    <img src="./assets/images/hero/warehouse.jpg" alt="Warehouse / Industrial" loading="lazy">
+                    <div class="re-cats__overlay">
+                        <h3>1. Warehouse / Industrial</h3>
+                        <p>Logistics & Industrial Parks in Bhiwandi Hub.</p>
+                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; padding: 10px 18px; border-radius: 20px; font-weight: 700;">Explore Properties →</button>
+                    </div>
+                </div>
+
+                <!-- 2. Commercial Office -->
+                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Office Space')" style="cursor: pointer; height: 340px;">
+                    <img src="./assets/images/hero/office.jpg" alt="Commercial Office" loading="lazy">
+                    <div class="re-cats__overlay">
+                        <h3>2. Commercial Office</h3>
+                        <p>Corporate Office Floors & Commercial Retail Spaces.</p>
+                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; padding: 10px 18px; border-radius: 20px; font-weight: 700;">Explore Properties →</button>
+                    </div>
+                </div>
+
+                <!-- 3. Weekend Home & Villas -->
+                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Weekend Home')" style="cursor: pointer; height: 340px;">
+                    <img src="./assets/images/hero/weekend-home.jpg" alt="Weekend Home & Villas" loading="lazy">
+                    <div class="re-cats__overlay">
+                        <h3>3. Weekend Home &amp; Villas</h3>
+                        <p>Hillside Estates, Private Pool Retreats & Luxury Villas.</p>
+                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; padding: 10px 18px; border-radius: 20px; font-weight: 700;">Explore Properties →</button>
+                    </div>
+                </div>
+
+                <!-- 4. Land -->
+                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Land / Plot')" style="cursor: pointer; height: 340px;">
+                    <img src="./assets/images/hero/land.jpg" alt="Land" loading="lazy">
+                    <div class="re-cats__overlay">
+                        <h3>4. Land</h3>
+                        <p>Industrial Plots & Clear Title NA Land Opportunities.</p>
+                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; padding: 10px 18px; border-radius: 20px; font-weight: 700;">Explore Properties →</button>
+                    </div>
+                </div>
+
+                <!-- 5. Pre-Leased Property -->
+                <div class="re-cats__card re-reveal" onclick="openCategoryModal('Pre-Leased')" style="cursor: pointer; height: 340px;">
+                    <img src="./assets/images/hero/commercial.jpg" alt="Pre-Leased Property" loading="lazy">
+                    <div class="re-cats__overlay">
+                        <h3 style="color: #38bdf8;">5. 🔥 Pre-Leased Property</h3>
+                        <p>High-Yield Income Assets (7.5% - 8.5% Guaranteed ROI).</p>
+                        <button class="re-cats__btn" style="border:none; background: #0284c7; color: #fff; padding: 10px 18px; border-radius: 20px; font-weight: 700;">Explore 7.5% - 8.5% ROI →</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
