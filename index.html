@@ -940,6 +940,204 @@
         }
     }
 
+    
+    /* ===== SERVICES SECTION STYLING ===== */
+    #services-section {
+        padding: 60px 0;
+    }
+    .re-svc-layout-wrapper {
+        display: grid;
+        grid-template-columns: 0.9fr 1.3fr;
+        gap: 40px;
+        align-items: center;
+        width: 100%;
+    }
+    .re-svc-text-container {
+        width: 100%;
+    }
+    .re-svc-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        width: 100%;
+    }
+    .re-svc-card-item {
+        background: rgba(15, 23, 42, 0.03);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 20px;
+        padding: 24px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+    .re-svc-card-icon {
+        font-size: 1.8rem;
+        background: rgba(2, 132, 199, 0.12);
+        border-radius: 16px;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        color: #0284c7;
+    }
+    .re-svc-card-title {
+        color: #0f172a;
+        font-weight: 800;
+        font-size: 1.12rem;
+        margin-bottom: 6px;
+        text-align: center;
+    }
+    .re-svc-card-tag {
+        color: #0284c7;
+        font-weight: 700;
+        font-size: 0.78rem;
+        background: rgba(2, 132, 199, 0.08);
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+    .re-svc-card-desc {
+        color: #475569;
+        font-size: 0.86rem;
+        line-height: 1.55;
+        margin: 0;
+        text-align: center;
+    }
+
+    /* ===== SERVICES HANDSHAKE SHOWCASE ===== */
+    .re-svc-visuals-container {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    .re-svc-main-img-box {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+        height: 500px;
+        width: 100%;
+    }
+    .re-svc-main-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .re-svc-trust-badge {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        z-index: 10;
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(56, 189, 248, 0.45);
+        padding: 16px 20px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        text-align: center;
+    }
+    .re-svc-trust-badge div {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #38bdf8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    .re-svc-trust-badge p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-top: 4px;
+    }
+
+    /* ===== STRICT 100% MOBILE CENTERING (< 991px) ===== */
+    @media (max-width: 991px) {
+        #services-section {
+            padding: 32px 0 !important;
+            overflow: hidden !important;
+        }
+        #services-section .container {
+            padding: 24px 16px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .re-svc-layout-wrapper {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 20px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+        .re-svc-visuals-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto 8px auto !important;
+        }
+        .re-svc-main-img-box {
+            width: 100% !important;
+            height: 240px !important;
+            border-radius: 16px !important;
+        }
+        .re-svc-trust-badge {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 10px !important;
+            padding: 12px 14px !important;
+            border-radius: 12px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .re-svc-trust-badge div {
+            font-size: 0.95rem !important;
+        }
+
+        .re-svc-text-container {
+            width: 100% !important;
+        }
+        .re-svc-cards-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+        .re-svc-card-item {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin: 0 auto !important;
+            padding: 20px 16px !important;
+            border-radius: 16px !important;
+            text-align: center !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+    }
+
     </style>
 <style>
 
@@ -1191,6 +1389,204 @@
             text-align: left !important;
             font-size: 0.85rem !important;
             line-height: 1.5 !important;
+        }
+    }
+
+    
+    /* ===== SERVICES SECTION STYLING ===== */
+    #services-section {
+        padding: 60px 0;
+    }
+    .re-svc-layout-wrapper {
+        display: grid;
+        grid-template-columns: 0.9fr 1.3fr;
+        gap: 40px;
+        align-items: center;
+        width: 100%;
+    }
+    .re-svc-text-container {
+        width: 100%;
+    }
+    .re-svc-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        width: 100%;
+    }
+    .re-svc-card-item {
+        background: rgba(15, 23, 42, 0.03);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 20px;
+        padding: 24px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+    .re-svc-card-icon {
+        font-size: 1.8rem;
+        background: rgba(2, 132, 199, 0.12);
+        border-radius: 16px;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        color: #0284c7;
+    }
+    .re-svc-card-title {
+        color: #0f172a;
+        font-weight: 800;
+        font-size: 1.12rem;
+        margin-bottom: 6px;
+        text-align: center;
+    }
+    .re-svc-card-tag {
+        color: #0284c7;
+        font-weight: 700;
+        font-size: 0.78rem;
+        background: rgba(2, 132, 199, 0.08);
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+    .re-svc-card-desc {
+        color: #475569;
+        font-size: 0.86rem;
+        line-height: 1.55;
+        margin: 0;
+        text-align: center;
+    }
+
+    /* ===== SERVICES HANDSHAKE SHOWCASE ===== */
+    .re-svc-visuals-container {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    .re-svc-main-img-box {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+        height: 500px;
+        width: 100%;
+    }
+    .re-svc-main-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .re-svc-trust-badge {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        z-index: 10;
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(56, 189, 248, 0.45);
+        padding: 16px 20px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        text-align: center;
+    }
+    .re-svc-trust-badge div {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #38bdf8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    .re-svc-trust-badge p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-top: 4px;
+    }
+
+    /* ===== STRICT 100% MOBILE CENTERING (< 991px) ===== */
+    @media (max-width: 991px) {
+        #services-section {
+            padding: 32px 0 !important;
+            overflow: hidden !important;
+        }
+        #services-section .container {
+            padding: 24px 16px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .re-svc-layout-wrapper {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 20px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+        .re-svc-visuals-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto 8px auto !important;
+        }
+        .re-svc-main-img-box {
+            width: 100% !important;
+            height: 240px !important;
+            border-radius: 16px !important;
+        }
+        .re-svc-trust-badge {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 10px !important;
+            padding: 12px 14px !important;
+            border-radius: 12px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .re-svc-trust-badge div {
+            font-size: 0.95rem !important;
+        }
+
+        .re-svc-text-container {
+            width: 100% !important;
+        }
+        .re-svc-cards-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+        .re-svc-card-item {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin: 0 auto !important;
+            padding: 20px 16px !important;
+            border-radius: 16px !important;
+            text-align: center !important;
+            align-items: center !important;
+            justify-content: center !important;
         }
     }
 
@@ -1449,6 +1845,204 @@
             text-align: left !important;
             font-size: 0.85rem !important;
             line-height: 1.5 !important;
+        }
+    }
+
+    
+    /* ===== SERVICES SECTION STYLING ===== */
+    #services-section {
+        padding: 60px 0;
+    }
+    .re-svc-layout-wrapper {
+        display: grid;
+        grid-template-columns: 0.9fr 1.3fr;
+        gap: 40px;
+        align-items: center;
+        width: 100%;
+    }
+    .re-svc-text-container {
+        width: 100%;
+    }
+    .re-svc-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        width: 100%;
+    }
+    .re-svc-card-item {
+        background: rgba(15, 23, 42, 0.03);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 20px;
+        padding: 24px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+    .re-svc-card-icon {
+        font-size: 1.8rem;
+        background: rgba(2, 132, 199, 0.12);
+        border-radius: 16px;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        color: #0284c7;
+    }
+    .re-svc-card-title {
+        color: #0f172a;
+        font-weight: 800;
+        font-size: 1.12rem;
+        margin-bottom: 6px;
+        text-align: center;
+    }
+    .re-svc-card-tag {
+        color: #0284c7;
+        font-weight: 700;
+        font-size: 0.78rem;
+        background: rgba(2, 132, 199, 0.08);
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+    .re-svc-card-desc {
+        color: #475569;
+        font-size: 0.86rem;
+        line-height: 1.55;
+        margin: 0;
+        text-align: center;
+    }
+
+    /* ===== SERVICES HANDSHAKE SHOWCASE ===== */
+    .re-svc-visuals-container {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    .re-svc-main-img-box {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+        height: 500px;
+        width: 100%;
+    }
+    .re-svc-main-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .re-svc-trust-badge {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        z-index: 10;
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(56, 189, 248, 0.45);
+        padding: 16px 20px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        text-align: center;
+    }
+    .re-svc-trust-badge div {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #38bdf8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    .re-svc-trust-badge p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-top: 4px;
+    }
+
+    /* ===== STRICT 100% MOBILE CENTERING (< 991px) ===== */
+    @media (max-width: 991px) {
+        #services-section {
+            padding: 32px 0 !important;
+            overflow: hidden !important;
+        }
+        #services-section .container {
+            padding: 24px 16px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .re-svc-layout-wrapper {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 20px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+        .re-svc-visuals-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto 8px auto !important;
+        }
+        .re-svc-main-img-box {
+            width: 100% !important;
+            height: 240px !important;
+            border-radius: 16px !important;
+        }
+        .re-svc-trust-badge {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 10px !important;
+            padding: 12px 14px !important;
+            border-radius: 12px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .re-svc-trust-badge div {
+            font-size: 0.95rem !important;
+        }
+
+        .re-svc-text-container {
+            width: 100% !important;
+        }
+        .re-svc-cards-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+        .re-svc-card-item {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin: 0 auto !important;
+            padding: 20px 16px !important;
+            border-radius: 16px !important;
+            text-align: center !important;
+            align-items: center !important;
+            justify-content: center !important;
         }
     }
 
@@ -1712,6 +2306,204 @@
             text-align: left !important;
             font-size: 0.85rem !important;
             line-height: 1.5 !important;
+        }
+    }
+
+    
+    /* ===== SERVICES SECTION STYLING ===== */
+    #services-section {
+        padding: 60px 0;
+    }
+    .re-svc-layout-wrapper {
+        display: grid;
+        grid-template-columns: 0.9fr 1.3fr;
+        gap: 40px;
+        align-items: center;
+        width: 100%;
+    }
+    .re-svc-text-container {
+        width: 100%;
+    }
+    .re-svc-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        width: 100%;
+    }
+    .re-svc-card-item {
+        background: rgba(15, 23, 42, 0.03);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 20px;
+        padding: 24px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+    .re-svc-card-icon {
+        font-size: 1.8rem;
+        background: rgba(2, 132, 199, 0.12);
+        border-radius: 16px;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        color: #0284c7;
+    }
+    .re-svc-card-title {
+        color: #0f172a;
+        font-weight: 800;
+        font-size: 1.12rem;
+        margin-bottom: 6px;
+        text-align: center;
+    }
+    .re-svc-card-tag {
+        color: #0284c7;
+        font-weight: 700;
+        font-size: 0.78rem;
+        background: rgba(2, 132, 199, 0.08);
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+    .re-svc-card-desc {
+        color: #475569;
+        font-size: 0.86rem;
+        line-height: 1.55;
+        margin: 0;
+        text-align: center;
+    }
+
+    /* ===== SERVICES HANDSHAKE SHOWCASE ===== */
+    .re-svc-visuals-container {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    .re-svc-main-img-box {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+        height: 500px;
+        width: 100%;
+    }
+    .re-svc-main-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .re-svc-trust-badge {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        z-index: 10;
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(56, 189, 248, 0.45);
+        padding: 16px 20px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        text-align: center;
+    }
+    .re-svc-trust-badge div {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #38bdf8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    .re-svc-trust-badge p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-top: 4px;
+    }
+
+    /* ===== STRICT 100% MOBILE CENTERING (< 991px) ===== */
+    @media (max-width: 991px) {
+        #services-section {
+            padding: 32px 0 !important;
+            overflow: hidden !important;
+        }
+        #services-section .container {
+            padding: 24px 16px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .re-svc-layout-wrapper {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 20px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+        .re-svc-visuals-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto 8px auto !important;
+        }
+        .re-svc-main-img-box {
+            width: 100% !important;
+            height: 240px !important;
+            border-radius: 16px !important;
+        }
+        .re-svc-trust-badge {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 10px !important;
+            padding: 12px 14px !important;
+            border-radius: 12px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .re-svc-trust-badge div {
+            font-size: 0.95rem !important;
+        }
+
+        .re-svc-text-container {
+            width: 100% !important;
+        }
+        .re-svc-cards-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+        .re-svc-card-item {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin: 0 auto !important;
+            padding: 20px 16px !important;
+            border-radius: 16px !important;
+            text-align: center !important;
+            align-items: center !important;
+            justify-content: center !important;
         }
     }
 
@@ -2715,6 +3507,204 @@
         }
     }
 
+    
+    /* ===== SERVICES SECTION STYLING ===== */
+    #services-section {
+        padding: 60px 0;
+    }
+    .re-svc-layout-wrapper {
+        display: grid;
+        grid-template-columns: 0.9fr 1.3fr;
+        gap: 40px;
+        align-items: center;
+        width: 100%;
+    }
+    .re-svc-text-container {
+        width: 100%;
+    }
+    .re-svc-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        width: 100%;
+    }
+    .re-svc-card-item {
+        background: rgba(15, 23, 42, 0.03);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 20px;
+        padding: 24px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+    .re-svc-card-icon {
+        font-size: 1.8rem;
+        background: rgba(2, 132, 199, 0.12);
+        border-radius: 16px;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        color: #0284c7;
+    }
+    .re-svc-card-title {
+        color: #0f172a;
+        font-weight: 800;
+        font-size: 1.12rem;
+        margin-bottom: 6px;
+        text-align: center;
+    }
+    .re-svc-card-tag {
+        color: #0284c7;
+        font-weight: 700;
+        font-size: 0.78rem;
+        background: rgba(2, 132, 199, 0.08);
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+    .re-svc-card-desc {
+        color: #475569;
+        font-size: 0.86rem;
+        line-height: 1.55;
+        margin: 0;
+        text-align: center;
+    }
+
+    /* ===== SERVICES HANDSHAKE SHOWCASE ===== */
+    .re-svc-visuals-container {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    .re-svc-main-img-box {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+        height: 500px;
+        width: 100%;
+    }
+    .re-svc-main-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .re-svc-trust-badge {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        z-index: 10;
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(56, 189, 248, 0.45);
+        padding: 16px 20px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        text-align: center;
+    }
+    .re-svc-trust-badge div {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #38bdf8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    .re-svc-trust-badge p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-top: 4px;
+    }
+
+    /* ===== STRICT 100% MOBILE CENTERING (< 991px) ===== */
+    @media (max-width: 991px) {
+        #services-section {
+            padding: 32px 0 !important;
+            overflow: hidden !important;
+        }
+        #services-section .container {
+            padding: 24px 16px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .re-svc-layout-wrapper {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 20px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+        .re-svc-visuals-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto 8px auto !important;
+        }
+        .re-svc-main-img-box {
+            width: 100% !important;
+            height: 240px !important;
+            border-radius: 16px !important;
+        }
+        .re-svc-trust-badge {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 10px !important;
+            padding: 12px 14px !important;
+            border-radius: 12px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .re-svc-trust-badge div {
+            font-size: 0.95rem !important;
+        }
+
+        .re-svc-text-container {
+            width: 100% !important;
+        }
+        .re-svc-cards-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+        .re-svc-card-item {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin: 0 auto !important;
+            padding: 20px 16px !important;
+            border-radius: 16px !important;
+            text-align: center !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+    }
+
     </style>
 
     <!-- ===== ABOUT THE ROYALE ESTATES ===== -->
@@ -3120,6 +4110,204 @@
             text-align: left !important;
             font-size: 0.85rem !important;
             line-height: 1.5 !important;
+        }
+    }
+
+    
+    /* ===== SERVICES SECTION STYLING ===== */
+    #services-section {
+        padding: 60px 0;
+    }
+    .re-svc-layout-wrapper {
+        display: grid;
+        grid-template-columns: 0.9fr 1.3fr;
+        gap: 40px;
+        align-items: center;
+        width: 100%;
+    }
+    .re-svc-text-container {
+        width: 100%;
+    }
+    .re-svc-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        width: 100%;
+    }
+    .re-svc-card-item {
+        background: rgba(15, 23, 42, 0.03);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 20px;
+        padding: 24px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+    .re-svc-card-icon {
+        font-size: 1.8rem;
+        background: rgba(2, 132, 199, 0.12);
+        border-radius: 16px;
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 14px;
+        color: #0284c7;
+    }
+    .re-svc-card-title {
+        color: #0f172a;
+        font-weight: 800;
+        font-size: 1.12rem;
+        margin-bottom: 6px;
+        text-align: center;
+    }
+    .re-svc-card-tag {
+        color: #0284c7;
+        font-weight: 700;
+        font-size: 0.78rem;
+        background: rgba(2, 132, 199, 0.08);
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+    .re-svc-card-desc {
+        color: #475569;
+        font-size: 0.86rem;
+        line-height: 1.55;
+        margin: 0;
+        text-align: center;
+    }
+
+    /* ===== SERVICES HANDSHAKE SHOWCASE ===== */
+    .re-svc-visuals-container {
+        width: 100%;
+        max-width: 480px;
+        margin: 0 auto;
+    }
+    .re-svc-main-img-box {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 45px rgba(0, 0, 0, 0.16);
+        height: 500px;
+        width: 100%;
+    }
+    .re-svc-main-img-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+    .re-svc-trust-badge {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        right: 20px;
+        z-index: 10;
+        background: rgba(15, 23, 42, 0.92);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(56, 189, 248, 0.45);
+        padding: 16px 20px;
+        border-radius: 16px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        text-align: center;
+    }
+    .re-svc-trust-badge div {
+        font-size: 1.15rem;
+        font-weight: 800;
+        color: #38bdf8;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+    .re-svc-trust-badge p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.8rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-top: 4px;
+    }
+
+    /* ===== STRICT 100% MOBILE CENTERING (< 991px) ===== */
+    @media (max-width: 991px) {
+        #services-section {
+            padding: 32px 0 !important;
+            overflow: hidden !important;
+        }
+        #services-section .container {
+            padding: 24px 16px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        .re-svc-layout-wrapper {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 20px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+
+        .re-svc-visuals-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin: 0 auto 8px auto !important;
+        }
+        .re-svc-main-img-box {
+            width: 100% !important;
+            height: 240px !important;
+            border-radius: 16px !important;
+        }
+        .re-svc-trust-badge {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 10px !important;
+            padding: 12px 14px !important;
+            border-radius: 12px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .re-svc-trust-badge div {
+            font-size: 0.95rem !important;
+        }
+
+        .re-svc-text-container {
+            width: 100% !important;
+        }
+        .re-svc-cards-grid {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+            margin: 0 auto !important;
+        }
+        .re-svc-card-item {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin: 0 auto !important;
+            padding: 20px 16px !important;
+            border-radius: 16px !important;
+            text-align: center !important;
+            align-items: center !important;
+            justify-content: center !important;
         }
     }
 
@@ -3617,82 +4805,83 @@
             <!-- ===== SERVICES SECTION WITH DUAL HANDSHAKE IMAGES & 6 CORE SERVICES ===== -->
         <!-- ===== SERVICES SECTION WITH HORIZONTAL STACKED CARDS & HANDSHAKE SHOWCASE ===== -->
         <!-- ===== SERVICES SECTION (CENTERED ALIGNMENT & SPACIOUS GRID) ===== -->
-    <section class="re-svc" id="services-section" style="padding: 60px 0;">
-        <div class="container" style="padding: 48px 32px !important;">
+        <!-- ===== SERVICES SECTION (CLEAN MARKUP & PERFECT MOBILE CENTERING) ===== -->
+    <section class="re-svc" id="services-section">
+        <div class="container">
             
             <!-- Centered Header -->
-            <div class="re-svc__header re-reveal" style="text-align: center; margin-bottom: 48px;">
+            <div class="re-svc__header re-reveal" style="text-align: center; margin-bottom: 44px;">
                 <p class="re-section__label">Our Core Services</p>
-                <h2 class="re-section__heading" style="text-align: center;">Real Estate Solutions For Every Requirement</h2>
-                <p class="re-section__subtext" style="max-width: 680px; margin: 0 auto; text-align: center;">From commercial spaces and warehouses to investment and lifestyle properties, we help you find the right opportunity.</p>
+                <h2 class="re-section__heading">Real Estate Solutions For Every Requirement</h2>
+                <p class="re-section__subtext" style="max-width: 680px; margin: 0 auto;">From commercial spaces and warehouses to investment and lifestyle properties, we help you find the right opportunity.</p>
             </div>
 
-            <div class="re-about" style="display: grid; grid-template-columns: 0.9fr 1.3fr; gap: 40px; align-items: center;">
+            <div class="re-svc-layout-wrapper">
                 
-                <!-- Left Side: Centered HD Handshake Image Showcase -->
-                <div class="re-svc-visuals-container re-reveal" style="width: 100%; max-width: 480px; margin: 0 auto;">
-                    <div class="re-svc-main-img-box" style="position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 45px rgba(0,0,0,0.16); height: 500px; width: 100%;">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=85" alt="Real Estate Handshake Deal" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                <!-- Left Side: Large HD Handshake Image Showcase -->
+                <div class="re-svc-visuals-container re-reveal">
+                    <div class="re-svc-main-img-box">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=85" alt="Real Estate Handshake Deal" loading="lazy">
                         
-                        <div class="re-svc-trust-badge" style="position: absolute; bottom: 20px; left: 20px; right: 20px; z-index: 10; background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.45); padding: 16px 20px; border-radius: 16px; box-shadow: 0 10px 25px rgba(0,0,0,0.4); text-align: center;">
-                            <div style="font-size: 1.15rem; font-weight: 800; color: #38bdf8; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                        <div class="re-svc-trust-badge">
+                            <div>
                                 <span>🤝</span> Trusted Real Estate Deal Closers
                             </div>
-                            <p style="color: rgba(255,255,255,0.9); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px;">100% Transparent &amp; Verified Documentation</p>
+                            <p>100% Transparent &amp; Verified Documentation</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right Side: Centered 2-Column Grid of Spacious Cards -->
-                <div class="re-about__text re-reveal" style="width: 100%;">
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; width: 100%;">
+                <!-- Right Side: Centered Cards Grid -->
+                <div class="re-svc-text-container re-reveal">
+                    <div class="re-svc-cards-grid">
                         
                         <!-- 1. Buy Property -->
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 20px; padding: 24px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
-                            <div style="font-size: 1.8rem; background: rgba(2,132,199,0.12); border-radius: 16px; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: #0284c7;">🏠</div>
-                            <h3 style="color: #0f172a; font-weight: 800; font-size: 1.12rem; margin-bottom: 6px; text-align: center;">Buy Property</h3>
-                            <span style="color: #0284c7; font-weight: 700; font-size: 0.78rem; background: rgba(2,132,199,0.08); padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; display: inline-block;">Invest Today, Secure Your Future</span>
-                            <p style="color: #475569; font-size: 0.86rem; line-height: 1.55; margin: 0; text-align: center;">Build long-term wealth through a smart property investment with potential for capital appreciation and rental income.</p>
+                        <div class="re-svc-card-item">
+                            <div class="re-svc-card-icon">🏠</div>
+                            <h3 class="re-svc-card-title">Buy Property</h3>
+                            <span class="re-svc-card-tag">Invest Today, Secure Your Future</span>
+                            <p class="re-svc-card-desc">Build long-term wealth through a smart property investment with potential for capital appreciation and rental income.</p>
                         </div>
 
                         <!-- 2. Sell Property -->
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 20px; padding: 24px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
-                            <div style="font-size: 1.8rem; background: rgba(2,132,199,0.12); border-radius: 16px; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: #0284c7;">🔑</div>
-                            <h3 style="color: #0f172a; font-weight: 800; font-size: 1.12rem; margin-bottom: 6px; text-align: center;">Sell Property</h3>
-                            <span style="color: #0284c7; font-weight: 700; font-size: 0.78rem; background: rgba(2,132,199,0.08); padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; display: inline-block;">Unlock Its True Value Today</span>
-                            <p style="color: #475569; font-size: 0.86rem; line-height: 1.55; margin: 0; text-align: center;">Get the right opportunity to maximize your property’s value with a smooth, transparent and hassle-free selling experience.</p>
+                        <div class="re-svc-card-item">
+                            <div class="re-svc-card-icon">🔑</div>
+                            <h3 class="re-svc-card-title">Sell Property</h3>
+                            <span class="re-svc-card-tag">Unlock Its True Value Today</span>
+                            <p class="re-svc-card-desc">Get the right opportunity to maximize your property’s value with a smooth, transparent and hassle-free selling experience.</p>
                         </div>
 
                         <!-- 3. Rent Property -->
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 20px; padding: 24px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
-                            <div style="font-size: 1.8rem; background: rgba(2,132,199,0.12); border-radius: 16px; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: #0284c7;">🏢</div>
-                            <h3 style="color: #0f172a; font-weight: 800; font-size: 1.12rem; margin-bottom: 6px; text-align: center;">Rent Property</h3>
-                            <span style="color: #0284c7; font-weight: 700; font-size: 0.78rem; background: rgba(2,132,199,0.08); padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; display: inline-block;">Turn Asset into Regular Income</span>
-                            <p style="color: #475569; font-size: 0.86rem; line-height: 1.55; margin: 0; text-align: center;">Find the right tenant, unlock rental potential, and enjoy a smooth, secure and hassle-free leasing experience.</p>
+                        <div class="re-svc-card-item">
+                            <div class="re-svc-card-icon">🏢</div>
+                            <h3 class="re-svc-card-title">Rent Property</h3>
+                            <span class="re-svc-card-tag">Turn Asset into Regular Income</span>
+                            <p class="re-svc-card-desc">Find the right tenant, unlock rental potential, and enjoy a smooth, secure and hassle-free leasing experience.</p>
                         </div>
 
                         <!-- 4. Best Marketing -->
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 20px; padding: 24px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
-                            <div style="font-size: 1.8rem; background: rgba(2,132,199,0.12); border-radius: 16px; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: #0284c7;">📈</div>
-                            <h3 style="color: #0f172a; font-weight: 800; font-size: 1.12rem; margin-bottom: 6px; text-align: center;">Best Marketing</h3>
-                            <span style="color: #0284c7; font-weight: 700; font-size: 0.78rem; background: rgba(2,132,199,0.08); padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; display: inline-block;">Make Property Stand Out</span>
-                            <p style="color: #475569; font-size: 0.86rem; line-height: 1.55; margin: 0; text-align: center;">Reach buyers, tenants and investors through marketing strategies designed to maximize visibility and value.</p>
+                        <div class="re-svc-card-item">
+                            <div class="re-svc-card-icon">📈</div>
+                            <h3 class="re-svc-card-title">Best Marketing</h3>
+                            <span class="re-svc-card-tag">Make Property Stand Out</span>
+                            <p class="re-svc-card-desc">Reach buyers, tenants and investors through marketing strategies designed to maximize visibility and value.</p>
                         </div>
 
                         <!-- 5. Minimum Cost -->
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 20px; padding: 24px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
-                            <div style="font-size: 1.8rem; background: rgba(2,132,199,0.12); border-radius: 16px; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: #0284c7;">🏷️</div>
-                            <h3 style="color: #0f172a; font-weight: 800; font-size: 1.12rem; margin-bottom: 6px; text-align: center;">Minimum Cost</h3>
-                            <span style="color: #0284c7; font-weight: 700; font-size: 0.78rem; background: rgba(2,132,199,0.08); padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; display: inline-block;">Maximum Value &amp; Guidance</span>
-                            <p style="color: #475569; font-size: 0.86rem; line-height: 1.55; margin: 0; text-align: center;">Get property solutions at competitive costs with smart planning, transparent guidance and maximum value.</p>
+                        <div class="re-svc-card-item">
+                            <div class="re-svc-card-icon">🏷️</div>
+                            <h3 class="re-svc-card-title">Minimum Cost</h3>
+                            <span class="re-svc-card-tag">Maximum Value &amp; Guidance</span>
+                            <p class="re-svc-card-desc">Get property solutions at competitive costs with smart planning, transparent guidance and maximum value.</p>
                         </div>
 
                         <!-- 6. Deal Analysis -->
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 20px; padding: 24px 20px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(0,0,0,0.02);">
-                            <div style="font-size: 1.8rem; background: rgba(2,132,199,0.12); border-radius: 16px; width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; color: #0284c7;">⚖️</div>
-                            <h3 style="color: #0f172a; font-weight: 800; font-size: 1.12rem; margin-bottom: 6px; text-align: center;">Deal Analysis</h3>
-                            <span style="color: #0284c7; font-weight: 700; font-size: 0.78rem; background: rgba(2,132,199,0.08); padding: 4px 12px; border-radius: 20px; margin-bottom: 10px; display: inline-block;">Decide with 100% Confidence</span>
-                            <p style="color: #475569; font-size: 0.86rem; line-height: 1.55; margin: 0; text-align: center;">Evaluate pricing, returns, risks, location and future potential to make smart, informed investment decisions.</p>
+                        <div class="re-svc-card-item">
+                            <div class="re-svc-card-icon">⚖️</div>
+                            <h3 class="re-svc-card-title">Deal Analysis</h3>
+                            <span class="re-svc-card-tag">Decide with 100% Confidence</span>
+                            <p class="re-svc-card-desc">Evaluate pricing, returns, risks, location and future potential to make smart, informed investment decisions.</p>
                         </div>
 
                     </div>
