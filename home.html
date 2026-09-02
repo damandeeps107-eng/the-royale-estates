@@ -1582,51 +1582,87 @@
     </style>
 
     <!-- ===== ABOUT THE ROYALE ESTATES ===== -->
+        <!-- ===== ABOUT THE ROYALE ESTATES (WITH HANDSHAKE IMAGE & 6 CORE SERVICES) ===== -->
     <section class="re-section" id="about-section">
         <div class="container">
-            <div class="re-about">
-                <div class="re-about__visuals re-reveal">
-                    <img src="./assets/images/hero/warehouse.jpg" alt="Warehouse Property" loading="lazy">
-                    <img src="./assets/images/hero/commercial.jpg" alt="Commercial Property" loading="lazy">
-                    <img src="./assets/images/hero/office.jpg" alt="Office Space" loading="lazy">
-                    <img src="./assets/images/hero/villa.jpg" alt="Villas" loading="lazy">
-                    <div class="re-about__badge" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; margin: 0; box-shadow: 0 10px 30px rgba(0,0,0,0.35);">
-                        <div style="font-size: 1.8rem; font-weight: 800; color: #38bdf8;">10+</div>
-                        <p>Years Experience</p>
+            <div class="re-about" style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: center;">
+                
+                <!-- Left Side: Handshake Deal Image -->
+                <div class="re-about__visuals re-reveal" style="position: relative; border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.12);">
+                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80" alt="Real Estate Deal Handshake" loading="lazy" style="width: 100%; height: 100%; min-height: 520px; object-fit: cover; border-radius: 20px; display: block;">
+                    
+                    <div class="re-about__badge" style="position: absolute; bottom: 24px; left: 24px; z-index: 10; margin: 0; background: rgba(15, 23, 42, 0.88); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.4); padding: 18px 24px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.4);">
+                        <div style="font-size: 1.8rem; font-weight: 800; color: #38bdf8; line-height: 1;">10+ Years</div>
+                        <p style="color: rgba(255,255,255,0.9); font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px;">Trusted Real Estate Partners</p>
                     </div>
                 </div>
+
+                <!-- Right Side: About Text & 6 Core Services -->
                 <div class="re-about__text re-reveal">
                     <p class="re-section__label">About The Royale Estates</p>
                     <h2 class="re-section__heading">Your Trusted Partner in Real Estate</h2>
-                    <p class="re-section__subtext">At Royale Estate, we are committed to redefining the real estate experience by offering reliable, efficient, and client-focused property solutions across India. With a deep understanding of the market and a passion for excellence, we strive to simplify the process of buying, selling, and renting properties for our clients.</p>
-                    <p class="re-section__subtext" style="margin-top: 14px;">Over time, we have built a strong presence in the industry by consistently delivering value and maintaining high professional standards. Our growing network and market expertise allow us to offer diverse property options in prime locations, helping clients make informed and confident decisions.</p>
-                    <p class="re-section__subtext" style="margin-top: 14px;">Based in Vasant Lawns, Thane West, Royale Estate is driven by visionary leadership and a dedicated team that believes in integrity, commitment, and long-term relationships. Our mission is not just to meet expectations, but to exceed them—creating lasting value for every client we serve.</p>
+                    <p class="re-section__subtext" style="margin-bottom: 24px;">At Royale Estate, we are committed to redefining the real estate experience by offering reliable, efficient, and client-focused property solutions across India. With a deep understanding of the market and a passion for excellence, we simplify buying, selling, renting, and investing.</p>
 
-                    <!-- 4 Core Pillars from about page -->
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 24px;">
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 16px;">
-                            <div style="color: #0284c7; font-weight: 800; font-size: 1rem; margin-bottom: 4px;">🏷️ Minimum Cost</div>
-                            <div style="color: #475569; font-size: 0.84rem;">Provide best cost solutions that help clients maximize value in real estate.</div>
+                    <!-- 6 Core Services Cards Grid -->
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+                        
+                        <!-- 1. Buy Property -->
+                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s ease;">
+                            <div style="color: #0284c7; font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                                <span>🏠</span> Buy Property
+                            </div>
+                            <div style="color: #0f172a; font-weight: 700; font-size: 0.88rem; margin-bottom: 4px;">Invest Today, Secure Your Future Tomorrow.</div>
+                            <div style="color: #475569; font-size: 0.83rem; line-height: 1.5;">Build long-term wealth through a smart property investment with the potential for capital appreciation and steady rental income.</div>
                         </div>
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 16px;">
-                            <div style="color: #0284c7; font-weight: 800; font-size: 1rem; margin-bottom: 4px;">📈 Best Marketing</div>
-                            <div style="color: #475569; font-size: 0.84rem;">Targeted buyer reach and high-yield property exposure for investors.</div>
+
+                        <!-- 2. Sell Property -->
+                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s ease;">
+                            <div style="color: #0284c7; font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                                <span>🔑</span> Sell Property
+                            </div>
+                            <div style="color: #0f172a; font-weight: 700; font-size: 0.88rem; margin-bottom: 4px;">Unlock Its True Value Today.</div>
+                            <div style="color: #475569; font-size: 0.83rem; line-height: 1.5;">Get the right opportunity to maximize your property’s value with a smooth, transparent and hassle-free selling experience.</div>
                         </div>
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 16px;">
-                            <div style="color: #0284c7; font-weight: 800; font-size: 1rem; margin-bottom: 4px;">🔍 Easy to Search</div>
-                            <div style="color: #475569; font-size: 0.84rem;">Find your ideal warehouse, office, villa or land simply and easily.</div>
+
+                        <!-- 3. Rent Property -->
+                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s ease;">
+                            <div style="color: #0284c7; font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                                <span>🏢</span> Rent Property
+                            </div>
+                            <div style="color: #0f172a; font-weight: 700; font-size: 0.88rem; margin-bottom: 4px;">Turn Your Asset into Regular Income.</div>
+                            <div style="color: #475569; font-size: 0.83rem; line-height: 1.5;">Find the right tenant, unlock the rental potential of your property, and enjoy a smooth, secure and hassle-free leasing experience.</div>
                         </div>
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 16px;">
-                            <div style="color: #0284c7; font-weight: 800; font-size: 1rem; margin-bottom: 4px;">🛡️ 100% Secure</div>
-                            <div style="color: #475569; font-size: 0.84rem;">Title-verified deals, transparent documentation, and zero-hassle closing.</div>
+
+                        <!-- 4. Best Marketing -->
+                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s ease;">
+                            <div style="color: #0284c7; font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                                <span>📈</span> Best Marketing
+                            </div>
+                            <div style="color: #0f172a; font-weight: 700; font-size: 0.88rem; margin-bottom: 4px;">Make Your Property Stand Out.</div>
+                            <div style="color: #475569; font-size: 0.83rem; line-height: 1.5;">Reach the right buyers, tenants and investors through powerful marketing strategies designed to maximize visibility, generate genuine enquiries and achieve the best possible value.</div>
                         </div>
+
+                        <!-- 5. Minimum Cost -->
+                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s ease;">
+                            <div style="color: #0284c7; font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                                <span>🏷️</span> Minimum Cost
+                            </div>
+                            <div style="color: #0f172a; font-weight: 700; font-size: 0.88rem; margin-bottom: 4px;">Maximum Value.</div>
+                            <div style="color: #475569; font-size: 0.83rem; line-height: 1.5;">Get the right property solution at the most competitive cost, with smart planning, transparent guidance and the best possible value for your investment.</div>
+                        </div>
+
+                        <!-- 6. Deal Analysis -->
+                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s ease;">
+                            <div style="color: #0284c7; font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
+                                <span>⚖️</span> Deal Analysis
+                            </div>
+                            <div style="color: #0f172a; font-weight: 700; font-size: 0.88rem; margin-bottom: 4px;">Make Every Property Decision with Confidence.</div>
+                            <div style="color: #475569; font-size: 0.83rem; line-height: 1.5;">Evaluate pricing, returns, risks, location and future potential to identify the right opportunity and make a smart, informed investment decision.</div>
+                        </div>
+
                     </div>
 
-                    <div style="display: inline-flex; align-items: center; gap: 8px; background: rgba(2,132,199,0.1); border: 2px solid #0284c7; color: #0284c7; font-weight: 800; padding: 12px 24px; border-radius: 30px; font-size: 1.05rem; margin-top: 24px; box-shadow: 0 4px 16px rgba(2,132,199,0.2);">
-                        <span style="font-size: 1.2rem;">🔥</span> 7% to 10% Assured Bargains
-                    </div>
-
-                    <div class="re-about__stats">
+                    <div class="re-about__stats" style="margin-top: 24px;">
                         <div class="re-about__stat-item">
                             <div style="font-size: 1.5rem; font-weight: 800; color: #0284c7;">500+</div>
                             <p>Properties Closed</p>
@@ -1641,6 +1677,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
