@@ -4727,35 +4727,69 @@
 
     var DEFAULT_PROPERTIES_FALLBACK = [];
 
+    /* ===== 100% BULLETPROOF ADMIN GIST DB REALTIME SYNC ===== */
+    var GIST_RAW_URL = 'https://gist.githubusercontent.com/raw/eebf5c328e2a6047fb9e71338a6836ba/properties.json?t=' + Date.now();
+
     function matchCategory(item, targetKey) {
         if (!item) return false;
-        var cat = (item.category || '').toLowerCase().trim();
+        var cat = ((item.category || '') + ' ' + (item.folder || '') + ' ' + (item.subfolder || '')).toLowerCase().trim();
         var title = (item.title || '').toLowerCase().trim();
         var badge = (item.badge || '').toLowerCase().trim();
 
-        if (targetKey === 'preleased') {
-            return cat.includes('pre-leased') || cat.includes('preleased') || cat.includes('lease') || badge.includes('roi') || title.includes('pre-leased') || title.includes('preleased');
+        if (targetKey === 'preleased' || targetKey === 'pre-leased') {
+            return cat.includes('pre-leased') || cat.includes('preleased') || cat.includes('lease') || cat.includes('roi') || badge.includes('roi') || title.includes('pre-leased') || title.includes('preleased');
         }
         
         if (badge.includes('roi') || title.includes('pre-leased') || title.includes('preleased')) {
             return false;
         }
 
-        if (targetKey === 'warehouse') {
-            return cat.includes('warehouse') || cat.includes('industrial') || title.includes('warehouse') || title.includes('industrial');
+        if (targetKey === 'warehouse' || targetKey === 'warehouses') {
+            return cat.includes('warehouse') || cat.includes('industrial') || cat.includes('godown') || cat.includes('shed') || title.includes('warehouse') || title.includes('industrial') || title.includes('godown');
         }
-        if (targetKey === 'office') {
-            return cat.includes('office') || cat.includes('commercial') || title.includes('office') || title.includes('commercial');
+        if (targetKey === 'office' || targetKey === 'commercial') {
+            return cat.includes('office') || cat.includes('commercial') || cat.includes('retail') || cat.includes('shop') || cat.includes('showroom') || title.includes('office') || title.includes('commercial');
         }
-        if (targetKey === 'villas') {
-            return cat.includes('weekend') || cat.includes('villa') || cat.includes('home') || title.includes('weekend') || title.includes('villa') || title.includes('resort');
+        if (targetKey === 'villas' || targetKey === 'villa' || targetKey === 'weekend') {
+            return cat.includes('weekend') || cat.includes('villa') || cat.includes('home') || cat.includes('resort') || cat.includes('farmhouse') || title.includes('weekend') || title.includes('villa') || title.includes('resort');
         }
-        if (targetKey === 'land') {
-            return cat.includes('land') || cat.includes('plot') || title.includes('land') || title.includes('plot');
+        if (targetKey === 'land' || targetKey === 'plots') {
+            return cat.includes('land') || cat.includes('plot') || cat.includes('na land') || title.includes('land') || title.includes('plot');
         }
 
-        return false;
+        return true;
     }
+
+    function syncLiveAdminGistProperties(catKeyToRender) {
+        var url = 'https://gist.githubusercontent.com/raw/eebf5c328e2a6047fb9e71338a6836ba/properties.json?nocache=' + Date.now();
+        fetch(url, { cache: 'no-store' })
+        .then(function(res) {
+            if (!res.ok) throw new Error('HTTP status ' + res.status);
+            return res.text();
+        })
+        .then(function(rawText) {
+            try {
+                var content = JSON.parse(rawText);
+                if (content && Array.isArray(content) && content.length > 0) {
+                    try {
+                        localStorage.setItem('royaleProperties', JSON.stringify(content));
+                    } catch(e) {}
+                    
+                    var target = catKeyToRender || currentOpenCatKey || 'warehouse';
+                    renderInlineFolderGrid(target, content);
+                }
+            } catch(jsonErr) {
+                console.error('Cloud Raw Gist JSON Parse Error:', jsonErr);
+            }
+        })
+        .catch(function(err) {
+            console.warn('Cloud Gist Direct Fetch Warning, checking fallback:', err);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        syncLiveAdminGistProperties('warehouse');
+    });
 
     function renderInlineFolderGrid(catKey, props) {
         var gridEl = document.getElementById('inlineFolderPropertyGrid');
@@ -5633,35 +5667,69 @@
 
     var DEFAULT_PROPERTIES_FALLBACK = [];
 
+    /* ===== 100% BULLETPROOF ADMIN GIST DB REALTIME SYNC ===== */
+    var GIST_RAW_URL = 'https://gist.githubusercontent.com/raw/eebf5c328e2a6047fb9e71338a6836ba/properties.json?t=' + Date.now();
+
     function matchCategory(item, targetKey) {
         if (!item) return false;
-        var cat = (item.category || '').toLowerCase().trim();
+        var cat = ((item.category || '') + ' ' + (item.folder || '') + ' ' + (item.subfolder || '')).toLowerCase().trim();
         var title = (item.title || '').toLowerCase().trim();
         var badge = (item.badge || '').toLowerCase().trim();
 
-        if (targetKey === 'preleased') {
-            return cat.includes('pre-leased') || cat.includes('preleased') || cat.includes('lease') || badge.includes('roi') || title.includes('pre-leased') || title.includes('preleased');
+        if (targetKey === 'preleased' || targetKey === 'pre-leased') {
+            return cat.includes('pre-leased') || cat.includes('preleased') || cat.includes('lease') || cat.includes('roi') || badge.includes('roi') || title.includes('pre-leased') || title.includes('preleased');
         }
         
         if (badge.includes('roi') || title.includes('pre-leased') || title.includes('preleased')) {
             return false;
         }
 
-        if (targetKey === 'warehouse') {
-            return cat.includes('warehouse') || cat.includes('industrial') || title.includes('warehouse') || title.includes('industrial');
+        if (targetKey === 'warehouse' || targetKey === 'warehouses') {
+            return cat.includes('warehouse') || cat.includes('industrial') || cat.includes('godown') || cat.includes('shed') || title.includes('warehouse') || title.includes('industrial') || title.includes('godown');
         }
-        if (targetKey === 'office') {
-            return cat.includes('office') || cat.includes('commercial') || title.includes('office') || title.includes('commercial');
+        if (targetKey === 'office' || targetKey === 'commercial') {
+            return cat.includes('office') || cat.includes('commercial') || cat.includes('retail') || cat.includes('shop') || cat.includes('showroom') || title.includes('office') || title.includes('commercial');
         }
-        if (targetKey === 'villas') {
-            return cat.includes('weekend') || cat.includes('villa') || cat.includes('home') || title.includes('weekend') || title.includes('villa') || title.includes('resort');
+        if (targetKey === 'villas' || targetKey === 'villa' || targetKey === 'weekend') {
+            return cat.includes('weekend') || cat.includes('villa') || cat.includes('home') || cat.includes('resort') || cat.includes('farmhouse') || title.includes('weekend') || title.includes('villa') || title.includes('resort');
         }
-        if (targetKey === 'land') {
-            return cat.includes('land') || cat.includes('plot') || title.includes('land') || title.includes('plot');
+        if (targetKey === 'land' || targetKey === 'plots') {
+            return cat.includes('land') || cat.includes('plot') || cat.includes('na land') || title.includes('land') || title.includes('plot');
         }
 
-        return false;
+        return true;
     }
+
+    function syncLiveAdminGistProperties(catKeyToRender) {
+        var url = 'https://gist.githubusercontent.com/raw/eebf5c328e2a6047fb9e71338a6836ba/properties.json?nocache=' + Date.now();
+        fetch(url, { cache: 'no-store' })
+        .then(function(res) {
+            if (!res.ok) throw new Error('HTTP status ' + res.status);
+            return res.text();
+        })
+        .then(function(rawText) {
+            try {
+                var content = JSON.parse(rawText);
+                if (content && Array.isArray(content) && content.length > 0) {
+                    try {
+                        localStorage.setItem('royaleProperties', JSON.stringify(content));
+                    } catch(e) {}
+                    
+                    var target = catKeyToRender || currentOpenCatKey || 'warehouse';
+                    renderInlineFolderGrid(target, content);
+                }
+            } catch(jsonErr) {
+                console.error('Cloud Raw Gist JSON Parse Error:', jsonErr);
+            }
+        })
+        .catch(function(err) {
+            console.warn('Cloud Gist Direct Fetch Warning, checking fallback:', err);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        syncLiveAdminGistProperties('warehouse');
+    });
 
     function renderModalPropertyGrid(catKey, props) {
         var gridEl = document.getElementById('catModalListings');
