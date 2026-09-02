@@ -2805,93 +2805,105 @@
     </script>
 
             <!-- ===== SERVICES SECTION WITH DUAL HANDSHAKE IMAGES & 6 CORE SERVICES ===== -->
-    <section class="re-svc" id="services-section">
+        <!-- ===== SERVICES SECTION WITH HORIZONTAL STACKED CARDS & HANDSHAKE SHOWCASE ===== -->
+    <section class="re-svc" id="services-section" style="padding: 60px 0;">
         <div class="container">
-            <div class="re-svc__header re-reveal" style="text-align: center; margin-bottom: 44px;">
+            <div class="re-svc__header re-reveal" style="text-align: center; margin-bottom: 48px;">
                 <p class="re-section__label">Our Core Services</p>
                 <h2 class="re-section__heading">Real Estate Solutions For Every Requirement</h2>
-                <p class="re-section__subtext" style="max-width: 640px; margin: 0 auto;">From commercial spaces and warehouses to investment and lifestyle properties, we help you find the right opportunity.</p>
+                <p class="re-section__subtext" style="max-width: 680px; margin: 0 auto;">From commercial spaces and warehouses to investment and lifestyle properties, we help you find the right opportunity.</p>
             </div>
 
-            <div class="re-about" style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 48px; align-items: center;">
+            <div class="re-about" style="display: grid; grid-template-columns: 0.95fr 1.25fr; gap: 48px; align-items: start;">
                 
-                                <!-- Left Side: Dual Handshake Deal Images Showcase (Large & Mobile Responsive) -->
-                <div class="re-svc-visuals-container re-reveal">
-                    <!-- Main Handshake Image 1 -->
-                    <div class="re-svc-main-img-box">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=85" alt="Real Estate Handshake Deal" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-                    
-                    <!-- Secondary Handshake Image 2 (Floating Card) -->
-                    <div class="re-svc-sec-img-box">
-                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=85" alt="Corporate Business Handshake Agreement" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-                    </div>
-
-                    <!-- Floating Glassmorphism Badge -->
-                    <div class="re-svc-trust-badge">
-                        <div style="font-size: 1.1rem; font-weight: 800; color: #38bdf8; display: flex; align-items: center; gap: 6px;">
-                            <span>🤝</span> Trusted Deal Closers
+                <!-- Left Side: Large HD Handshake Image Showcase -->
+                <div class="re-svc-visuals-container re-reveal" style="position: sticky; top: 100px;">
+                    <div class="re-svc-main-img-box" style="position: relative; border-radius: 22px; overflow: hidden; box-shadow: 0 22px 50px rgba(0,0,0,0.18); height: 540px; width: 100%;">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=85" alt="Real Estate Handshake Deal" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+                        
+                        <div class="re-svc-trust-badge" style="position: absolute; bottom: 24px; left: 24px; right: 24px; z-index: 10; background: rgba(15, 23, 42, 0.92); backdrop-filter: blur(12px); border: 1px solid rgba(56, 189, 248, 0.45); padding: 18px 24px; border-radius: 18px; box-shadow: 0 12px 30px rgba(0,0,0,0.4);">
+                            <div style="font-size: 1.2rem; font-weight: 800; color: #38bdf8; display: flex; align-items: center; gap: 8px;">
+                                <span>🤝</span> Trusted Real Estate Deal Closers
+                            </div>
+                            <p style="color: rgba(255,255,255,0.9); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px;">100% Transparent &amp; Verified Documentation</p>
                         </div>
-                        <p style="color: rgba(255,255,255,0.9); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px;">100% Transparent Documentation</p>
                     </div>
                 </div>
 
-                <!-- Right Side: 6 Core Services Cards Grid -->
+                <!-- Right Side: 6 Full-Width Horizontal Feature Cards Stacked Vertically -->
                 <div class="re-about__text re-reveal">
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px;">
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
                         
                         <!-- 1. Buy Property -->
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s ease;">
-                            <div style="color: #0284c7; font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
-                                <span>🏠</span> Buy Property
+                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 16px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 18px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                            <div style="font-size: 1.6rem; background: rgba(2,132,199,0.1); border-radius: 14px; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #0284c7;">🏠</div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+                                    <h3 style="color: #0f172a; font-weight: 800; font-size: 1.12rem; margin: 0;">Buy Property</h3>
+                                    <span style="color: #0284c7; font-weight: 700; font-size: 0.82rem; background: rgba(2,132,199,0.08); padding: 4px 12px; border-radius: 20px;">Invest Today, Secure Your Future Tomorrow</span>
+                                </div>
+                                <p style="color: #475569; font-size: 0.88rem; line-height: 1.55; margin: 0;">Build long-term wealth through a smart property investment with the potential for capital appreciation and steady rental income.</p>
                             </div>
-                            <div style="color: #0f172a; font-weight: 700; font-size: 0.88rem; margin-bottom: 4px;">Invest Today, Secure Your Future Tomorrow.</div>
-                            <div style="color: #475569; font-size: 0.83rem; line-height: 1.5;">Build long-term wealth through a smart property investment with the potential for capital appreciation and steady rental income.</div>
                         </div>
 
                         <!-- 2. Sell Property -->
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s ease;">
-                            <div style="color: #0284c7; font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
-                                <span>🔑</span> Sell Property
+                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 16px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 18px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                            <div style="font-size: 1.6rem; background: rgba(2,132,199,0.1); border-radius: 14px; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #0284c7;">🔑</div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+                                    <h3 style="color: #0f172a; font-weight: 800; font-size: 1.12rem; margin: 0;">Sell Property</h3>
+                                    <span style="color: #0284c7; font-weight: 700; font-size: 0.82rem; background: rgba(2,132,199,0.08); padding: 4px 12px; border-radius: 20px;">Unlock Its True Value Today</span>
+                                </div>
+                                <p style="color: #475569; font-size: 0.88rem; line-height: 1.55; margin: 0;">Get the right opportunity to maximize your property’s value with a smooth, transparent and hassle-free selling experience.</p>
                             </div>
-                            <div style="color: #0f172a; font-weight: 700; font-size: 0.88rem; margin-bottom: 4px;">Unlock Its True Value Today.</div>
-                            <div style="color: #475569; font-size: 0.83rem; line-height: 1.5;">Get the right opportunity to maximize your property’s value with a smooth, transparent and hassle-free selling experience.</div>
                         </div>
 
                         <!-- 3. Rent Property -->
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s ease;">
-                            <div style="color: #0284c7; font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
-                                <span>🏢</span> Rent Property
+                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 16px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 18px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                            <div style="font-size: 1.6rem; background: rgba(2,132,199,0.1); border-radius: 14px; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #0284c7;">🏢</div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+                                    <h3 style="color: #0f172a; font-weight: 800; font-size: 1.12rem; margin: 0;">Rent Property</h3>
+                                    <span style="color: #0284c7; font-weight: 700; font-size: 0.82rem; background: rgba(2,132,199,0.08); padding: 4px 12px; border-radius: 20px;">Turn Your Asset into Regular Income</span>
+                                </div>
+                                <p style="color: #475569; font-size: 0.88rem; line-height: 1.55; margin: 0;">Find the right tenant, unlock the rental potential of your property, and enjoy a smooth, secure and hassle-free leasing experience.</p>
                             </div>
-                            <div style="color: #0f172a; font-weight: 700; font-size: 0.88rem; margin-bottom: 4px;">Turn Your Asset into Regular Income.</div>
-                            <div style="color: #475569; font-size: 0.83rem; line-height: 1.5;">Find the right tenant, unlock the rental potential of your property, and enjoy a smooth, secure and hassle-free leasing experience.</div>
                         </div>
 
                         <!-- 4. Best Marketing -->
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s ease;">
-                            <div style="color: #0284c7; font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
-                                <span>📈</span> Best Marketing
+                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 16px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 18px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                            <div style="font-size: 1.6rem; background: rgba(2,132,199,0.1); border-radius: 14px; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #0284c7;">📈</div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+                                    <h3 style="color: #0f172a; font-weight: 800; font-size: 1.12rem; margin: 0;">Best Marketing</h3>
+                                    <span style="color: #0284c7; font-weight: 700; font-size: 0.82rem; background: rgba(2,132,199,0.08); padding: 4px 12px; border-radius: 20px;">Make Your Property Stand Out</span>
+                                </div>
+                                <p style="color: #475569; font-size: 0.88rem; line-height: 1.55; margin: 0;">Reach the right buyers, tenants and investors through powerful marketing strategies designed to maximize visibility, generate genuine enquiries and achieve the best possible value.</p>
                             </div>
-                            <div style="color: #0f172a; font-weight: 700; font-size: 0.88rem; margin-bottom: 4px;">Make Your Property Stand Out.</div>
-                            <div style="color: #475569; font-size: 0.83rem; line-height: 1.5;">Reach the right buyers, tenants and investors through powerful marketing strategies designed to maximize visibility, generate genuine enquiries and achieve the best possible value.</div>
                         </div>
 
                         <!-- 5. Minimum Cost -->
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s ease;">
-                            <div style="color: #0284c7; font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
-                                <span>🏷️</span> Minimum Cost
+                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 16px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 18px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                            <div style="font-size: 1.6rem; background: rgba(2,132,199,0.1); border-radius: 14px; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #0284c7;">🏷️</div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+                                    <h3 style="color: #0f172a; font-weight: 800; font-size: 1.12rem; margin: 0;">Minimum Cost</h3>
+                                    <span style="color: #0284c7; font-weight: 700; font-size: 0.82rem; background: rgba(2,132,199,0.08); padding: 4px 12px; border-radius: 20px;">Maximum Value</span>
+                                </div>
+                                <p style="color: #475569; font-size: 0.88rem; line-height: 1.55; margin: 0;">Get the right property solution at the most competitive cost, with smart planning, transparent guidance and the best possible value for your investment.</p>
                             </div>
-                            <div style="color: #0f172a; font-weight: 700; font-size: 0.88rem; margin-bottom: 4px;">Maximum Value.</div>
-                            <div style="color: #475569; font-size: 0.83rem; line-height: 1.5;">Get the right property solution at the most competitive cost, with smart planning, transparent guidance and the best possible value for your investment.</div>
                         </div>
 
                         <!-- 6. Deal Analysis -->
-                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 14px; padding: 18px; transition: all 0.3s ease;">
-                            <div style="color: #0284c7; font-weight: 800; font-size: 1.05rem; margin-bottom: 6px; display: flex; align-items: center; gap: 8px;">
-                                <span>⚖️</span> Deal Analysis
+                        <div style="background: rgba(15,23,42,0.03); border: 1px solid rgba(15,23,42,0.08); border-radius: 16px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 18px; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                            <div style="font-size: 1.6rem; background: rgba(2,132,199,0.1); border-radius: 14px; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #0284c7;">⚖️</div>
+                            <div style="flex: 1;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; margin-bottom: 6px;">
+                                    <h3 style="color: #0f172a; font-weight: 800; font-size: 1.12rem; margin: 0;">Deal Analysis</h3>
+                                    <span style="color: #0284c7; font-weight: 700; font-size: 0.82rem; background: rgba(2,132,199,0.08); padding: 4px 12px; border-radius: 20px;">Make Every Property Decision with Confidence</span>
+                                </div>
+                                <p style="color: #475569; font-size: 0.88rem; line-height: 1.55; margin: 0;">Evaluate pricing, returns, risks, location and future potential to identify the right opportunity and make a smart, informed investment decision.</p>
                             </div>
-                            <div style="color: #0f172a; font-weight: 700; font-size: 0.88rem; margin-bottom: 4px;">Make Every Property Decision with Confidence.</div>
-                            <div style="color: #475569; font-size: 0.83rem; line-height: 1.5;">Evaluate pricing, returns, risks, location and future potential to identify the right opportunity and make a smart, informed investment decision.</div>
                         </div>
 
                     </div>
