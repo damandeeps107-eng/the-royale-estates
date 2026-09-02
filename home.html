@@ -805,6 +805,141 @@
         }
     }
 
+    
+    /* ===== STRICT MOBILE RESPONSIVE FIX FOR OUR CORE SERVICES SECTION (< 768px) ===== */
+    @media (max-width: 767px) {
+        #services-section {
+            padding: 32px 0 !important;
+            overflow: hidden !important;
+        }
+        #services-section .container {
+            padding: 24px 16px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        #services-section .re-svc__header {
+            margin-bottom: 20px !important;
+            padding: 0 4px !important;
+            text-align: center !important;
+        }
+        #services-section .re-svc__header .re-section__heading {
+            font-size: 1.55rem !important;
+            margin-bottom: 8px !important;
+            text-align: center !important;
+        }
+        #services-section .re-svc__header .re-section__subtext {
+            font-size: 0.88rem !important;
+            line-height: 1.5 !important;
+            text-align: center !important;
+        }
+
+        /* 1. Remove 2-column layout completely -> Single Column Flex Layout */
+        #services-section .re-about {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            width: 100% !important;
+        }
+
+        #services-section .re-about__text {
+            width: 100% !important;
+        }
+
+        /* 2. Show Main Property Image at top, full width, height 240px, rounded corners, no sticky/fixed positioning */
+        .re-svc-visuals-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            margin: 0 0 4px 0 !important;
+            min-height: auto !important;
+        }
+        .re-svc-main-img-box {
+            width: 100% !important;
+            height: 240px !important;
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            position: relative !important;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12) !important;
+        }
+        .re-svc-main-img-box img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+        .re-svc-trust-badge {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 10px !important;
+            padding: 10px 14px !important;
+            border-radius: 12px !important;
+            text-align: center !important;
+            background: #0f172a !important;
+            border: 1px solid #0284c7 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .re-svc-trust-badge div {
+            font-size: 0.95rem !important;
+            justify-content: center !important;
+        }
+        .re-svc-trust-badge p {
+            font-size: 0.72rem !important;
+        }
+
+        /* 3. Below image, display ALL service cards full-width stacked vertically one below another */
+        #services-section .re-about__text > div {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+        }
+
+        #services-section .re-about__text > div > div {
+            width: 100% !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+            padding: 18px 16px !important;
+            border-radius: 16px !important;
+            text-align: left !important; /* Proper alignment inside card */
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+            margin: 0 !important;
+        }
+
+        #services-section .re-about__text > div > div > div:first-child {
+            margin-bottom: 10px !important;
+        }
+
+        #services-section .re-about__text > div > div h3 {
+            text-align: left !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 4px !important;
+        }
+
+        #services-section .re-about__text > div > div span {
+            text-align: left !important;
+            font-size: 0.78rem !important;
+            margin-bottom: 8px !important;
+            display: inline-block !important;
+        }
+
+        #services-section .re-about__text > div > div p {
+            text-align: left !important;
+            font-size: 0.85rem !important;
+            line-height: 1.5 !important;
+        }
+    }
+
     </style>
 <style>
 
@@ -921,6 +1056,141 @@
             border-radius: 12px !important;
             top: 12px !important;
             left: 12px !important;
+        }
+    }
+
+    
+    /* ===== STRICT MOBILE RESPONSIVE FIX FOR OUR CORE SERVICES SECTION (< 768px) ===== */
+    @media (max-width: 767px) {
+        #services-section {
+            padding: 32px 0 !important;
+            overflow: hidden !important;
+        }
+        #services-section .container {
+            padding: 24px 16px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        #services-section .re-svc__header {
+            margin-bottom: 20px !important;
+            padding: 0 4px !important;
+            text-align: center !important;
+        }
+        #services-section .re-svc__header .re-section__heading {
+            font-size: 1.55rem !important;
+            margin-bottom: 8px !important;
+            text-align: center !important;
+        }
+        #services-section .re-svc__header .re-section__subtext {
+            font-size: 0.88rem !important;
+            line-height: 1.5 !important;
+            text-align: center !important;
+        }
+
+        /* 1. Remove 2-column layout completely -> Single Column Flex Layout */
+        #services-section .re-about {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            width: 100% !important;
+        }
+
+        #services-section .re-about__text {
+            width: 100% !important;
+        }
+
+        /* 2. Show Main Property Image at top, full width, height 240px, rounded corners, no sticky/fixed positioning */
+        .re-svc-visuals-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            margin: 0 0 4px 0 !important;
+            min-height: auto !important;
+        }
+        .re-svc-main-img-box {
+            width: 100% !important;
+            height: 240px !important;
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            position: relative !important;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12) !important;
+        }
+        .re-svc-main-img-box img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+        .re-svc-trust-badge {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 10px !important;
+            padding: 10px 14px !important;
+            border-radius: 12px !important;
+            text-align: center !important;
+            background: #0f172a !important;
+            border: 1px solid #0284c7 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .re-svc-trust-badge div {
+            font-size: 0.95rem !important;
+            justify-content: center !important;
+        }
+        .re-svc-trust-badge p {
+            font-size: 0.72rem !important;
+        }
+
+        /* 3. Below image, display ALL service cards full-width stacked vertically one below another */
+        #services-section .re-about__text > div {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+        }
+
+        #services-section .re-about__text > div > div {
+            width: 100% !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+            padding: 18px 16px !important;
+            border-radius: 16px !important;
+            text-align: left !important; /* Proper alignment inside card */
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+            margin: 0 !important;
+        }
+
+        #services-section .re-about__text > div > div > div:first-child {
+            margin-bottom: 10px !important;
+        }
+
+        #services-section .re-about__text > div > div h3 {
+            text-align: left !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 4px !important;
+        }
+
+        #services-section .re-about__text > div > div span {
+            text-align: left !important;
+            font-size: 0.78rem !important;
+            margin-bottom: 8px !important;
+            display: inline-block !important;
+        }
+
+        #services-section .re-about__text > div > div p {
+            text-align: left !important;
+            font-size: 0.85rem !important;
+            line-height: 1.5 !important;
         }
     }
 
@@ -1044,6 +1314,141 @@
             border-radius: 12px !important;
             top: 12px !important;
             left: 12px !important;
+        }
+    }
+
+    
+    /* ===== STRICT MOBILE RESPONSIVE FIX FOR OUR CORE SERVICES SECTION (< 768px) ===== */
+    @media (max-width: 767px) {
+        #services-section {
+            padding: 32px 0 !important;
+            overflow: hidden !important;
+        }
+        #services-section .container {
+            padding: 24px 16px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        #services-section .re-svc__header {
+            margin-bottom: 20px !important;
+            padding: 0 4px !important;
+            text-align: center !important;
+        }
+        #services-section .re-svc__header .re-section__heading {
+            font-size: 1.55rem !important;
+            margin-bottom: 8px !important;
+            text-align: center !important;
+        }
+        #services-section .re-svc__header .re-section__subtext {
+            font-size: 0.88rem !important;
+            line-height: 1.5 !important;
+            text-align: center !important;
+        }
+
+        /* 1. Remove 2-column layout completely -> Single Column Flex Layout */
+        #services-section .re-about {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            width: 100% !important;
+        }
+
+        #services-section .re-about__text {
+            width: 100% !important;
+        }
+
+        /* 2. Show Main Property Image at top, full width, height 240px, rounded corners, no sticky/fixed positioning */
+        .re-svc-visuals-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            margin: 0 0 4px 0 !important;
+            min-height: auto !important;
+        }
+        .re-svc-main-img-box {
+            width: 100% !important;
+            height: 240px !important;
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            position: relative !important;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12) !important;
+        }
+        .re-svc-main-img-box img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+        .re-svc-trust-badge {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 10px !important;
+            padding: 10px 14px !important;
+            border-radius: 12px !important;
+            text-align: center !important;
+            background: #0f172a !important;
+            border: 1px solid #0284c7 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .re-svc-trust-badge div {
+            font-size: 0.95rem !important;
+            justify-content: center !important;
+        }
+        .re-svc-trust-badge p {
+            font-size: 0.72rem !important;
+        }
+
+        /* 3. Below image, display ALL service cards full-width stacked vertically one below another */
+        #services-section .re-about__text > div {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+        }
+
+        #services-section .re-about__text > div > div {
+            width: 100% !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+            padding: 18px 16px !important;
+            border-radius: 16px !important;
+            text-align: left !important; /* Proper alignment inside card */
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+            margin: 0 !important;
+        }
+
+        #services-section .re-about__text > div > div > div:first-child {
+            margin-bottom: 10px !important;
+        }
+
+        #services-section .re-about__text > div > div h3 {
+            text-align: left !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 4px !important;
+        }
+
+        #services-section .re-about__text > div > div span {
+            text-align: left !important;
+            font-size: 0.78rem !important;
+            margin-bottom: 8px !important;
+            display: inline-block !important;
+        }
+
+        #services-section .re-about__text > div > div p {
+            text-align: left !important;
+            font-size: 0.85rem !important;
+            line-height: 1.5 !important;
         }
     }
 
@@ -1172,6 +1577,141 @@
             border-radius: 12px !important;
             top: 12px !important;
             left: 12px !important;
+        }
+    }
+
+    
+    /* ===== STRICT MOBILE RESPONSIVE FIX FOR OUR CORE SERVICES SECTION (< 768px) ===== */
+    @media (max-width: 767px) {
+        #services-section {
+            padding: 32px 0 !important;
+            overflow: hidden !important;
+        }
+        #services-section .container {
+            padding: 24px 16px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        #services-section .re-svc__header {
+            margin-bottom: 20px !important;
+            padding: 0 4px !important;
+            text-align: center !important;
+        }
+        #services-section .re-svc__header .re-section__heading {
+            font-size: 1.55rem !important;
+            margin-bottom: 8px !important;
+            text-align: center !important;
+        }
+        #services-section .re-svc__header .re-section__subtext {
+            font-size: 0.88rem !important;
+            line-height: 1.5 !important;
+            text-align: center !important;
+        }
+
+        /* 1. Remove 2-column layout completely -> Single Column Flex Layout */
+        #services-section .re-about {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            width: 100% !important;
+        }
+
+        #services-section .re-about__text {
+            width: 100% !important;
+        }
+
+        /* 2. Show Main Property Image at top, full width, height 240px, rounded corners, no sticky/fixed positioning */
+        .re-svc-visuals-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            margin: 0 0 4px 0 !important;
+            min-height: auto !important;
+        }
+        .re-svc-main-img-box {
+            width: 100% !important;
+            height: 240px !important;
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            position: relative !important;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12) !important;
+        }
+        .re-svc-main-img-box img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+        .re-svc-trust-badge {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 10px !important;
+            padding: 10px 14px !important;
+            border-radius: 12px !important;
+            text-align: center !important;
+            background: #0f172a !important;
+            border: 1px solid #0284c7 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .re-svc-trust-badge div {
+            font-size: 0.95rem !important;
+            justify-content: center !important;
+        }
+        .re-svc-trust-badge p {
+            font-size: 0.72rem !important;
+        }
+
+        /* 3. Below image, display ALL service cards full-width stacked vertically one below another */
+        #services-section .re-about__text > div {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+        }
+
+        #services-section .re-about__text > div > div {
+            width: 100% !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+            padding: 18px 16px !important;
+            border-radius: 16px !important;
+            text-align: left !important; /* Proper alignment inside card */
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+            margin: 0 !important;
+        }
+
+        #services-section .re-about__text > div > div > div:first-child {
+            margin-bottom: 10px !important;
+        }
+
+        #services-section .re-about__text > div > div h3 {
+            text-align: left !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 4px !important;
+        }
+
+        #services-section .re-about__text > div > div span {
+            text-align: left !important;
+            font-size: 0.78rem !important;
+            margin-bottom: 8px !important;
+            display: inline-block !important;
+        }
+
+        #services-section .re-about__text > div > div p {
+            text-align: left !important;
+            font-size: 0.85rem !important;
+            line-height: 1.5 !important;
         }
     }
 
@@ -2040,6 +2580,141 @@
         }
     }
 
+    
+    /* ===== STRICT MOBILE RESPONSIVE FIX FOR OUR CORE SERVICES SECTION (< 768px) ===== */
+    @media (max-width: 767px) {
+        #services-section {
+            padding: 32px 0 !important;
+            overflow: hidden !important;
+        }
+        #services-section .container {
+            padding: 24px 16px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        #services-section .re-svc__header {
+            margin-bottom: 20px !important;
+            padding: 0 4px !important;
+            text-align: center !important;
+        }
+        #services-section .re-svc__header .re-section__heading {
+            font-size: 1.55rem !important;
+            margin-bottom: 8px !important;
+            text-align: center !important;
+        }
+        #services-section .re-svc__header .re-section__subtext {
+            font-size: 0.88rem !important;
+            line-height: 1.5 !important;
+            text-align: center !important;
+        }
+
+        /* 1. Remove 2-column layout completely -> Single Column Flex Layout */
+        #services-section .re-about {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            width: 100% !important;
+        }
+
+        #services-section .re-about__text {
+            width: 100% !important;
+        }
+
+        /* 2. Show Main Property Image at top, full width, height 240px, rounded corners, no sticky/fixed positioning */
+        .re-svc-visuals-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            margin: 0 0 4px 0 !important;
+            min-height: auto !important;
+        }
+        .re-svc-main-img-box {
+            width: 100% !important;
+            height: 240px !important;
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            position: relative !important;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12) !important;
+        }
+        .re-svc-main-img-box img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+        .re-svc-trust-badge {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 10px !important;
+            padding: 10px 14px !important;
+            border-radius: 12px !important;
+            text-align: center !important;
+            background: #0f172a !important;
+            border: 1px solid #0284c7 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .re-svc-trust-badge div {
+            font-size: 0.95rem !important;
+            justify-content: center !important;
+        }
+        .re-svc-trust-badge p {
+            font-size: 0.72rem !important;
+        }
+
+        /* 3. Below image, display ALL service cards full-width stacked vertically one below another */
+        #services-section .re-about__text > div {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+        }
+
+        #services-section .re-about__text > div > div {
+            width: 100% !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+            padding: 18px 16px !important;
+            border-radius: 16px !important;
+            text-align: left !important; /* Proper alignment inside card */
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+            margin: 0 !important;
+        }
+
+        #services-section .re-about__text > div > div > div:first-child {
+            margin-bottom: 10px !important;
+        }
+
+        #services-section .re-about__text > div > div h3 {
+            text-align: left !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 4px !important;
+        }
+
+        #services-section .re-about__text > div > div span {
+            text-align: left !important;
+            font-size: 0.78rem !important;
+            margin-bottom: 8px !important;
+            display: inline-block !important;
+        }
+
+        #services-section .re-about__text > div > div p {
+            text-align: left !important;
+            font-size: 0.85rem !important;
+            line-height: 1.5 !important;
+        }
+    }
+
     </style>
 
     <!-- ===== ABOUT THE ROYALE ESTATES ===== -->
@@ -2310,6 +2985,141 @@
             border-radius: 12px !important;
             top: 12px !important;
             left: 12px !important;
+        }
+    }
+
+    
+    /* ===== STRICT MOBILE RESPONSIVE FIX FOR OUR CORE SERVICES SECTION (< 768px) ===== */
+    @media (max-width: 767px) {
+        #services-section {
+            padding: 32px 0 !important;
+            overflow: hidden !important;
+        }
+        #services-section .container {
+            padding: 24px 16px !important;
+            margin: 0 auto !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        #services-section .re-svc__header {
+            margin-bottom: 20px !important;
+            padding: 0 4px !important;
+            text-align: center !important;
+        }
+        #services-section .re-svc__header .re-section__heading {
+            font-size: 1.55rem !important;
+            margin-bottom: 8px !important;
+            text-align: center !important;
+        }
+        #services-section .re-svc__header .re-section__subtext {
+            font-size: 0.88rem !important;
+            line-height: 1.5 !important;
+            text-align: center !important;
+        }
+
+        /* 1. Remove 2-column layout completely -> Single Column Flex Layout */
+        #services-section .re-about {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            width: 100% !important;
+        }
+
+        #services-section .re-about__text {
+            width: 100% !important;
+        }
+
+        /* 2. Show Main Property Image at top, full width, height 240px, rounded corners, no sticky/fixed positioning */
+        .re-svc-visuals-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            position: relative !important;
+            top: auto !important;
+            left: auto !important;
+            margin: 0 0 4px 0 !important;
+            min-height: auto !important;
+        }
+        .re-svc-main-img-box {
+            width: 100% !important;
+            height: 240px !important;
+            border-radius: 16px !important;
+            overflow: hidden !important;
+            position: relative !important;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12) !important;
+        }
+        .re-svc-main-img-box img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+        }
+        .re-svc-trust-badge {
+            position: relative !important;
+            bottom: auto !important;
+            left: auto !important;
+            right: auto !important;
+            top: auto !important;
+            margin-top: 10px !important;
+            padding: 10px 14px !important;
+            border-radius: 12px !important;
+            text-align: center !important;
+            background: #0f172a !important;
+            border: 1px solid #0284c7 !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+        .re-svc-trust-badge div {
+            font-size: 0.95rem !important;
+            justify-content: center !important;
+        }
+        .re-svc-trust-badge p {
+            font-size: 0.72rem !important;
+        }
+
+        /* 3. Below image, display ALL service cards full-width stacked vertically one below another */
+        #services-section .re-about__text > div {
+            display: flex !important;
+            flex-direction: column !important;
+            grid-template-columns: 1fr !important;
+            gap: 16px !important;
+            width: 100% !important;
+        }
+
+        #services-section .re-about__text > div > div {
+            width: 100% !important;
+            height: auto !important;
+            box-sizing: border-box !important;
+            padding: 18px 16px !important;
+            border-radius: 16px !important;
+            text-align: left !important; /* Proper alignment inside card */
+            display: flex !important;
+            flex-direction: column !important;
+            align-items: flex-start !important;
+            justify-content: flex-start !important;
+            margin: 0 !important;
+        }
+
+        #services-section .re-about__text > div > div > div:first-child {
+            margin-bottom: 10px !important;
+        }
+
+        #services-section .re-about__text > div > div h3 {
+            text-align: left !important;
+            font-size: 1.1rem !important;
+            margin-bottom: 4px !important;
+        }
+
+        #services-section .re-about__text > div > div span {
+            text-align: left !important;
+            font-size: 0.78rem !important;
+            margin-bottom: 8px !important;
+            display: inline-block !important;
+        }
+
+        #services-section .re-about__text > div > div p {
+            text-align: left !important;
+            font-size: 0.85rem !important;
+            line-height: 1.5 !important;
         }
     }
 
