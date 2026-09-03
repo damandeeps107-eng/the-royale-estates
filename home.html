@@ -1256,7 +1256,7 @@
     }
 
     
-    /* ===== SCOPED PERFECTLY CENTERED SERVICES SECTION LAYOUT ===== */
+    /* ===== SCOPED WIDE-DESKTOP BALANCED SERVICES SECTION LAYOUT ===== */
     #services-section {
         position: relative;
         padding: 80px 0;
@@ -1267,9 +1267,9 @@
     }
     #services-section .container {
         width: 100% !important;
-        max-width: 1200px !important;
+        max-width: 1280px !important;
         margin: 0 auto !important;
-        padding: 0 20px !important;
+        padding: 0 48px !important;
         box-sizing: border-box !important;
     }
     #services-section .re-svc-layout-wrapper {
@@ -1278,17 +1278,17 @@
         align-items: flex-start !important;
         justify-content: space-between !important;
         width: 100% !important;
-        max-width: 1140px !important;
+        max-width: 100% !important;
         margin: 0 auto !important;
-        gap: 36px !important;
+        gap: 32px !important;
         box-sizing: border-box !important;
     }
 
-    /* Left Image Column (38% width, centered) */
+    /* Left Image Column (35% width, starts close to left page margin) */
     #services-section .re-svc-visuals-container {
-        flex: 0 0 38% !important;
-        max-width: 38% !important;
-        width: 38% !important;
+        flex: 0 0 35% !important;
+        max-width: 35% !important;
+        width: 35% !important;
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
@@ -1300,7 +1300,7 @@
         visibility: visible !important;
         opacity: 1 !important;
         width: 100% !important;
-        height: 220px !important;
+        height: 230px !important;
         border-radius: 18px !important;
         overflow: hidden !important;
         box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08) !important;
@@ -1316,11 +1316,11 @@
         border-radius: 18px !important;
     }
 
-    /* Right Cards Column (58% width, centered 2x3 grid) */
+    /* Right Cards Column (61% width, 2x3 grid) */
     #services-section .re-svc-text-container {
-        flex: 0 0 58% !important;
-        max-width: 58% !important;
-        width: 58% !important;
+        flex: 0 0 61% !important;
+        max-width: 61% !important;
+        width: 61% !important;
         margin: 0 !important;
         box-sizing: border-box !important;
     }
@@ -1354,11 +1354,13 @@
 
     /* Tablet & Mobile Responsiveness Scoped to #services-section */
     @media (max-width: 991px) {
+        #services-section .container {
+            padding: 0 24px !important;
+        }
         #services-section .re-svc-layout-wrapper {
             flex-direction: column !important;
             align-items: center !important;
             gap: 32px !important;
-            max-width: 100% !important;
         }
         #services-section .re-svc-visuals-container {
             flex: 0 0 100% !important;
@@ -1377,6 +1379,9 @@
     @media (max-width: 640px) {
         #services-section {
             padding: 50px 0 !important;
+        }
+        #services-section .container {
+            padding: 0 16px !important;
         }
         #services-section .re-svc-cards-grid {
             grid-template-columns: 1fr !important;
@@ -1951,7 +1956,7 @@
     }
 
     
-    /* ===== SCOPED PERFECTLY CENTERED SERVICES SECTION LAYOUT ===== */
+    /* ===== SCOPED WIDE-DESKTOP BALANCED SERVICES SECTION LAYOUT ===== */
     #services-section {
         position: relative;
         padding: 80px 0;
@@ -1962,9 +1967,9 @@
     }
     #services-section .container {
         width: 100% !important;
-        max-width: 1200px !important;
+        max-width: 1280px !important;
         margin: 0 auto !important;
-        padding: 0 20px !important;
+        padding: 0 48px !important;
         box-sizing: border-box !important;
     }
     #services-section .re-svc-layout-wrapper {
@@ -1973,17 +1978,17 @@
         align-items: flex-start !important;
         justify-content: space-between !important;
         width: 100% !important;
-        max-width: 1140px !important;
+        max-width: 100% !important;
         margin: 0 auto !important;
-        gap: 36px !important;
+        gap: 32px !important;
         box-sizing: border-box !important;
     }
 
-    /* Left Image Column (38% width, centered) */
+    /* Left Image Column (35% width, starts close to left page margin) */
     #services-section .re-svc-visuals-container {
-        flex: 0 0 38% !important;
-        max-width: 38% !important;
-        width: 38% !important;
+        flex: 0 0 35% !important;
+        max-width: 35% !important;
+        width: 35% !important;
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
@@ -1995,7 +2000,7 @@
         visibility: visible !important;
         opacity: 1 !important;
         width: 100% !important;
-        height: 220px !important;
+        height: 230px !important;
         border-radius: 18px !important;
         overflow: hidden !important;
         box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08) !important;
@@ -2011,11 +2016,11 @@
         border-radius: 18px !important;
     }
 
-    /* Right Cards Column (58% width, centered 2x3 grid) */
+    /* Right Cards Column (61% width, 2x3 grid) */
     #services-section .re-svc-text-container {
-        flex: 0 0 58% !important;
-        max-width: 58% !important;
-        width: 58% !important;
+        flex: 0 0 61% !important;
+        max-width: 61% !important;
+        width: 61% !important;
         margin: 0 !important;
         box-sizing: border-box !important;
     }
@@ -2049,11 +2054,13 @@
 
     /* Tablet & Mobile Responsiveness Scoped to #services-section */
     @media (max-width: 991px) {
+        #services-section .container {
+            padding: 0 24px !important;
+        }
         #services-section .re-svc-layout-wrapper {
             flex-direction: column !important;
             align-items: center !important;
             gap: 32px !important;
-            max-width: 100% !important;
         }
         #services-section .re-svc-visuals-container {
             flex: 0 0 100% !important;
@@ -2072,6 +2079,9 @@
     @media (max-width: 640px) {
         #services-section {
             padding: 50px 0 !important;
+        }
+        #services-section .container {
+            padding: 0 16px !important;
         }
         #services-section .re-svc-cards-grid {
             grid-template-columns: 1fr !important;
@@ -2650,7 +2660,7 @@
     }
 
     
-    /* ===== SCOPED PERFECTLY CENTERED SERVICES SECTION LAYOUT ===== */
+    /* ===== SCOPED WIDE-DESKTOP BALANCED SERVICES SECTION LAYOUT ===== */
     #services-section {
         position: relative;
         padding: 80px 0;
@@ -2661,9 +2671,9 @@
     }
     #services-section .container {
         width: 100% !important;
-        max-width: 1200px !important;
+        max-width: 1280px !important;
         margin: 0 auto !important;
-        padding: 0 20px !important;
+        padding: 0 48px !important;
         box-sizing: border-box !important;
     }
     #services-section .re-svc-layout-wrapper {
@@ -2672,17 +2682,17 @@
         align-items: flex-start !important;
         justify-content: space-between !important;
         width: 100% !important;
-        max-width: 1140px !important;
+        max-width: 100% !important;
         margin: 0 auto !important;
-        gap: 36px !important;
+        gap: 32px !important;
         box-sizing: border-box !important;
     }
 
-    /* Left Image Column (38% width, centered) */
+    /* Left Image Column (35% width, starts close to left page margin) */
     #services-section .re-svc-visuals-container {
-        flex: 0 0 38% !important;
-        max-width: 38% !important;
-        width: 38% !important;
+        flex: 0 0 35% !important;
+        max-width: 35% !important;
+        width: 35% !important;
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
@@ -2694,7 +2704,7 @@
         visibility: visible !important;
         opacity: 1 !important;
         width: 100% !important;
-        height: 220px !important;
+        height: 230px !important;
         border-radius: 18px !important;
         overflow: hidden !important;
         box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08) !important;
@@ -2710,11 +2720,11 @@
         border-radius: 18px !important;
     }
 
-    /* Right Cards Column (58% width, centered 2x3 grid) */
+    /* Right Cards Column (61% width, 2x3 grid) */
     #services-section .re-svc-text-container {
-        flex: 0 0 58% !important;
-        max-width: 58% !important;
-        width: 58% !important;
+        flex: 0 0 61% !important;
+        max-width: 61% !important;
+        width: 61% !important;
         margin: 0 !important;
         box-sizing: border-box !important;
     }
@@ -2748,11 +2758,13 @@
 
     /* Tablet & Mobile Responsiveness Scoped to #services-section */
     @media (max-width: 991px) {
+        #services-section .container {
+            padding: 0 24px !important;
+        }
         #services-section .re-svc-layout-wrapper {
             flex-direction: column !important;
             align-items: center !important;
             gap: 32px !important;
-            max-width: 100% !important;
         }
         #services-section .re-svc-visuals-container {
             flex: 0 0 100% !important;
@@ -2771,6 +2783,9 @@
     @media (max-width: 640px) {
         #services-section {
             padding: 50px 0 !important;
+        }
+        #services-section .container {
+            padding: 0 16px !important;
         }
         #services-section .re-svc-cards-grid {
             grid-template-columns: 1fr !important;
@@ -3354,7 +3369,7 @@
     }
 
     
-    /* ===== SCOPED PERFECTLY CENTERED SERVICES SECTION LAYOUT ===== */
+    /* ===== SCOPED WIDE-DESKTOP BALANCED SERVICES SECTION LAYOUT ===== */
     #services-section {
         position: relative;
         padding: 80px 0;
@@ -3365,9 +3380,9 @@
     }
     #services-section .container {
         width: 100% !important;
-        max-width: 1200px !important;
+        max-width: 1280px !important;
         margin: 0 auto !important;
-        padding: 0 20px !important;
+        padding: 0 48px !important;
         box-sizing: border-box !important;
     }
     #services-section .re-svc-layout-wrapper {
@@ -3376,17 +3391,17 @@
         align-items: flex-start !important;
         justify-content: space-between !important;
         width: 100% !important;
-        max-width: 1140px !important;
+        max-width: 100% !important;
         margin: 0 auto !important;
-        gap: 36px !important;
+        gap: 32px !important;
         box-sizing: border-box !important;
     }
 
-    /* Left Image Column (38% width, centered) */
+    /* Left Image Column (35% width, starts close to left page margin) */
     #services-section .re-svc-visuals-container {
-        flex: 0 0 38% !important;
-        max-width: 38% !important;
-        width: 38% !important;
+        flex: 0 0 35% !important;
+        max-width: 35% !important;
+        width: 35% !important;
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
@@ -3398,7 +3413,7 @@
         visibility: visible !important;
         opacity: 1 !important;
         width: 100% !important;
-        height: 220px !important;
+        height: 230px !important;
         border-radius: 18px !important;
         overflow: hidden !important;
         box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08) !important;
@@ -3414,11 +3429,11 @@
         border-radius: 18px !important;
     }
 
-    /* Right Cards Column (58% width, centered 2x3 grid) */
+    /* Right Cards Column (61% width, 2x3 grid) */
     #services-section .re-svc-text-container {
-        flex: 0 0 58% !important;
-        max-width: 58% !important;
-        width: 58% !important;
+        flex: 0 0 61% !important;
+        max-width: 61% !important;
+        width: 61% !important;
         margin: 0 !important;
         box-sizing: border-box !important;
     }
@@ -3452,11 +3467,13 @@
 
     /* Tablet & Mobile Responsiveness Scoped to #services-section */
     @media (max-width: 991px) {
+        #services-section .container {
+            padding: 0 24px !important;
+        }
         #services-section .re-svc-layout-wrapper {
             flex-direction: column !important;
             align-items: center !important;
             gap: 32px !important;
-            max-width: 100% !important;
         }
         #services-section .re-svc-visuals-container {
             flex: 0 0 100% !important;
@@ -3475,6 +3492,9 @@
     @media (max-width: 640px) {
         #services-section {
             padding: 50px 0 !important;
+        }
+        #services-section .container {
+            padding: 0 16px !important;
         }
         #services-section .re-svc-cards-grid {
             grid-template-columns: 1fr !important;
@@ -4795,7 +4815,7 @@
     }
 
     
-    /* ===== SCOPED PERFECTLY CENTERED SERVICES SECTION LAYOUT ===== */
+    /* ===== SCOPED WIDE-DESKTOP BALANCED SERVICES SECTION LAYOUT ===== */
     #services-section {
         position: relative;
         padding: 80px 0;
@@ -4806,9 +4826,9 @@
     }
     #services-section .container {
         width: 100% !important;
-        max-width: 1200px !important;
+        max-width: 1280px !important;
         margin: 0 auto !important;
-        padding: 0 20px !important;
+        padding: 0 48px !important;
         box-sizing: border-box !important;
     }
     #services-section .re-svc-layout-wrapper {
@@ -4817,17 +4837,17 @@
         align-items: flex-start !important;
         justify-content: space-between !important;
         width: 100% !important;
-        max-width: 1140px !important;
+        max-width: 100% !important;
         margin: 0 auto !important;
-        gap: 36px !important;
+        gap: 32px !important;
         box-sizing: border-box !important;
     }
 
-    /* Left Image Column (38% width, centered) */
+    /* Left Image Column (35% width, starts close to left page margin) */
     #services-section .re-svc-visuals-container {
-        flex: 0 0 38% !important;
-        max-width: 38% !important;
-        width: 38% !important;
+        flex: 0 0 35% !important;
+        max-width: 35% !important;
+        width: 35% !important;
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
@@ -4839,7 +4859,7 @@
         visibility: visible !important;
         opacity: 1 !important;
         width: 100% !important;
-        height: 220px !important;
+        height: 230px !important;
         border-radius: 18px !important;
         overflow: hidden !important;
         box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08) !important;
@@ -4855,11 +4875,11 @@
         border-radius: 18px !important;
     }
 
-    /* Right Cards Column (58% width, centered 2x3 grid) */
+    /* Right Cards Column (61% width, 2x3 grid) */
     #services-section .re-svc-text-container {
-        flex: 0 0 58% !important;
-        max-width: 58% !important;
-        width: 58% !important;
+        flex: 0 0 61% !important;
+        max-width: 61% !important;
+        width: 61% !important;
         margin: 0 !important;
         box-sizing: border-box !important;
     }
@@ -4893,11 +4913,13 @@
 
     /* Tablet & Mobile Responsiveness Scoped to #services-section */
     @media (max-width: 991px) {
+        #services-section .container {
+            padding: 0 24px !important;
+        }
         #services-section .re-svc-layout-wrapper {
             flex-direction: column !important;
             align-items: center !important;
             gap: 32px !important;
-            max-width: 100% !important;
         }
         #services-section .re-svc-visuals-container {
             flex: 0 0 100% !important;
@@ -4916,6 +4938,9 @@
     @media (max-width: 640px) {
         #services-section {
             padding: 50px 0 !important;
+        }
+        #services-section .container {
+            padding: 0 16px !important;
         }
         #services-section .re-svc-cards-grid {
             grid-template-columns: 1fr !important;
@@ -5644,7 +5669,7 @@
     }
 
     
-    /* ===== SCOPED PERFECTLY CENTERED SERVICES SECTION LAYOUT ===== */
+    /* ===== SCOPED WIDE-DESKTOP BALANCED SERVICES SECTION LAYOUT ===== */
     #services-section {
         position: relative;
         padding: 80px 0;
@@ -5655,9 +5680,9 @@
     }
     #services-section .container {
         width: 100% !important;
-        max-width: 1200px !important;
+        max-width: 1280px !important;
         margin: 0 auto !important;
-        padding: 0 20px !important;
+        padding: 0 48px !important;
         box-sizing: border-box !important;
     }
     #services-section .re-svc-layout-wrapper {
@@ -5666,17 +5691,17 @@
         align-items: flex-start !important;
         justify-content: space-between !important;
         width: 100% !important;
-        max-width: 1140px !important;
+        max-width: 100% !important;
         margin: 0 auto !important;
-        gap: 36px !important;
+        gap: 32px !important;
         box-sizing: border-box !important;
     }
 
-    /* Left Image Column (38% width, centered) */
+    /* Left Image Column (35% width, starts close to left page margin) */
     #services-section .re-svc-visuals-container {
-        flex: 0 0 38% !important;
-        max-width: 38% !important;
-        width: 38% !important;
+        flex: 0 0 35% !important;
+        max-width: 35% !important;
+        width: 35% !important;
         display: flex !important;
         flex-direction: column !important;
         gap: 16px !important;
@@ -5688,7 +5713,7 @@
         visibility: visible !important;
         opacity: 1 !important;
         width: 100% !important;
-        height: 220px !important;
+        height: 230px !important;
         border-radius: 18px !important;
         overflow: hidden !important;
         box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08) !important;
@@ -5704,11 +5729,11 @@
         border-radius: 18px !important;
     }
 
-    /* Right Cards Column (58% width, centered 2x3 grid) */
+    /* Right Cards Column (61% width, 2x3 grid) */
     #services-section .re-svc-text-container {
-        flex: 0 0 58% !important;
-        max-width: 58% !important;
-        width: 58% !important;
+        flex: 0 0 61% !important;
+        max-width: 61% !important;
+        width: 61% !important;
         margin: 0 !important;
         box-sizing: border-box !important;
     }
@@ -5742,11 +5767,13 @@
 
     /* Tablet & Mobile Responsiveness Scoped to #services-section */
     @media (max-width: 991px) {
+        #services-section .container {
+            padding: 0 24px !important;
+        }
         #services-section .re-svc-layout-wrapper {
             flex-direction: column !important;
             align-items: center !important;
             gap: 32px !important;
-            max-width: 100% !important;
         }
         #services-section .re-svc-visuals-container {
             flex: 0 0 100% !important;
@@ -5765,6 +5792,9 @@
     @media (max-width: 640px) {
         #services-section {
             padding: 50px 0 !important;
+        }
+        #services-section .container {
+            padding: 0 16px !important;
         }
         #services-section .re-svc-cards-grid {
             grid-template-columns: 1fr !important;
