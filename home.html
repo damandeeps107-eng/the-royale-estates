@@ -5848,30 +5848,7 @@
     }
 
     function syncLiveAdminGistProperties(catKeyToRender) {
-        var url = 'https://gist.githubusercontent.com/raw/eebf5c328e2a6047fb9e71338a6836ba/properties.json?nocache=' + Date.now();
-        fetch(url, { cache: 'no-store' })
-        .then(function(res) {
-            if (!res.ok) throw new Error('HTTP status ' + res.status);
-            return res.text();
-        })
-        .then(function(rawText) {
-            try {
-                var content = JSON.parse(rawText);
-                if (content && Array.isArray(content) && content.length > 0) {
-                    try {
-                        localStorage.setItem('royaleProperties', JSON.stringify(content));
-                    } catch(e) {}
-                    
-                    var target = catKeyToRender || currentOpenCatKey || 'warehouse';
-                    renderInlineFolderGrid(target, content);
-                }
-            } catch(jsonErr) {
-                console.error('Cloud Raw Gist JSON Parse Error:', jsonErr);
-            }
-        })
-        .catch(function(err) {
-            console.warn('Cloud Gist Direct Fetch Warning, checking fallback:', err);
-        });
+        fetchLiveGistFolderProperties(catKeyToRender);
     }
 
     document.addEventListener('DOMContentLoaded', function() {
@@ -6296,32 +6273,47 @@
     }
 
     function fetchLiveGistFolderProperties(catKeyToRender) {
-        var RAW_GIST_URL = 'https://gist.githubusercontent.com/raw/eebf5c328e2a6047fb9e71338a6836ba/properties.json?nocache=' + Date.now();
-        fetch(RAW_GIST_URL, { cache: 'no-store' })
-        .then(function(res) { return res.text(); })
-        .then(function(rawText) {
-            try {
-                var content = JSON.parse(rawText);
-                if (content && Array.isArray(content)) {
-                    try {
-                        localStorage.setItem('royaleProperties', JSON.stringify(content));
-                    } catch(e) {}
-                    var target = catKeyToRender || currentOpenCatKey;
-                    if (target) {
-                        renderInlineFolderGrid(target, content);
-                    }
-                }
-            } catch(jsonErr) {
-                console.error('Cloud Raw Gist JSON Parse Error:', jsonErr);
+        var target = catKeyToRender || currentOpenCatKey || 'warehouse';
+        var API_URL = 'https://api.github.com/gists/eebf5c328e2a6047fb9e71338a6836ba?t=' + Date.now();
+        var RAW_URL = 'https://gist.githubusercontent.com/raw/eebf5c328e2a6047fb9e71338a6836ba/properties.json?t=' + Date.now();
+
+        function applyPropertiesData(contentArr) {
+            if (contentArr && Array.isArray(contentArr) && contentArr.length > 0) {
+                try {
+                    localStorage.setItem('royaleProperties', JSON.stringify(contentArr));
+                } catch(e) {}
+                renderInlineFolderGrid(target, contentArr);
+            }
+        }
+
+        fetch(API_URL, { cache: 'no-store' })
+        .then(function(res) {
+            if (!res.ok) throw new Error('API fetch error');
+            return res.json();
+        })
+        .then(function(gistData) {
+            if (gistData && gistData.files && gistData.files['properties.json'] && gistData.files['properties.json'].content) {
+                var content = JSON.parse(gistData.files['properties.json'].content);
+                applyPropertiesData(content);
+            } else {
+                throw new Error('Invalid Gist schema');
             }
         })
         .catch(function(err) {
-            console.error('Cloud Raw CDN Fetch Error:', err);
+            fetch(RAW_URL, { cache: 'no-store' })
+            .then(function(res) { return res.text(); })
+            .then(function(rawText) {
+                var content = JSON.parse(rawText);
+                applyPropertiesData(content);
+            })
+            .catch(function(rawErr) {
+                console.error('Realtime Gist fetch fallback error:', rawErr);
+            });
         });
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-        fetchLiveGistFolderProperties();
+        fetchLiveGistFolderProperties('warehouse');
     });
     </script>
 
