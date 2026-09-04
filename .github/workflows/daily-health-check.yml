@@ -42,7 +42,7 @@ jobs:
           python3 - <<'PYEOF'
           import json, urllib.request, ssl, sys, os
 
-          GIST_TOKEN  = os.environ.get("GIST_TOKEN", "")
+          GIST_TOKEN  = os.environ.get("GIST_TOKEN", "").strip()
           GIST_ID     = "eebf5c328e2a6047fb9e71338a6836ba"
           VALID_SLUGS = {
               "warehouse-industrial",
@@ -56,13 +56,16 @@ jobs:
           ctx.check_hostname = False
           ctx.verify_mode = ssl.CERT_NONE
 
+          headers = {
+              "Accept": "application/vnd.github.v3+json",
+              "User-Agent": "royale-estates-healthcheck"
+          }
+          if GIST_TOKEN:
+              headers["Authorization"] = f"token {GIST_TOKEN}"
+
           req = urllib.request.Request(
               f"https://api.github.com/gists/{GIST_ID}",
-              headers={
-                  "Authorization": f"token {GIST_TOKEN}",
-                  "Accept": "application/vnd.github.v3+json",
-                  "User-Agent": "royale-estates-healthcheck"
-              }
+              headers=headers
           )
           with urllib.request.urlopen(req, context=ctx, timeout=15) as r:
               gist = json.loads(r.read())
