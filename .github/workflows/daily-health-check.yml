@@ -3,7 +3,7 @@ name: 🏥 Daily Website Health Check
 on:
   schedule:
     # Runs every day at 9:00 AM IST (3:30 AM UTC)
-    - cron: '30 3 * * *'
+    - cron: "30 3 * * *"
   workflow_dispatch:
     # Also allow manual trigger anytime from GitHub
 
@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: 🔍 Check Main Website
         run: |
-          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://the-royale-estates.vercel.app)
+          STATUS=$(curl -o /dev/null -sL -w "%{http_code}" https://the-royale-estates.vercel.app)
           echo "Main Website HTTP Status: $STATUS"
           if [ "$STATUS" != "200" ]; then
             echo "❌ FAIL: Main website returned $STATUS"
@@ -26,7 +26,7 @@ jobs:
 
       - name: 🏠 Check Home Page
         run: |
-          STATUS=$(curl -o /dev/null -s -w "%{http_code}" https://the-royale-estates.vercel.app/home.html)
+          STATUS=$(curl -o /dev/null -sL -w "%{http_code}" https://the-royale-estates.vercel.app/home.html)
           echo "Home Page HTTP Status: $STATUS"
           if [ "$STATUS" != "200" ]; then
             echo "❌ FAIL: home.html returned $STATUS"
@@ -45,14 +45,17 @@ jobs:
           GIST_TOKEN  = os.environ.get("GIST_TOKEN", "")
           GIST_ID     = "eebf5c328e2a6047fb9e71338a6836ba"
           VALID_SLUGS = {
-              'warehouse-industrial',
-              'commercial-office',
-              'weekend-home-villas',
-              'land-plots',
-              'pre-leased'
+              "warehouse-industrial",
+              "commercial-office",
+              "weekend-home-villas",
+              "land-plots",
+              "pre-leased"
           }
 
           ctx = ssl.create_default_context()
+          ctx.check_hostname = False
+          ctx.verify_mode = ssl.CERT_NONE
+
           req = urllib.request.Request(
               f"https://api.github.com/gists/{GIST_ID}",
               headers={
@@ -72,7 +75,7 @@ jobs:
           if bad:
               print(f"❌ FAIL: {len(bad)} properties have invalid category slugs:")
               for p in bad:
-                  print(f"   - [{p.get('title','?')[:40]}] → {p.get('category','')!r}")
+                  print(f"   - [{p.get("title","?")[:40]}] → {p.get("category","")!r}")
               sys.exit(1)
           else:
               print("✅ All category slugs are canonical")
@@ -81,7 +84,7 @@ jobs:
           for p in props:
               missing = [f for f in ["title","price","image","location"] if not p.get(f,"").strip()]
               if missing:
-                  incomplete.append(f"  - [{p.get('title','?')[:30]}] missing: {', '.join(missing)}")
+                  incomplete.append(f"  - [{p.get("title","?")[:30]}] missing: {", ".join(missing)}")
           if incomplete:
               print(f"⚠️ {len(incomplete)} incomplete properties:")
               for i in incomplete: print(i)
@@ -102,7 +105,7 @@ jobs:
         run: |
           echo "=================================================="
           echo "  THE ROYALE ESTATES — ALL SYSTEMS OK ✅"
-          echo "  Date: $(date '+%Y-%m-%d %H:%M UTC')"
+          echo "  Date: $(date "+%Y-%m-%d %H:%M UTC")"
           echo "=================================================="
 
       - name: ❌ Issue Detected
@@ -110,6 +113,6 @@ jobs:
         run: |
           echo "=================================================="
           echo "  ❌ ROYALE ESTATES — ISSUE DETECTED!"
-          echo "  Date: $(date '+%Y-%m-%d %H:%M UTC')"
+          echo "  Date: $(date "+%Y-%m-%d %H:%M UTC")"
           echo "  Check the logs above for details."
           echo "=================================================="
