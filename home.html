@@ -6017,31 +6017,23 @@
                     var blobUrl = URL.createObjectURL(blob);
                     saveBlobAsFile(blobUrl, filename);
                     return;
-                } catch(e) {}
+                } catch(e) {
+                    console.error('Base64 Blob download error:', e);
+                }
             }
 
             if (url.includes('drive.google.com/file/d/')) {
                 var parts = url.split('drive.google.com/file/d/');
                 var fileId = parts[1].split('/')[0].split('?')[0];
                 url = 'https://drive.google.com/uc?export=download&id=' + fileId;
-                window.location.href = url;
+                window.open(url, '_blank');
                 return;
             }
 
-            fetch(url)
-            .then(function(res) {
-                if (!res.ok) throw new Error('Fetch error');
-                return res.blob();
-            })
-            .then(function(blob) {
-                var octetBlob = new Blob([blob], { type: 'application/octet-stream' });
-                var blobUrl = URL.createObjectURL(octetBlob);
-                saveBlobAsFile(blobUrl, filename);
-            })
-            .catch(function(err) {
-                generateBrandedPdfBrochure(title, location, price, specsArea, specsFeature);
-            });
-            return;
+            if (url.startsWith('http://') || url.startsWith('https://')) {
+                window.open(url, '_blank');
+                return;
+            }
         }
 
         generateBrandedPdfBrochure(title, location, price, specsArea, specsFeature);
