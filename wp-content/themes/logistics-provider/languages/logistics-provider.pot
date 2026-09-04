@@ -1,0 +1,1214 @@
+# Copyright (C) 2025 ThemesPride
+# This file is distributed under the GPLv2 or later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Logistics Provider 0.1\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/theme/logistics-provider\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-05-20T19:02:48+05:30\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.10.0\n"
+"X-Domain: logistics-provider\n"
+
+#. Theme Name of the theme
+#: style.css
+msgid "Logistics Provider"
+msgstr ""
+
+#. Theme URI of the theme
+#: style.css
+msgid "https://www.themespride.com/products/free-logistic-wordpress-theme"
+msgstr ""
+
+#. Description of the theme
+#: style.css
+msgid "The Logistics Provider Theme is a powerful, modern, and fully responsive solution crafted for logistics companies, freight service providers, and supply chain management firms. It supports a diverse range of operations including transportation logistics, shipping logistics, warehouse logistics, and inventory logistics. Whether you manage a freight forwarding company, offer international logistics services, or specialize in last mile delivery and courier logistics, this theme provides a professional and adaptable platform to promote your logistics solutions. It is also suitable for third-party logistics (3PL), cold chain logistics, and express delivery service providers looking to enhance their digital presence. Visually, the theme boasts a clean, sleek, and corporate aesthetic designed to establish trust and credibility with clients. It includes interactive sections for order tracking, logistics service listings, fleet information, shipment status, and real-time logistics updates. Advanced features such as logistics tracking, route optimization, and real-time shipment monitoring enhance user experience and operational transparency. Integration-ready design allows you to embed logistics software tools, contact forms, and booking systems with ease. Built with optimized, secure, and clean code, the theme delivers fast page load speeds and is mobile-friendly and retina-ready for perfect display across all devices. Customization options and translation readiness ensure this theme is scalable for logistics providers of all sizes and specialties."
+msgstr ""
+
+#. Author of the theme
+#: style.css
+msgid "ThemesPride"
+msgstr ""
+
+#. Author URI of the theme
+#: style.css
+msgid "https://www.themespride.com/"
+msgstr ""
+
+#: 404.php:14
+msgid "404"
+msgstr ""
+
+#: 404.php:22
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:24
+#: inc/customizer.php:1443
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: archive.php:68
+#: archive.php:106
+#: archive.php:143
+#: archive.php:180
+#: archive.php:219
+#: archive.php:258
+#: archive.php:296
+#: index.php:63
+#: index.php:101
+#: index.php:138
+#: index.php:175
+#: index.php:214
+#: index.php:253
+#: index.php:291
+#: search.php:61
+#: search.php:101
+#: search.php:140
+#: search.php:179
+#: search.php:219
+#: search.php:260
+#: search.php:298
+#: single.php:54
+#: single.php:79
+#: single.php:103
+#: single.php:126
+msgid "Previous page"
+msgstr ""
+
+#: archive.php:69
+#: archive.php:107
+#: archive.php:144
+#: archive.php:181
+#: archive.php:220
+#: archive.php:259
+#: archive.php:297
+#: index.php:64
+#: index.php:102
+#: index.php:139
+#: index.php:176
+#: index.php:215
+#: index.php:254
+#: index.php:292
+#: search.php:62
+#: search.php:102
+#: search.php:141
+#: search.php:180
+#: search.php:220
+#: search.php:261
+#: search.php:299
+#: single.php:55
+#: single.php:80
+#: single.php:104
+#: single.php:127
+msgid "Next page"
+msgstr ""
+
+#: archive.php:70
+#: archive.php:108
+#: archive.php:145
+#: archive.php:182
+#: archive.php:221
+#: archive.php:260
+#: archive.php:298
+#: index.php:65
+#: index.php:103
+#: index.php:140
+#: index.php:177
+#: index.php:216
+#: index.php:255
+#: index.php:293
+#: search.php:63
+#: search.php:103
+#: search.php:142
+#: search.php:181
+#: search.php:221
+#: search.php:262
+#: search.php:300
+#: single.php:56
+#: single.php:81
+#: single.php:105
+#: single.php:128
+msgid "Page"
+msgstr ""
+
+#: comments.php:30
+msgid "One Reply to &ldquo;%s&rdquo;"
+msgstr ""
+
+#: comments.php:37
+msgctxt "comments title"
+msgid "%1$s Reply to &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s Replies to &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:63
+msgid "Previous"
+msgstr ""
+
+#: comments.php:64
+msgid "Next"
+msgstr ""
+
+#: comments.php:72
+msgid "Comments are closed."
+msgstr ""
+
+#: functions.php:27
+msgid "Primary Menu"
+msgstr ""
+
+#: functions.php:208
+#: sidebar.php:9
+msgid "Blog Sidebar"
+msgstr ""
+
+#: functions.php:210
+#: functions.php:230
+msgid "Add widgets here to appear in your sidebar on blog posts and archive pages."
+msgstr ""
+
+#: functions.php:218
+msgid "Page Sidebar"
+msgstr ""
+
+#: functions.php:220
+msgid "Add widgets here to appear in your sidebar on pages."
+msgstr ""
+
+#: functions.php:228
+msgid "Sidebar 3"
+msgstr ""
+
+#: functions.php:238
+msgid "Footer 1"
+msgstr ""
+
+#: functions.php:240
+#: functions.php:250
+#: functions.php:260
+#: functions.php:270
+msgid "Add widgets here to appear in your footer."
+msgstr ""
+
+#: functions.php:248
+msgid "Footer 2"
+msgstr ""
+
+#: functions.php:258
+msgid "Footer 3"
+msgstr ""
+
+#: functions.php:268
+msgid "Footer 4"
+msgstr ""
+
+#: header.php:39
+msgid "Skip to content"
+msgstr ""
+
+#: inc/controls/icon-changer.php:24
+msgctxt "placeholder"
+msgid "Search Icon"
+msgstr ""
+
+#: inc/custom-header.php:17
+msgid "Default Header Image"
+msgstr ""
+
+#: inc/customizer.php:31
+msgid "Custom Home page"
+msgstr ""
+
+#: inc/customizer.php:32
+#: inc/customizer.php:1422
+msgid "Description of what this panel does."
+msgstr ""
+
+#: inc/customizer.php:37
+msgid "TP General Option"
+msgstr ""
+
+#: inc/customizer.php:48
+msgid "Body Layout Setting"
+msgstr ""
+
+#: inc/customizer.php:49
+msgid "This option work for complete body, if you want to set the complete website in container."
+msgstr ""
+
+#: inc/customizer.php:52
+#: inc/customizer.php:69
+#: inc/customizer.php:89
+#: inc/customizer.php:106
+msgid "Full"
+msgstr ""
+
+#: inc/customizer.php:53
+msgid "Container"
+msgstr ""
+
+#: inc/customizer.php:54
+msgid "Container Fluid"
+msgstr ""
+
+#: inc/customizer.php:65
+msgid "Post Sidebar Position"
+msgstr ""
+
+#: inc/customizer.php:66
+msgid "This option work for blog page, blog single page, archive page and search page."
+msgstr ""
+
+#: inc/customizer.php:70
+#: inc/customizer.php:90
+#: inc/customizer.php:107
+#: inc/customizer.php:1166
+#: inc/customizer.php:1239
+#: inc/customizer.php:1387
+msgid "Left"
+msgstr ""
+
+#: inc/customizer.php:71
+#: inc/customizer.php:91
+#: inc/customizer.php:108
+#: inc/customizer.php:1165
+#: inc/customizer.php:1238
+#: inc/customizer.php:1388
+msgid "Right"
+msgstr ""
+
+#: inc/customizer.php:72
+msgid "Three Columns"
+msgstr ""
+
+#: inc/customizer.php:73
+msgid "Four Columns"
+msgstr ""
+
+#: inc/customizer.php:74
+msgid "Grid Layout"
+msgstr ""
+
+#: inc/customizer.php:85
+msgid "Single Post Sidebar Position"
+msgstr ""
+
+#: inc/customizer.php:86
+msgid "This option work for single blog page"
+msgstr ""
+
+#: inc/customizer.php:102
+msgid "Page Sidebar Position"
+msgstr ""
+
+#: inc/customizer.php:103
+msgid "This option work for pages."
+msgstr ""
+
+#: inc/customizer.php:118
+msgid "Show Sticky Header"
+msgstr ""
+
+#: inc/customizer.php:224
+msgid "TP Typography Option"
+msgstr ""
+
+#: inc/customizer.php:236
+msgid "heading Fonts"
+msgstr ""
+
+#: inc/customizer.php:248
+msgid "Body Fonts"
+msgstr ""
+
+#: inc/customizer.php:255
+msgid "TP Preloader Option"
+msgstr ""
+
+#: inc/customizer.php:266
+msgid "Show / Hide Preloader Option"
+msgstr ""
+
+#: inc/customizer.php:277
+msgid "Preloader First Ring Color"
+msgstr ""
+
+#: inc/customizer.php:278
+msgid "It will change the complete theme preloader ring 1 color in one click."
+msgstr ""
+
+#: inc/customizer.php:288
+msgid "Preloader Second Ring Color"
+msgstr ""
+
+#: inc/customizer.php:289
+msgid "It will change the complete theme preloader ring 2 color in one click."
+msgstr ""
+
+#: inc/customizer.php:299
+msgid "Preloader Background Color"
+msgstr ""
+
+#: inc/customizer.php:300
+msgid "It will change the complete theme preloader bg color in one click."
+msgstr ""
+
+#: inc/customizer.php:307
+msgid "TP Color Option"
+msgstr ""
+
+#: inc/customizer.php:317
+msgid "Theme First Color"
+msgstr ""
+
+#: inc/customizer.php:318
+msgid "It will change the complete theme color in one click."
+msgstr ""
+
+#: inc/customizer.php:325
+msgid "TP Blog Option"
+msgstr ""
+
+#: inc/customizer.php:335
+msgid "Change Blog Page Title"
+msgstr ""
+
+#: inc/customizer.php:345
+msgid "Add Blog Page Description"
+msgstr ""
+
+#: inc/customizer.php:356
+msgid "Meta Order"
+msgstr ""
+
+#: inc/customizer.php:357
+msgid "Drag & Drop post items to re-arrange the order and also hide and show items as per the need by clicking on the eye icon."
+msgstr ""
+
+#: inc/customizer.php:360
+msgid "date"
+msgstr ""
+
+#: inc/customizer.php:361
+msgid "author"
+msgstr ""
+
+#: inc/customizer.php:362
+msgid "comment"
+msgstr ""
+
+#: inc/customizer.php:363
+msgid "category"
+msgstr ""
+
+#: inc/customizer.php:375
+msgid "Edit Excerpt Limit"
+msgstr ""
+
+#: inc/customizer.php:386
+#: template-parts/post/content-audio.php:74
+#: template-parts/post/content-audio.php:140
+#: template-parts/post/content-audio.php:184
+#: template-parts/post/content-gallery.php:71
+#: template-parts/post/content-gallery.php:143
+#: template-parts/post/content-gallery.php:187
+#: template-parts/post/content-grid.php:56
+#: template-parts/post/content-image.php:68
+#: template-parts/post/content-image.php:137
+#: template-parts/post/content-image.php:181
+#: template-parts/post/content-video.php:75
+#: template-parts/post/content-video.php:141
+#: template-parts/post/content-video.php:185
+#: template-parts/post/content.php:60
+#: template-parts/post/content.php:116
+#: template-parts/post/content.php:160
+#: template-parts/post/content.php:207
+#: template-parts/post/related-post.php:41
+msgid "Read More"
+msgstr ""
+
+#: inc/customizer.php:390
+msgid "Edit Button Text"
+msgstr ""
+
+#: inc/customizer.php:401
+msgid "Edit Post Image Border Radius"
+msgstr ""
+
+#: inc/customizer.php:415
+msgid "Edit Post Image Width"
+msgstr ""
+
+#: inc/customizer.php:429
+msgid "Edit Post Image height"
+msgstr ""
+
+#: inc/customizer.php:443
+msgid "Show / Hide Read More Button"
+msgstr ""
+
+#: inc/customizer.php:455
+msgid "Show / Hide Tags Option"
+msgstr ""
+
+#: inc/customizer.php:467
+msgid "Show / Hide Category Option"
+msgstr ""
+
+#: inc/customizer.php:480
+msgid "Show / Hide Comment Form"
+msgstr ""
+
+#: inc/customizer.php:492
+#: inc/customizer.php:1221
+msgid "Show / Hide Related Post"
+msgstr ""
+
+#: inc/customizer.php:499
+#: template-parts/post/related-post.php:25
+msgid "Related Posts"
+msgstr ""
+
+#: inc/customizer.php:503
+msgid "Edit Section Title"
+msgstr ""
+
+#: inc/customizer.php:516
+msgid "Related Post Per Page"
+msgstr ""
+
+#: inc/customizer.php:534
+msgid "Related Post Per Row"
+msgstr ""
+
+#: inc/customizer.php:550
+msgid "Post Layout"
+msgstr ""
+
+#: inc/customizer.php:553
+msgid "Media-Content"
+msgstr ""
+
+#: inc/customizer.php:554
+msgid "Content-Media"
+msgstr ""
+
+#: inc/customizer.php:560
+msgid "Menu Typography"
+msgstr ""
+
+#: inc/customizer.php:572
+msgid "Menu Fonts"
+msgstr ""
+
+#: inc/customizer.php:583
+msgid "Font Weight"
+msgstr ""
+
+#: inc/customizer.php:587
+msgid "100"
+msgstr ""
+
+#: inc/customizer.php:588
+msgid "200"
+msgstr ""
+
+#: inc/customizer.php:589
+msgid "300"
+msgstr ""
+
+#: inc/customizer.php:590
+msgid "400"
+msgstr ""
+
+#: inc/customizer.php:591
+msgid "500"
+msgstr ""
+
+#: inc/customizer.php:592
+msgid "600"
+msgstr ""
+
+#: inc/customizer.php:593
+msgid "700"
+msgstr ""
+
+#: inc/customizer.php:594
+msgid "800"
+msgstr ""
+
+#: inc/customizer.php:595
+msgid "900"
+msgstr ""
+
+#: inc/customizer.php:605
+msgid "Menu Text Transform"
+msgstr ""
+
+#: inc/customizer.php:608
+msgid "Uppercase"
+msgstr ""
+
+#: inc/customizer.php:609
+msgid "Lowercase"
+msgstr ""
+
+#: inc/customizer.php:610
+msgid "Capitalize"
+msgstr ""
+
+#: inc/customizer.php:619
+msgid "Font Size"
+msgstr ""
+
+#: inc/customizer.php:632
+msgid "Change Menu Color"
+msgstr ""
+
+#: inc/customizer.php:639
+msgid "Header Details"
+msgstr ""
+
+#: inc/customizer.php:641
+msgid "Add your contact details"
+msgstr ""
+
+#: inc/customizer.php:650
+msgid "Add Location Text"
+msgstr ""
+
+#: inc/customizer.php:660
+msgid "Add Location"
+msgstr ""
+
+#: inc/customizer.php:670
+msgid "Add Phone Text"
+msgstr ""
+
+#: inc/customizer.php:680
+msgid "Add Phone Number"
+msgstr ""
+
+#: inc/customizer.php:690
+msgid "Add Email Text"
+msgstr ""
+
+#: inc/customizer.php:700
+msgid "Add Email Address"
+msgstr ""
+
+#: inc/customizer.php:707
+msgid "Social Media Links"
+msgstr ""
+
+#: inc/customizer.php:708
+msgid "Add your Social Links"
+msgstr ""
+
+#: inc/customizer.php:719
+#: inc/customizer.php:753
+#: inc/customizer.php:787
+#: inc/customizer.php:821
+msgid "Open in new tab"
+msgstr ""
+
+#: inc/customizer.php:730
+msgid "Facebook Link"
+msgstr ""
+
+#: inc/customizer.php:741
+msgid "Facebook Icon"
+msgstr ""
+
+#: inc/customizer.php:764
+msgid "Instagram Link"
+msgstr ""
+
+#: inc/customizer.php:775
+msgid "Instagram Icon"
+msgstr ""
+
+#: inc/customizer.php:798
+msgid "Youtube Link"
+msgstr ""
+
+#: inc/customizer.php:809
+msgid "Youtube Icon"
+msgstr ""
+
+#: inc/customizer.php:832
+msgid "Twitter Link"
+msgstr ""
+
+#: inc/customizer.php:843
+msgid "Twitter Icon"
+msgstr ""
+
+#: inc/customizer.php:851
+msgid "Slider Section"
+msgstr ""
+
+#: inc/customizer.php:862
+msgid "Show / Hide slider"
+msgstr ""
+
+#: inc/customizer.php:873
+msgid "Add short Heading"
+msgstr ""
+
+#: inc/customizer.php:887
+msgid "Select Slide Image Page"
+msgstr ""
+
+#: inc/customizer.php:895
+#: template-parts/home/slider.php:52
+msgid "Our Solutions"
+msgstr ""
+
+#: inc/customizer.php:899
+msgid "Change Slider Button Text"
+msgstr ""
+
+#: inc/customizer.php:909
+msgid "Add Slider Button url"
+msgstr ""
+
+#: inc/customizer.php:920
+msgid "Our Services Section"
+msgstr ""
+
+#: inc/customizer.php:932
+msgid "Show / Hide Section"
+msgstr ""
+
+#: inc/customizer.php:940
+msgid "Select"
+msgstr ""
+
+#: inc/customizer.php:960
+msgid "Select Category"
+msgstr ""
+
+#: inc/customizer.php:972
+msgid "Number of Popular Posts to Show"
+msgstr ""
+
+#: inc/customizer.php:993
+msgid "Add Short Title for Post "
+msgstr ""
+
+#: inc/customizer.php:1003
+msgid "Footer Widget Settings"
+msgstr ""
+
+#: inc/customizer.php:1013
+msgid "Footer Widget Columns"
+msgstr ""
+
+#: inc/customizer.php:1028
+msgid "Footer Widget Background Color"
+msgstr ""
+
+#: inc/customizer.php:1029
+msgid "It will change the complete footer widget backgorund color."
+msgstr ""
+
+#: inc/customizer.php:1039
+msgid "Footer Widget Background Image"
+msgstr ""
+
+#: inc/customizer.php:1049
+msgid "Change Footer Widget Title Font Size in PX"
+msgstr ""
+
+#: inc/customizer.php:1065
+msgid "Change Footer Widget Title Color"
+msgstr ""
+
+#: inc/customizer.php:1076
+#: inc/customizer.php:1197
+msgid "Show / Hide Return to header"
+msgstr ""
+
+#: inc/customizer.php:1088
+msgid "Return to header Icon"
+msgstr ""
+
+#: inc/customizer.php:1096
+msgid "Footer Copyright Settings"
+msgstr ""
+
+#: inc/customizer.php:1097
+msgid "Add copyright text."
+msgstr ""
+
+#: inc/customizer.php:1103
+msgid "Logistics Provider WordPress Theme"
+msgstr ""
+
+#: inc/customizer.php:1107
+msgid "Copyright Text"
+msgstr ""
+
+#: inc/customizer.php:1117
+msgid "Change Footer Copyright Font Size in PX"
+msgstr ""
+
+#: inc/customizer.php:1133
+msgid "Change Footer Copyright Text Color"
+msgstr ""
+
+#: inc/customizer.php:1143
+msgid "Change Footer Copyright Padding in PX"
+msgstr ""
+
+#: inc/customizer.php:1161
+msgid "Copyright Text Position"
+msgstr ""
+
+#: inc/customizer.php:1162
+msgid "This option work for Copyright"
+msgstr ""
+
+#: inc/customizer.php:1167
+#: inc/customizer.php:1240
+#: inc/customizer.php:1518
+msgid "Center"
+msgstr ""
+
+#: inc/customizer.php:1173
+msgid "Mobile Responsive media"
+msgstr ""
+
+#: inc/customizer.php:1174
+msgid "Control will not function if the toggle in the main settings is off."
+msgstr ""
+
+#: inc/customizer.php:1185
+msgid "Show / Hide Blog Page Description"
+msgstr ""
+
+#: inc/customizer.php:1209
+msgid "Show / Hide Slider Button"
+msgstr ""
+
+#: inc/customizer.php:1234
+msgid "Scroll to top Position"
+msgstr ""
+
+#: inc/customizer.php:1235
+msgid "This option work for scroll to top"
+msgstr ""
+
+#: inc/customizer.php:1264
+msgid "Show / Hide Site Title"
+msgstr ""
+
+#: inc/customizer.php:1276
+msgid "Site Title Font Size in PX"
+msgstr ""
+
+#: inc/customizer.php:1292
+msgid "Change Site Title Color"
+msgstr ""
+
+#: inc/customizer.php:1303
+msgid "Show / Hide Site Tagline"
+msgstr ""
+
+#: inc/customizer.php:1315
+msgid "Site Tagline Font Size in PX"
+msgstr ""
+
+#: inc/customizer.php:1331
+msgid "Change Site Tagline Color"
+msgstr ""
+
+#: inc/customizer.php:1341
+msgid "Here You Can Customize Your Logo Size"
+msgstr ""
+
+#: inc/customizer.php:1351
+msgid "Product Per Row"
+msgstr ""
+
+#: inc/customizer.php:1361
+msgid "Product Per Page"
+msgstr ""
+
+#: inc/customizer.php:1372
+msgid "Show / Hide Shop Page Sidebar"
+msgstr ""
+
+#: inc/customizer.php:1383
+msgid "Sale Badge Position"
+msgstr ""
+
+#: inc/customizer.php:1384
+msgid "This option work for Archieve Products"
+msgstr ""
+
+#: inc/customizer.php:1397
+msgid "Show / Hide Product Page Sidebar"
+msgstr ""
+
+#: inc/customizer.php:1409
+msgid "Show / Hide related product"
+msgstr ""
+
+#: inc/customizer.php:1421
+msgid "Page Template Settings"
+msgstr ""
+
+#: inc/customizer.php:1427
+msgid "404 Page"
+msgstr ""
+
+#: inc/customizer.php:1428
+msgid "Here you can customize 404 Page content."
+msgstr ""
+
+#: inc/customizer.php:1433
+msgid "Oops! That page cant be found."
+msgstr ""
+
+#: inc/customizer.php:1437
+#: inc/customizer.php:1464
+msgid "Edit Title"
+msgstr ""
+
+#: inc/customizer.php:1447
+#: inc/customizer.php:1474
+msgid "Edit Text"
+msgstr ""
+
+#: inc/customizer.php:1454
+msgid "Search Results"
+msgstr ""
+
+#: inc/customizer.php:1455
+msgid "Here you can customize Search Result content."
+msgstr ""
+
+#: inc/customizer.php:1460
+#: search.php:25
+#: template-parts/post/content-none.php:13
+msgid "Nothing Found"
+msgstr ""
+
+#: inc/customizer.php:1470
+#: search.php:50
+#: search.php:90
+#: search.php:129
+#: search.php:168
+#: search.php:209
+#: search.php:249
+msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
+msgstr ""
+
+#: inc/customizer.php:1490
+msgid "Header Image Height"
+msgstr ""
+
+#: inc/customizer.php:1493
+msgid "Control the height of the header image. Default is 350px."
+msgstr ""
+
+#: inc/customizer.php:1513
+msgid "Header Background Position"
+msgstr ""
+
+#: inc/customizer.php:1517
+msgid "Top"
+msgstr ""
+
+#: inc/customizer.php:1519
+msgid "Bottom"
+msgstr ""
+
+#: inc/customizer.php:1521
+msgid "Choose how you want to position the header image."
+msgstr ""
+
+#: inc/customizer.php:1536
+msgid "Header Image Parallax"
+msgstr ""
+
+#: inc/customizer.php:1539
+msgid "Add a parallax effect on page scroll."
+msgstr ""
+
+#: inc/customizer.php:1549
+msgid "Header Image Opacity"
+msgstr ""
+
+#: inc/customizer.php:1554
+msgid "0"
+msgstr ""
+
+#: inc/customizer.php:1555
+msgid "0.1"
+msgstr ""
+
+#: inc/customizer.php:1556
+msgid "0.2"
+msgstr ""
+
+#: inc/customizer.php:1557
+msgid "0.3"
+msgstr ""
+
+#: inc/customizer.php:1558
+msgid "0.4"
+msgstr ""
+
+#: inc/customizer.php:1559
+msgid "0.5"
+msgstr ""
+
+#: inc/customizer.php:1560
+msgid "0.6"
+msgstr ""
+
+#: inc/customizer.php:1561
+msgid "0.7"
+msgstr ""
+
+#: inc/customizer.php:1562
+msgid "0.8"
+msgstr ""
+
+#: inc/customizer.php:1563
+msgid "0.9"
+msgstr ""
+
+#: inc/customizer.php:1573
+msgid "Show / Hide Header Image Overlay"
+msgstr ""
+
+#: inc/customizer.php:1582
+msgid "Header Image Overlay Color"
+msgstr ""
+
+#: inc/customizer.php:1596
+msgid "Change Header Image Title Font Size"
+msgstr ""
+
+#: inc/customizer.php:1599
+msgid "Control the font Size of the header image title. Default is 40px."
+msgstr ""
+
+#: inc/customizer.php:1613
+msgid "Change Header Image Title Color"
+msgstr ""
+
+#: inc/customizer.php:1646
+msgid "Logistics Provider Pro"
+msgstr ""
+
+#: inc/customizer.php:1727
+msgid "Upgrade Pro"
+msgstr ""
+
+#: index.php:16
+msgid "Home"
+msgstr ""
+
+#. Template Name of the theme
+msgid "Custom Home Page"
+msgstr ""
+
+#: page.php:48
+#: page.php:69
+#: page.php:89
+msgid "Pages:"
+msgstr ""
+
+#. translators: %s: search term
+#: search.php:23
+msgid "Search Results for: %s"
+msgstr ""
+
+#: searchform.php:13
+msgctxt "placeholder"
+msgid "Search &hellip;"
+msgstr ""
+
+#: searchform.php:14
+msgctxt "submit button"
+msgid "Search"
+msgstr ""
+
+#: sidebar.php:12
+#: template-parts/footer/footer-widgets.php:42
+#: template-parts/footer/footer-widgets.php:43
+msgid "Search"
+msgstr ""
+
+#: sidebar.php:17
+#: template-parts/footer/footer-widgets.php:60
+#: template-parts/footer/footer-widgets.php:61
+msgid "Meta"
+msgstr ""
+
+#: sidebar.php:26
+#: template-parts/footer/footer-widgets.php:51
+#: template-parts/footer/footer-widgets.php:52
+msgid "Archives"
+msgstr ""
+
+#: sidebar.php:33
+msgid "Tag Cloud"
+msgstr ""
+
+#: template-parts/footer/footer-widgets.php:21
+msgid "Footer"
+msgstr ""
+
+#: template-parts/footer/footer-widgets.php:73
+#: template-parts/footer/footer-widgets.php:74
+msgid "Categories"
+msgstr ""
+
+#: template-parts/footer/site-info.php:12
+msgid "Logistics Provider WordPress Theme By Themespride"
+msgstr ""
+
+#: template-parts/header/site-branding.php:109
+msgid "Follow Us"
+msgstr ""
+
+#: template-parts/header/site-branding.php:188
+msgid "CLOSE"
+msgstr ""
+
+#: template-parts/home/our-services.php:43
+#: template-parts/home/slider.php:36
+msgid "Default Image"
+msgstr ""
+
+#: template-parts/home/our-services.php:63
+msgid "No Post found."
+msgstr ""
+
+#: template-parts/home/our-services.php:67
+msgid "No category selected."
+msgstr ""
+
+#: template-parts/home/slider.php:68
+msgid "No slides found."
+msgstr ""
+
+#: template-parts/navigation/site-nav.php:12
+msgid "Open Button"
+msgstr ""
+
+#: template-parts/navigation/site-nav.php:18
+msgid "Close Button"
+msgstr ""
+
+#: template-parts/navigation/site-nav.php:20
+msgid "Top Menu"
+msgstr ""
+
+#: template-parts/post/content-audio.php:55
+#: template-parts/post/content-audio.php:121
+#: template-parts/post/content-audio.php:165
+#: template-parts/post/content-gallery.php:52
+#: template-parts/post/content-gallery.php:124
+#: template-parts/post/content-gallery.php:168
+#: template-parts/post/content-grid.php:37
+#: template-parts/post/content-image.php:49
+#: template-parts/post/content-image.php:118
+#: template-parts/post/content-image.php:162
+#: template-parts/post/content-video.php:56
+#: template-parts/post/content-video.php:122
+#: template-parts/post/content-video.php:166
+#: template-parts/post/content.php:41
+#: template-parts/post/content.php:97
+#: template-parts/post/content.php:141
+#: template-parts/post/content.php:188
+#: template-parts/post/single-post.php:19
+msgid "0 Comments"
+msgstr ""
+
+#: template-parts/post/content-audio.php:55
+#: template-parts/post/content-audio.php:121
+#: template-parts/post/content-audio.php:165
+#: template-parts/post/content-gallery.php:52
+#: template-parts/post/content-gallery.php:124
+#: template-parts/post/content-gallery.php:168
+#: template-parts/post/content-grid.php:37
+#: template-parts/post/content-image.php:49
+#: template-parts/post/content-image.php:118
+#: template-parts/post/content-image.php:162
+#: template-parts/post/content-video.php:56
+#: template-parts/post/content-video.php:122
+#: template-parts/post/content-video.php:166
+#: template-parts/post/content.php:41
+#: template-parts/post/content.php:97
+#: template-parts/post/content.php:141
+#: template-parts/post/content.php:188
+msgid "1 Comment"
+msgstr ""
+
+#: template-parts/post/content-audio.php:55
+#: template-parts/post/content-audio.php:121
+#: template-parts/post/content-audio.php:165
+#: template-parts/post/content-gallery.php:52
+#: template-parts/post/content-gallery.php:124
+#: template-parts/post/content-gallery.php:168
+#: template-parts/post/content-grid.php:37
+#: template-parts/post/content-image.php:49
+#: template-parts/post/content-image.php:118
+#: template-parts/post/content-image.php:162
+#: template-parts/post/content-video.php:56
+#: template-parts/post/content-video.php:122
+#: template-parts/post/content-video.php:166
+#: template-parts/post/content.php:41
+#: template-parts/post/content.php:97
+#: template-parts/post/content.php:141
+#: template-parts/post/content.php:188
+#: template-parts/post/single-post.php:19
+msgid "% Comments"
+msgstr ""
+
+#. translators: %s: Post editor URL.
+#: template-parts/post/content-none.php:22
+msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/post/content-none.php:28
+msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+msgstr ""
+
+#: template-parts/post/single-post.php:49
+msgctxt "Parent post link"
+msgid "<span class=\"meta-nav\">Published in</span><span class=\"post-title\">%title</span>"
+msgstr ""
+
+#: template-parts/post/single-post.php:54
+msgid "Next:"
+msgstr ""
+
+#: template-parts/post/single-post.php:56
+msgid "Previous:"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:26
+msgid "You must be logged in to checkout."
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:32
+msgid "Checkout"
+msgstr ""
+
+#: woocommerce/checkout/form-checkout.php:54
+msgid "Your order"
+msgstr ""
